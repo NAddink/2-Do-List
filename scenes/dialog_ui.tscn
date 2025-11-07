@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu4fj76ix6ea2"]
+
+[ext_resource type="Script" uid="uid://cl6lcwupxnpk7" path="res://scripts/DialogUI.cs" id="1_xh3aw"]
+[ext_resource type="AudioStream" uid="uid://dotrkrmqmiugj" path="res://assets/audio/bleep030.ogg" id="2_yjvli"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjvli"]
+content_margin_left = 40.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0.368627)
+
+[sub_resource type="Theme" id="Theme_edwrk"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_yjvli")
+RichTextLabel/font_sizes/normal_font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_avaca"]
+font_size = 36
+
+[node name="DialogUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_edwrk")
+script = ExtResource("1_xh3aw")
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is a line of dialog! Wow I can't wait to dialog it up!"
+
+[node name="SpeakerBox" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -199.0
+offset_right = 200.0
+offset_bottom = -149.0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="SpeakerBox"]
+color = Color(0, 0, 0, 0.376471)
+polygon = PackedVector2Array(0, 0, 0, 50, 200, 50, 200, 0)
+
+[node name="SpeakerName" type="Label" parent="SpeakerBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -25.0
+offset_right = 41.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Brad"
+label_settings = SubResource("LabelSettings_avaca")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="Control"]
+position = Vector2(-20, -20)
+polygon = PackedVector2Array(0, 0, 30, 15, 0, 30)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("2_yjvli")

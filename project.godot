@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="2-Do-List"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+run/main_scene="uid://btdcyot8liyfj"
+config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="2-Do-List"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
 
 [rendering]
 
