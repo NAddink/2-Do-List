@@ -7,13 +7,10 @@ public partial class InteractableObject : Node2D
     [Export] float range = 1;
     [Export(PropertyHint.MultilineText)] string dataParameter;
 
-    InteractableData data;
+    // dialog data held by this interactable object
+    private InteractableData data;
 
-
-    public bool inRange = false;
-    public bool activated = false;
-    private bool playerInRange;
-    private Sprite2D interactionIcon;
+    public bool inRange, activated = false;
 
     // reference to dialogUI
     private DialogUI dialogUI;
@@ -21,8 +18,7 @@ public partial class InteractableObject : Node2D
     public override void _Ready()
     {
         // get interaction icon and set visibility to false
-        interactionIcon = GetNode<Sprite2D>("InteractIcon");
-        interactionIcon.Visible = false;
+        GetNode<Sprite2D>("InteractIcon").Visible = false;
 
         // get activation area and scale based on range var
         Area2D activationArea = GetNode<Area2D>("Area2D");
@@ -50,7 +46,7 @@ public partial class InteractableObject : Node2D
         {
             // set bool flag to true and make sprite invisible
             inRange = true;
-            interactionIcon.Visible = true;
+            GetNode<Sprite2D>("InteractIcon").Visible = true;
         }
     }
 
@@ -60,7 +56,7 @@ public partial class InteractableObject : Node2D
         {
             // set inRange bool flag to false and make sprite invisible
             inRange = false;
-            interactionIcon.Visible = false;
+            GetNode<Sprite2D>("InteractIcon").Visible = false;
         }
     }
 
