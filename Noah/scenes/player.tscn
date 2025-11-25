@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=3 uid="uid://bf7hx7hb2sh16"]
 
-[ext_resource type="Texture2D" uid="uid://b457rxvbim80q" path="res://assets/lpc_male_animations_2025-11-17T21-16-47/walk.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://b3oncg62p8htb" path="res://scripts/Player.cs" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://b457rxvbim80q" path="res://Noah/assets/sprites/lpc_male_animations_2025-11-17T21-16-47/walk.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://b3oncg62p8htb" path="res://Noah/scripts/Player.cs" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")

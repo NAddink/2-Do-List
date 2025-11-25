@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://75s6u7fw0ik3"]
 
-[ext_resource type="Script" uid="uid://bvx80msroncle" path="res://scripts/InteractableObject.cs" id="1_3gams"]
-[ext_resource type="Texture2D" uid="uid://c6pdvqvrb72or" path="res://assets/sprites/Sprite-0003.png" id="1_aq1v0"]
+[ext_resource type="Script" uid="uid://bvx80msroncle" path="res://Noah/scripts/InteractableObject.cs" id="1_3gams"]
+[ext_resource type="Texture2D" uid="uid://c6pdvqvrb72or" path="res://Noah/assets/sprites/Icons/Sprite-0003.png" id="1_aq1v0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gams"]
 

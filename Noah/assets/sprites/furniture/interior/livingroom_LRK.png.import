@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1rvb5ndsi2j6"
-path="res://.godot/imported/floorswalls_LRK.png-37c80a0f5d255cfbca4bb16e3d82505e.ctex"
+uid="uid://bxukpsptn6s6r"
+path="res://.godot/imported/livingroom_LRK.png-edec2323d411a54db2b6835791a0fa68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/furniture/interior/floorswalls_LRK.png"
-dest_files=["res://.godot/imported/floorswalls_LRK.png-37c80a0f5d255cfbca4bb16e3d82505e.ctex"]
+source_file="res://Noah/assets/sprites/furniture/interior/livingroom_LRK.png"
+dest_files=["res://.godot/imported/livingroom_LRK.png-edec2323d411a54db2b6835791a0fa68.ctex"]
 
 [params]
 

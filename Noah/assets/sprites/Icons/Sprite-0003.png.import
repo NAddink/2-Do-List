@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdkbocjacmd4f"
-path="res://.godot/imported/decorations_LRK.png-1eeafae2151298c125da8789c9f942e0.ctex"
+uid="uid://c6pdvqvrb72or"
+path="res://.godot/imported/Sprite-0003.png-3ba30329e009d16b616d9c37e03a3898.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/furniture/interior/decorations_LRK.png"
-dest_files=["res://.godot/imported/decorations_LRK.png-1eeafae2151298c125da8789c9f942e0.ctex"]
+source_file="res://Noah/assets/sprites/Icons/Sprite-0003.png"
+dest_files=["res://.godot/imported/Sprite-0003.png-3ba30329e009d16b616d9c37e03a3898.ctex"]
 
 [params]
 

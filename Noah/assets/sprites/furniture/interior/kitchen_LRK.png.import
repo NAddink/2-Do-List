@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://besai8fnvws13"
-path="res://.godot/imported/kitchen_LRK.png-0f3154f161ea2dc02e979aa2c7e2ffad.ctex"
+path="res://.godot/imported/kitchen_LRK.png-fac460032f102674d9ff5f5e2e23276b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/furniture/interior/kitchen_LRK.png"
-dest_files=["res://.godot/imported/kitchen_LRK.png-0f3154f161ea2dc02e979aa2c7e2ffad.ctex"]
+source_file="res://Noah/assets/sprites/furniture/interior/kitchen_LRK.png"
+dest_files=["res://.godot/imported/kitchen_LRK.png-fac460032f102674d9ff5f5e2e23276b.ctex"]
 
 [params]
 

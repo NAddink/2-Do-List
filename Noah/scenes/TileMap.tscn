@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1oqowc15cidg"]
 
-[ext_resource type="Texture2D" uid="uid://besai8fnvws13" path="res://assets/furniture/interior/kitchen_LRK.png" id="1_6dovd"]
-[ext_resource type="Texture2D" uid="uid://d1rvb5ndsi2j6" path="res://assets/furniture/interior/floorswalls_LRK.png" id="2_5qgmc"]
+[ext_resource type="Texture2D" uid="uid://besai8fnvws13" path="res://Noah/assets/sprites/furniture/interior/kitchen_LRK.png" id="1_6dovd"]
+[ext_resource type="Texture2D" uid="uid://d1rvb5ndsi2j6" path="res://Noah/assets/sprites/furniture/interior/floorswalls_LRK.png" id="2_5qgmc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5qgmc"]
 texture = ExtResource("1_6dovd")

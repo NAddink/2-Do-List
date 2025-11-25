@@ -90,7 +90,7 @@ public partial class InteractableObject : Node2D
             {
                 if(inputKey.Pressed)
                 {
-                    if(inputKey.Keycode == Key.Space)
+                    if(inputKey.Keycode == Key.Space || inputKey.Keycode == Key.E)
                     {
                         if (dialogUI.isAnimating)
                         {
