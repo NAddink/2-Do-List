@@ -23,6 +23,11 @@ project/assembly_name="2-Do-List"
 
 enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
 
+[global_group]
+
+player=""
+interactable=""
+
 [input]
 
 move_down={

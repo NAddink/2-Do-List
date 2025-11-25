@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu4fj76ix6ea2"]
+[gd_scene load_steps=7 format=3 uid="uid://bu4fj76ix6ea2"]
 
 [ext_resource type="Script" uid="uid://cl6lcwupxnpk7" path="res://scripts/DialogUI.cs" id="1_xh3aw"]
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://assets/fonts/Pixellari.ttf" id="2_edwrk"]
 [ext_resource type="AudioStream" uid="uid://dotrkrmqmiugj" path="res://assets/audio/bleep030.ogg" id="2_yjvli"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjvli"]
@@ -39,6 +40,7 @@ grow_vertical = 0
 
 [node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_edwrk")
 bbcode_enabled = true
 text = "This is a line of dialog! Wow I can't wait to dialog it up!"
 
@@ -63,13 +65,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -41.5
-offset_top = -25.0
-offset_right = 41.5
-offset_bottom = 25.0
+offset_left = -41.0
+offset_top = -18.0
+offset_right = 42.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Brad"
+theme_override_fonts/font = ExtResource("2_edwrk")
+text = "Broah"
 label_settings = SubResource("LabelSettings_avaca")
 
 [node name="Control" type="Control" parent="."]

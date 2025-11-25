@@ -79,6 +79,4 @@ public partial class DialogUI : Control
             }
         }
     }
-
-
 }

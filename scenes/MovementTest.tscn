@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=4 uid="uid://7g337vamw5sm"]
+[gd_scene load_steps=6 format=4 uid="uid://7g337vamw5sm"]
 
 [ext_resource type="PackedScene" uid="uid://bf7hx7hb2sh16" path="res://scenes/player.tscn" id="1_0q0jf"]
 [ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://scenes/TileMap.tscn" id="2_ida4p"]
+[ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://scenes/InteractableObject.tscn" id="3_4uqj7"]
+[ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://scenes/dialog_ui.tscn" id="4_7ud5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ida4p"]
 size = Vector2(447, 20)
 
 [node name="MovementTest" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_0q0jf")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_0q0jf")]
 z_index = 1
 max_speed = 120
 
@@ -32,3 +34,14 @@ shape = SubResource("RectangleShape2D_ida4p")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-0.5, 164)
 shape = SubResource("RectangleShape2D_ida4p")
+
+[node name="InteractableObject" parent="." groups=["interactable"] instance=ExtResource("3_4uqj7")]
+position = Vector2(168, 78)
+range = 2.0
+dataParameter = "The floor is great||
+The floor is good"
+
+[node name="DialogLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogUI" parent="DialogLayer" instance=ExtResource("4_7ud5i")]
+visible = false

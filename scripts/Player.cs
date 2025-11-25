@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections;
 
 public partial class Player : CharacterBody2D
 {
@@ -63,5 +64,62 @@ public partial class Player : CharacterBody2D
         {
             GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle_up");
         }
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventKey inputKey)
+        {
+            if(inputKey.Keycode == Key.E)
+            {
+                ActivateClosestInteractable();
+            }
+        }
+    }
+
+    // Activates the closest visible interactable
+    private void ActivateClosestInteractable()
+    {
+        Godot.Collections.Array<InteractableObject> interactablesInRange = [];
+        float closestDistance = float.MaxValue;
+        InteractableObject closestInteractable = null;
+
+        
+
+        foreach(Node node in GetTree().GetNodesInGroup("interactable"))
+        {
+            // make sure node is interactableObject- it should be
+            // adds any in range interactables to the list
+            if (node is InteractableObject interactable) 
+                if(interactable.inRange)
+                    interactablesInRange.Add(interactable);
+        }
+
+        GD.Print($"{interactablesInRange.Count} Total interactables in range.");
+
+        // find closest in-range interactable 
+        foreach(InteractableObject interactable in interactablesInRange)
+        {
+            float distance = interactable.GlobalPosition.DistanceTo(this.GlobalPosition);
+            if( distance < closestDistance)
+            {
+                closestInteractable = interactable;
+                closestDistance = distance;
+            }
+        }
+
+        if(closestInteractable != null)
+        {
+            // GD.Print($"Closest interactable is {closestDistance} away. Activating.");
+            if (!closestInteractable.activated)
+            {
+                closestInteractable.activateInteractable();
+            }
+        }
+        else
+        {
+            // GD.Print("Closest interactable is null.");
+        }
+
     }
 }

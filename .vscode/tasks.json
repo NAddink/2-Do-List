@@ -2,17 +2,16 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
-            "command": "C:/Users/14804/Documents/CST/Capstone/Godot/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe",
-            "type": "process",
-            "args": [
-                "--build-solutions",
-                "--path",
-                "${workspaceRoot}",
-                "--no-window",
-                "-q"
+            "type": "dotnet",
+            "task": "build",
+            "problemMatcher": [
+                "$msCompile"
             ],
-            "problemMatcher": "$msCompile"
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "label": "dotnet: build"
         }
     ]
 }

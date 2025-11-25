@@ -81,4 +81,10 @@ public partial class InkStory
     {
         BindExternalFunction(funcName, callable, false);
     }
+
+    public static implicit operator InkStory(string v)
+    {
+        throw new NotImplementedException();
+    }
+
 }
