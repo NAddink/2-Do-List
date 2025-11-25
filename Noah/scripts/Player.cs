@@ -89,7 +89,7 @@ public partial class Player : CharacterBody2D
                     interactablesInRange.Add(interactable);
         }
 
-        GD.Print($"{interactablesInRange.Count} Total interactables in range.");
+        // GD.Print($"{interactablesInRange.Count} Total interactables in range.");
 
         // find closest in-range interactable 
         foreach(InteractableObject interactable in interactablesInRange)

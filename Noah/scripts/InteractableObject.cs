@@ -5,10 +5,13 @@ using System;
 public partial class InteractableObject : Node2D
 {
     [Export] float range = 1;
-
     [Export] private InkStory inkData;
 
     public bool inRange, activated = false;
+
+    // short interact buffer so pressing e to end last dialog line doesn't reopen dialog
+    public float cooldownTime = .1f;
+    public float interactCooldown;
 
     // reference to dialogUI
     private DialogUI dialogUI;
@@ -59,14 +62,21 @@ public partial class InteractableObject : Node2D
     {
         if (!activated)
         {
-            // Sets activated flag to true (allowing input)
-            // and makes dialogUI visible.
-            // immediately shows first dialog line
-            GD.Print("Activated! Setting dialogUI to true and displaying next line!");
+            if(interactCooldown <= 0)
+            {
+                // Sets activated flag to true (allowing input)
+                // and makes dialogUI visible.
+                // immediately shows first dialog line
+                // GD.Print("Activated! Setting dialogUI to true and displaying next line!");
 
-            activated = true;
-            dialogUI.Visible = true;
-            DisplayNextLine();
+                activated = true;
+                dialogUI.Visible = true;
+                DisplayNextLine();
+            }
+            else
+            {
+                // GD.Print($"Can't interact, still on cooldown {interactCooldown}");
+            }
         }
     }
 
@@ -129,6 +139,10 @@ public partial class InteractableObject : Node2D
             }
             else
             {
+                // End of dialog- cooldown timer
+                interactCooldown = cooldownTime;
+
+                // End of dialog. 
                 GD.Print("End of data, hiding dialogUI");
                 dialogUI.Visible = false;
                 activated = false;
@@ -142,5 +156,14 @@ public partial class InteractableObject : Node2D
             return;
         }
     }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        if(interactCooldown > 0)
+        {
+            interactCooldown -= (float)delta;
+        }
+    }
+
 
 }
