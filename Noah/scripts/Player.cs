@@ -24,6 +24,11 @@ public partial class Player : CharacterBody2D
         {
             PlayIdleAnimation(last_direction);
         }
+
+        if (Input.IsActionJustPressed("interact"))
+        {
+            ActivateClosestInteractable();
+        }
     }
 
     public void PlayWalkAnimation(Vector2 direction)
@@ -63,17 +68,6 @@ public partial class Player : CharacterBody2D
         else if(direction.Y < 0)
         {
             GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle_up");
-        }
-    }
-
-    public override void _Input(InputEvent @event)
-    {
-        if (@event is InputEventKey inputKey)
-        {
-            if(inputKey.Keycode == Key.E)
-            {
-                ActivateClosestInteractable();
-            }
         }
     }
 

@@ -5,10 +5,8 @@ using System;
 public partial class InteractableObject : Node2D
 {
     [Export] float range = 1;
-    [Export(PropertyHint.MultilineText)] string dataParameter;
 
-    // dialog data held by this interactable object
-    private InteractableData data;
+    [Export] private InkStory inkData;
 
     public bool inRange, activated = false;
 
@@ -27,10 +25,6 @@ public partial class InteractableObject : Node2D
         // Add hooks to activationArea for onEnter and onExit
         activationArea.BodyEntered += OnBodyEnteredActivationArea;
         activationArea.BodyExited += OnBodyExitedActivationArea;
-
-        // set data to dataparameter
-        data = new InteractableData(dataParameter);
-
 
         // get reference to dialogUI 
         dialogUI = GetNode<DialogUI>("/root/MovementTest/DialogLayer/DialogUI");
@@ -75,9 +69,11 @@ public partial class InteractableObject : Node2D
             DisplayNextLine();
         }
     }
-    
+
+
 
     // Input controls for dialogUI (only works when enabled == true)
+    // Doesn't use the Input.Actions because then the first e press would skip the first line
     public override void _Input(InputEvent @event)
     {
         if (activated)
@@ -90,6 +86,7 @@ public partial class InteractableObject : Node2D
                     {
                         if (dialogUI.isAnimating)
                         {
+                            GD.Print("Skipping current animation");
                             dialogUI.SkipTextAnimation();
                         }
                         else
@@ -108,12 +105,12 @@ public partial class InteractableObject : Node2D
     {
         
 
-        if(data != null)
+        if(inkData != null)
         {
 
-            if (data.CanContinue())
+            if (inkData.CanContinue)
             {
-                string currentLine = data.getCurrentLine();
+                string currentLine = inkData.Continue();
 
                 string[] lineParts = currentLine.Split("$$$");
                 
@@ -123,22 +120,25 @@ public partial class InteractableObject : Node2D
                     // Kyle $$$ Hi my name is kyle
                     dialogUI.SpeakLine(lineParts[0].Trim(), lineParts[1].Trim());
                 }
+                else
+                {
+                    // GD.Print("Calling DialogUI speak line: " + lineParts[0].Trim());
+                    dialogUI.SpeakLine(null, lineParts[0].Trim());
+                }
 
-                GD.Print("Calling DialogUI speak line: " + lineParts[0].Trim());
-                dialogUI.SpeakLine(null, lineParts[0].Trim());
             }
             else
             {
                 GD.Print("End of data, hiding dialogUI");
                 dialogUI.Visible = false;
                 activated = false;
-                data.currentIndex = 0;
+                inkData.ResetState();
             }
 
         }
         else
         {
-            GD.Print("No data entered in field.");
+            GD.Print("No ink data found");
             return;
         }
     }

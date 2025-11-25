@@ -33,8 +33,14 @@ public partial class DialogUI : Control
 
     public void SpeakLine(string speaker, string dialog)
     {
-        if(speaker != null)
+        if(speaker != null && speaker != "MC")
+        {
             speakerName.Text = speaker;
+            GetNode<Control>("SpeakerBox").Visible = true;
+        }
+
+        if(speaker == "MC")
+            GetNode<Control>("SpeakerBox").Visible = false;
 
         // Sets characters to all invisble and starts animation
         dialogLine.VisibleCharacters = 0;
