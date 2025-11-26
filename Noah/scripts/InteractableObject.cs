@@ -7,14 +7,14 @@ public partial class InteractableObject : Node2D
     [Export] float range = 1;
     [Export] private InkStory inkData;
 
-    public bool inRange, activated = false;
+    public bool InRange, Activated = false;
 
     // short interact buffer so pressing e to end last dialog line doesn't reopen dialog
-    public float cooldownTime = .1f;
-    public float interactCooldown;
+    public float CooldownTime = .1f;
+    public float InteractCooldown;
 
     // reference to dialogUI
-    private DialogUI dialogUI;
+    private DialogUI DialogUI;
 
     public override void _Ready()
     {
@@ -30,8 +30,8 @@ public partial class InteractableObject : Node2D
         activationArea.BodyExited += OnBodyExitedActivationArea;
 
         // get reference to dialogUI 
-        dialogUI = GetNode<DialogUI>("/root/MovementTest/DialogLayer/DialogUI");
-        if(dialogUI == null)
+        DialogUI = GetNode<DialogUI>("/root/MovementTest/DialogLayer/DialogUI");
+        if(DialogUI == null)
         {
             GD.Print("Could not find dialogUI");
         }
@@ -42,7 +42,7 @@ public partial class InteractableObject : Node2D
         if (body.IsInGroup("player"))
         {
             // set bool flag to true and make sprite invisible
-            inRange = true;
+            InRange = true;
             GetNode<Sprite2D>("InteractIcon").Visible = true;
         }
     }
@@ -52,7 +52,7 @@ public partial class InteractableObject : Node2D
         if (body.IsInGroup("player"))
         {
             // set inRange bool flag to false and make sprite invisible
-            inRange = false;
+            InRange = false;
             GetNode<Sprite2D>("InteractIcon").Visible = false;
         }
     }
@@ -60,17 +60,17 @@ public partial class InteractableObject : Node2D
     // To be called via player object interaction
     public void activateInteractable()
     {
-        if (!activated)
+        if (!Activated)
         {
-            if(interactCooldown <= 0)
+            if(InteractCooldown <= 0)
             {
                 // Sets activated flag to true (allowing input)
                 // and makes dialogUI visible.
                 // immediately shows first dialog line
                 // GD.Print("Activated! Setting dialogUI to true and displaying next line!");
 
-                activated = true;
-                dialogUI.Visible = true;
+                Activated = true;
+                DialogUI.Visible = true;
                 DisplayNextLine();
             }
             else
@@ -86,7 +86,7 @@ public partial class InteractableObject : Node2D
     // Doesn't use the Input.Actions because then the first e press would skip the first line
     public override void _Input(InputEvent @event)
     {
-        if (activated)
+        if (Activated)
         {
             if (@event is InputEventKey inputKey)
             {
@@ -94,10 +94,10 @@ public partial class InteractableObject : Node2D
                 {
                     if(inputKey.Keycode == Key.Space || inputKey.Keycode == Key.E)
                     {
-                        if (dialogUI.isAnimating)
+                        if (DialogUI.IsAnimating)
                         {
                             GD.Print("Skipping current animation");
-                            dialogUI.SkipTextAnimation();
+                            DialogUI.SkipTextAnimation();
                         }
                         else
                         {
@@ -128,24 +128,24 @@ public partial class InteractableObject : Node2D
                 {
                     // line has a speaker name tagged on
                     // Kyle $$$ Hi my name is kyle
-                    dialogUI.SpeakLine(lineParts[0].Trim(), lineParts[1].Trim());
+                    DialogUI.SpeakLine(lineParts[0].Trim(), lineParts[1].Trim());
                 }
                 else
                 {
                     // GD.Print("Calling DialogUI speak line: " + lineParts[0].Trim());
-                    dialogUI.SpeakLine(null, lineParts[0].Trim());
+                    DialogUI.SpeakLine(null, lineParts[0].Trim());
                 }
 
             }
             else
             {
                 // End of dialog- cooldown timer
-                interactCooldown = cooldownTime;
+                InteractCooldown = CooldownTime;
 
                 // End of dialog. 
                 GD.Print("End of data, hiding dialogUI");
-                dialogUI.Visible = false;
-                activated = false;
+                DialogUI.Visible = false;
+                Activated = false;
                 inkData.ResetState();
             }
 
@@ -159,9 +159,9 @@ public partial class InteractableObject : Node2D
 
     public override void _PhysicsProcess(double delta)
     {
-        if(interactCooldown > 0)
+        if(InteractCooldown > 0)
         {
-            interactCooldown -= (float)delta;
+            InteractCooldown -= (float)delta;
         }
     }
 

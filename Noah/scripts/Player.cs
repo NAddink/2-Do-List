@@ -4,25 +4,25 @@ using System.Collections;
 
 public partial class Player : CharacterBody2D
 {
-    [Export] int max_speed = 100;
-    Vector2 last_direction = new Vector2(1,0);
+    [Export] int MaxSpeed = 100;
+    Vector2 LastDirection = new Vector2(1,0);
 
 
 
     public override void _PhysicsProcess(double delta)
     {
         Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-        Velocity = direction * max_speed;
+        Velocity = direction * MaxSpeed;
         MoveAndSlide();
 
         if(direction.Length() > 0)
         {
-            last_direction = direction;
+            LastDirection = direction;
             PlayWalkAnimation(direction);
         }
         else
         {
-            PlayIdleAnimation(last_direction);
+            PlayIdleAnimation(LastDirection);
         }
 
         if (Input.IsActionJustPressed("interact"))
@@ -85,7 +85,7 @@ public partial class Player : CharacterBody2D
             // make sure node is interactableObject- it should be
             // adds any in range interactables to the list
             if (node is InteractableObject interactable) 
-                if(interactable.inRange)
+                if(interactable.InRange)
                     interactablesInRange.Add(interactable);
         }
 
@@ -105,7 +105,7 @@ public partial class Player : CharacterBody2D
         if(closestInteractable != null)
         {
             // GD.Print($"Closest interactable is {closestDistance} away. Activating.");
-            if (!closestInteractable.activated)
+            if (!closestInteractable.Activated)
             {
                 closestInteractable.activateInteractable();
             }
