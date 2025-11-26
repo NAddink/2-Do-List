@@ -65,7 +65,7 @@ public partial class InteractableObject : Node2D
             if(InteractCooldown <= 0)
             {
                 // block player movement
-                GameManager.Instance.SetMovementPause(true);
+                GameManager.Instance.SetDialogState(true);
 
                 // Sets activated flag to true (allowing input)
                 // and makes dialogUI visible.
@@ -153,7 +153,7 @@ public partial class InteractableObject : Node2D
                 DialogUI.Visible = false;
                 Activated = false;
                 inkData.ResetState();
-                GameManager.Instance.SetMovementPause(false);
+                GameManager.Instance.SetDialogState(false);
             }
 
         }

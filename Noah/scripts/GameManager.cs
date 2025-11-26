@@ -13,20 +13,20 @@ public partial class GameManager : Node
 
 
     [Signal]
-    public delegate void MovementPauseToggledEventHandler(bool isPaused);
+    public delegate void ToggleDialogEventHandler(bool isPaused);
 
-    public bool MovementPaused { get; private set; }
+    public bool IsInDialog { get; private set; }
 
-    public void ToggleMovementPause()
+    public void ToggleIsInDialog()
     {
-        MovementPaused = !MovementPaused;
-        EmitSignal(SignalName.MovementPauseToggled, MovementPaused);
+        IsInDialog = !IsInDialog;
+        EmitSignal(SignalName.ToggleDialog, IsInDialog);
     }
 
-    public void SetMovementPause(bool paused)
+    public void SetDialogState(bool paused)
     {
-        MovementPaused = paused;
-        EmitSignal(SignalName.MovementPauseToggled, MovementPaused);
+        IsInDialog = paused;
+        EmitSignal(SignalName.ToggleDialog, IsInDialog);
     }
 
 }

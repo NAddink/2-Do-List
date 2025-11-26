@@ -11,12 +11,13 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
     {
-        GameManager.Instance.MovementPauseToggled += OnPauseToggled;
+        GameManager.Instance.ToggleDialog += OnDialogEnter;
     }
 
-    private void OnPauseToggled(bool isPaused)
+    // Called when player enters dialog state
+    private void OnDialogEnter(bool IsInDialog)
     {
-        this.isPaused = isPaused;
+        isPaused = IsInDialog;
 
         // Get current animation and set it to idle version.
 
