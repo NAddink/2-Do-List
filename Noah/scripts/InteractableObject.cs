@@ -64,6 +64,9 @@ public partial class InteractableObject : Node2D
         {
             if(InteractCooldown <= 0)
             {
+                // block player movement
+                GameManager.Instance.SetMovementPause(true);
+
                 // Sets activated flag to true (allowing input)
                 // and makes dialogUI visible.
                 // immediately shows first dialog line
@@ -143,10 +146,14 @@ public partial class InteractableObject : Node2D
                 InteractCooldown = CooldownTime;
 
                 // End of dialog. 
+                // hide dialog ui, set activated to false,
+                // reset inkdata state
+                // unpause player movement
                 GD.Print("End of data, hiding dialogUI");
                 DialogUI.Visible = false;
                 Activated = false;
                 inkData.ResetState();
+                GameManager.Instance.SetMovementPause(false);
             }
 
         }

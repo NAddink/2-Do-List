@@ -7,10 +7,40 @@ public partial class Player : CharacterBody2D
     [Export] int MaxSpeed = 100;
     Vector2 LastDirection = new Vector2(1,0);
 
+    private bool isPaused = false;
+
+    public override void _Ready()
+    {
+        GameManager.Instance.MovementPauseToggled += OnPauseToggled;
+    }
+
+    private void OnPauseToggled(bool isPaused)
+    {
+        this.isPaused = isPaused;
+
+        // Get current animation and set it to idle version.
+
+        GD.Print("CURRENT ANIM:" + GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation);
+
+        if(GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation == "walk_left")
+            GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle_left");
+
+        if(GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation == "walk_right")
+            GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle_right");
+
+        if(GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation == "walk_up")
+            GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle_up");
+
+        if(GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation == "walk_down")
+            GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle_down");
+    }
 
 
     public override void _PhysicsProcess(double delta)
     {
+        if(isPaused)
+            return;
+
         Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
         Velocity = direction * MaxSpeed;
         MoveAndSlide();

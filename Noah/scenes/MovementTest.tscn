@@ -13,7 +13,6 @@ size = Vector2(447, 20)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_0q0jf")]
 z_index = 1
-max_speed = 120
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.575, 2.575)
@@ -39,8 +38,6 @@ shape = SubResource("RectangleShape2D_ida4p")
 [node name="InteractableObject" parent="." groups=["interactable"] instance=ExtResource("3_4uqj7")]
 position = Vector2(168, 78)
 range = 2.0
-dataParameter = "The floor is great||
-The floor is good"
 inkData = ExtResource("4_tbx7v")
 
 [node name="DialogLayer" type="CanvasLayer" parent="."]
