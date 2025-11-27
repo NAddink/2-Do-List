@@ -69,9 +69,6 @@ public partial class InteractableObject : Node2D
         {
             if(InteractCooldown <= 0)
             {
-                // block player movement
-                GameManager.Instance.SetDialogState(true);
-
                 // Sets activated flag to true (allowing input)
                 // and makes dialogUI visible.
                 // immediately shows first dialog line
@@ -134,7 +131,6 @@ public partial class InteractableObject : Node2D
                 DialogUI.Visible = false;
                 Activated = false;
                 inkData.ResetState();
-                GameManager.Instance.SetDialogState(false);
             }
 
         }

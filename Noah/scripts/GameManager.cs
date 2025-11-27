@@ -20,12 +20,6 @@ public partial class GameManager : Node
 
     public bool IsInDialog { get; private set; }
 
-    public void ToggleIsInDialog()
-    {
-        IsInDialog = !IsInDialog;
-        EmitSignal(SignalName.ToggleDialog, IsInDialog);
-    }
-
     public void SetDialogState(bool paused)
     {
         IsInDialog = paused;
