@@ -23,6 +23,8 @@ public partial class DialogUI : Control
 
     public override void _Ready()
     {
+        GameManager.Instance.DialogButtonPressed += DialogProceed;
+
         SpeakerName = GetNode<Label>("SpeakerBox/SpeakerName");
         DialogLine = GetNode<RichTextLabel>("DialogBox/DialogLine");
 
@@ -30,6 +32,8 @@ public partial class DialogUI : Control
         // Get audio stream player for playing noises   
         Audio =  (AudioStreamPlayer2D)GetNode("Audio/AudioStreamPlayer2D");
     }
+
+
 
     public void SpeakLine(string line)
     {
@@ -113,20 +117,11 @@ public partial class DialogUI : Control
         }
     }
 
-    public override void _Input(InputEvent @event)
+    private void DialogProceed()
     {
         if (Visible)
         {
-            if (@event is InputEventKey inputKey)
-            {
-                if(inputKey.Pressed)
-                {
-                    if(inputKey.Keycode == Key.Space || inputKey.Keycode == Key.E)
-                    {
-                        GameManager.Instance.SignalDialogProceed();
-                    }
-                }
-            }
+            GameManager.Instance.SignalDialogProceed();
         }
     }
 }
