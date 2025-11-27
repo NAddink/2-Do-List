@@ -18,6 +18,9 @@ public partial class InteractableObject : Node2D
 
     public override void _Ready()
     {
+        // Attatch proceed logic to proceed signal
+        GameManager.Instance.DialogProceed += DialogProceed;
+
         // get interaction icon and set visibility to false
         GetNode<Sprite2D>("InteractIcon").Visible = false;
 
@@ -36,7 +39,9 @@ public partial class InteractableObject : Node2D
             GD.Print("Could not find dialogUI");
         }
     }
+
     
+
     private void OnBodyEnteredActivationArea(Node2D body)
     {
         if (body.IsInGroup("player"))
@@ -83,31 +88,20 @@ public partial class InteractableObject : Node2D
         }
     }
 
-
-
-    // Input controls for dialogUI (only works when enabled == true)
-    // Doesn't use the Input.Actions because then the first e press would skip the first line
-    public override void _Input(InputEvent @event)
+    // When E or Space is pressed
+    private void DialogProceed()
     {
         if (Activated)
         {
-            if (@event is InputEventKey inputKey)
+
+            if (DialogUI.IsAnimating)
             {
-                if(inputKey.Pressed)
-                {
-                    if(inputKey.Keycode == Key.Space || inputKey.Keycode == Key.E)
-                    {
-                        if (DialogUI.IsAnimating)
-                        {
-                            GD.Print("Skipping current animation");
-                            DialogUI.SkipTextAnimation();
-                        }
-                        else
-                        {
-                            DisplayNextLine();
-                        }
-                    }
-                }
+                GD.Print("Skipping current animation");
+                DialogUI.SkipTextAnimation();
+            }
+            else
+            {
+                DisplayNextLine();
             }
         }
     }
@@ -124,20 +118,7 @@ public partial class InteractableObject : Node2D
             if (inkData.CanContinue)
             {
                 string currentLine = inkData.Continue();
-
-                string[] lineParts = currentLine.Split("$$$");
-                
-                if (lineParts.Length > 1)
-                {
-                    // line has a speaker name tagged on
-                    // Kyle $$$ Hi my name is kyle
-                    DialogUI.SpeakLine(lineParts[0].Trim(), lineParts[1].Trim());
-                }
-                else
-                {
-                    // GD.Print("Calling DialogUI speak line: " + lineParts[0].Trim());
-                    DialogUI.SpeakLine(null, lineParts[0].Trim());
-                }
+                DialogUI.SpeakLine(currentLine);
 
             }
             else

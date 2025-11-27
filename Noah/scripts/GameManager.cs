@@ -15,6 +15,9 @@ public partial class GameManager : Node
     [Signal]
     public delegate void ToggleDialogEventHandler(bool isPaused);
 
+    [Signal]
+    public delegate void DialogProceedEventHandler();
+
     public bool IsInDialog { get; private set; }
 
     public void ToggleIsInDialog()
@@ -27,6 +30,11 @@ public partial class GameManager : Node
     {
         IsInDialog = paused;
         EmitSignal(SignalName.ToggleDialog, IsInDialog);
+    }
+
+    public void SignalDialogProceed()
+    {
+        EmitSignal(SignalName.DialogProceed);
     }
 
 }

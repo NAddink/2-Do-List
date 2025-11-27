@@ -31,14 +31,33 @@ public partial class DialogUI : Control
         Audio =  (AudioStreamPlayer2D)GetNode("Audio/AudioStreamPlayer2D");
     }
 
-    public void SpeakLine(string speaker, string dialog)
+    public void SpeakLine(string line)
     {
+        string[] lineParts = line.Split("$$$");
+        string speaker = null;
+        string dialog = null;
+
+        if (lineParts.Length > 1)
+        {
+            // line has a speaker name tagged on
+            // Kyle $$$ Hi my name is kyle
+            speaker = lineParts[0].Trim();
+            dialog  = lineParts[1].Trim();
+        }
+        else
+        {
+            // Line is just dialog no name
+            dialog = lineParts[0].Trim();
+        }
+
+        // Has a name, set speaker text to the name
         if(speaker != null && speaker != "MC")
         {
             SpeakerName.Text = speaker;
             GetNode<Control>("SpeakerBox").Visible = true;
         }
 
+        // For MC remove the speaker box
         if(speaker == "MC")
             GetNode<Control>("SpeakerBox").Visible = false;
 
@@ -82,6 +101,23 @@ public partial class DialogUI : Control
             else
             {
                 IsAnimating = false;
+            }
+        }
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (Visible)
+        {
+            if (@event is InputEventKey inputKey)
+            {
+                if(inputKey.Pressed)
+                {
+                    if(inputKey.Keycode == Key.Space || inputKey.Keycode == Key.E)
+                    {
+                        GameManager.Instance.SignalDialogProceed();
+                    }
+                }
             }
         }
     }
