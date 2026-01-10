@@ -6,21 +6,35 @@ I'm the floor.
 [shake rate=20.0 level=5 connected=1]I hope u like my floor-ness...[/shake]
 
 
-What do you want to do to yours truly, the floor?
-* [Mop the floors] -> MopFloors
-* [Sweep the floors] -> SweepFloors
-* [Smash the floorboards] -> SmashFloors
+How many choices should I give you?
+* [3 choices maybe?] -> 3Choices
+* [Let's do 4 choices.] -> 4Choices
+* [5 choices. Keep em comin'] -> 5Choices
 
-=== MopFloors ===
-MC $$$ I should really mop these floors, there are stains [i]Everywhere[/i]
-Floor $$$ (In Angela from Smosh tone) Clean me
--> END
+=== 3Choices ===
 
-=== SweepFloors ===
-MC $$$ Call me Cinderella, because I think it's time to [wave amp=50.0 freq=5.0 connected=1]sweep those floors[/wave]!
-Floor $$$ [tornado radius=10.0 freq=1.0 connected=1]HOOORAYYYYYYYYYY[/tornado]
--> END
+Three? Make your choice then.
+* [Here's a choice] -> Thanks
+* [This is another choice] -> Thanks
+* [A trio of choices?] -> Thanks
 
-=== SmashFloors ===
-Floor $$$ [shake rate=50.0 level=10 connected=1]Please don't smash me![/shake]
+=== 4Choices ===
+
+Four? Ok a nice even number. What do you pick?
+* [This is an option] -> Thanks
+* [Two options is better than one] -> Thanks
+* [Three options! Fun.] -> Thanks
+* [Four? A bit much.] -> Thanks
+
+=== 5Choices ===
+Five???? Wow Mr. Moneybags over here.
+* [One big boom] -> Thanks
+* [Two big booms] -> Thanks
+* [Three big booms] -> Thanks
+* [Four big booms] -> Thanks
+* [Five big booms!!!] -> Thanks
+
+=== Thanks === 
+
+Nice.
 -> END

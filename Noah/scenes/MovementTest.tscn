@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://7g337vamw5sm"]
+[gd_scene load_steps=9 format=4 uid="uid://7g337vamw5sm"]
 
 [ext_resource type="PackedScene" uid="uid://bf7hx7hb2sh16" path="res://Noah/scenes/Player.tscn" id="1_0q0jf"]
 [ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="2_ida4p"]
 [ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/InteractableObject.tscn" id="3_4uqj7"]
 [ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://Noah/scenes/DialogUI.tscn" id="4_7ud5i"]
 [ext_resource type="Resource" uid="uid://cnovbdtr668re" path="res://Noah/inks/interactables/floor.ink" id="4_tbx7v"]
+[ext_resource type="Resource" uid="uid://ckop74unab3pq" path="res://Noah/inks/interactables/choice.ink" id="5_hirmf"]
 [ext_resource type="PackedScene" uid="uid://de3565ykv4i6d" path="res://Noah/scenes/ChoiceUI.tscn" id="6_4u45f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ida4p"]
@@ -40,6 +41,16 @@ shape = SubResource("RectangleShape2D_ida4p")
 position = Vector2(168, 78)
 range = 2.0
 inkData = ExtResource("4_tbx7v")
+
+[node name="InteractableObject2" parent="." groups=["interactable"] instance=ExtResource("3_4uqj7")]
+position = Vector2(56, 12)
+range = 2.0
+inkData = ExtResource("4_tbx7v")
+
+[node name="InteractableObject2-Choice" parent="." groups=["interactable"] instance=ExtResource("3_4uqj7")]
+position = Vector2(-86, 80)
+range = 2.0
+inkData = ExtResource("5_hirmf")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
