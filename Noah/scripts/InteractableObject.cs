@@ -169,6 +169,7 @@ public partial class InteractableObject : Node2D
                 // unpause player movement
                 GD.Print("End of data, hiding dialogUI");
                 DialogUI.Visible = false;
+                DialogUI.DialogLine.VisibleRatio = 0;
                 Activated = false;
                 inkData.ResetState();
             }
