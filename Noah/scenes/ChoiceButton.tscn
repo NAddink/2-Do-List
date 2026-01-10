@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cji1ck82vffii"]
+
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="1_5miwk"]
+
+[node name="ChoiceButton" type="Button"]
+anchors_preset = -1
+anchor_right = 0.42700002
+anchor_bottom = 0.15100001
+offset_right = 8.095978
+offset_bottom = 2.1519928
+theme_override_fonts/font = ExtResource("1_5miwk")
+theme_override_font_sizes/font_size = 40
+text = "Bread clean the floor with the nail polish because yes"
+autowrap_mode = 2

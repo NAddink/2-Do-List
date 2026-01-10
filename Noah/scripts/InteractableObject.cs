@@ -1,6 +1,8 @@
 using Godot;
 using GodotInk;
+using Ink.Parsed;
 using System;
+using System.Threading.Tasks;
 
 public partial class InteractableObject : Node2D
 {
@@ -15,6 +17,9 @@ public partial class InteractableObject : Node2D
 
     // reference to dialogUI
     private DialogUI DialogUI;
+
+    // reference to choiceUI
+    private ChoiceUI ChoiceUI;
 
     public override void _Ready()
     {
@@ -33,11 +38,8 @@ public partial class InteractableObject : Node2D
         activationArea.BodyExited += OnBodyExitedActivationArea;
 
         // get reference to dialogUI 
-        DialogUI = GetNode<DialogUI>("/root/MovementTest/DialogLayer/DialogUI");
-        if(DialogUI == null)
-        {
-            GD.Print("Could not find dialogUI");
-        }
+        DialogUI = GetNode<DialogUI>("/root/MovementTest/UILayer/DialogUI");
+        ChoiceUI = GetNode<ChoiceUI>("/root/MovementTest/UILayer/ChoiceUI");
     }
 
     
@@ -63,7 +65,7 @@ public partial class InteractableObject : Node2D
     }
 
     // To be called via player object interaction
-    public void activateInteractable()
+    public async Task activateInteractable()
     {
         if (!Activated)
         {
@@ -76,7 +78,7 @@ public partial class InteractableObject : Node2D
 
                 Activated = true;
                 DialogUI.Visible = true;
-                DisplayNextLine();
+                await DisplayNextLine();
             }
             else
             {
@@ -86,7 +88,7 @@ public partial class InteractableObject : Node2D
     }
 
     // When E or Space is pressed
-    private void DialogProceed()
+    private async void DialogProceed()
     {
         if (Activated)
         {
@@ -98,26 +100,64 @@ public partial class InteractableObject : Node2D
             }
             else
             {
-                DisplayNextLine();
+                await DisplayNextLine();
             }
         }
     }
 
     // Gets next line from inkData and displays it to dialogUI
     // also parses speaker names.
-    private void DisplayNextLine()
+    private async Task DisplayNextLine()
     {
         
 
         if(inkData != null)
         {
 
-            if (inkData.CanContinue)
+            if (inkData.CurrentChoices.Count > 0)
+            {
+                // ChoiceUI is already open, return
+                if(ChoiceUI.Visible) return;
+
+                // Choice
+                // TODO: Choice UI will be called here, along with choice logic
+                GD.Print("Choice!");
+
+                // get array of each choice
+                string[] choices = new string[inkData.CurrentChoices.Count];
+                for(int i = 0; i < inkData.CurrentChoices.Count; i++)
+                {
+                    GD.Print(inkData.CurrentChoices[i].Text);
+                    choices[i] = inkData.CurrentChoices[i].Text;
+                }
+                
+                ChoiceUI.SetChoices(choices);
+                ChoiceUI.Visible = true;
+
+
+
+                var result = await ToSignal(ChoiceUI, ChoiceUI.SignalName.SelectionMade);
+                int choiceIdx = (int)result[0];
+
+                GD.Print("Button " + choiceIdx + " selected.");
+
+                ChoiceUI.Visible = false; // hide choiceUI
+                ChoiceUI.ClearChoices(); // remove all choice buttons
+
+                // select choice via ink and proceed
+                inkData.ChooseChoiceIndex(choiceIdx); 
+                await DisplayNextLine();
+
+                
+                
+            }
+            else if (inkData.CanContinue)
             {
                 string currentLine = inkData.Continue();
                 DialogUI.SpeakLine(currentLine);
 
             }
+            
             else
             {
                 // End of dialog- cooldown timer
