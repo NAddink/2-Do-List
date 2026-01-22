@@ -1,3 +1,5 @@
+VAR selected_choice_3 = false
+
 MC $$$ This floor is very floor
 I sure hope this floor has a lot of floors.
 
@@ -14,6 +16,7 @@ How many choices should I give you?
 === 3Choices ===
 
 Three? Make your choice then.
+~ selected_choice_3 = true
 * [Here's a choice] -> Thanks
 * [This is another choice] -> Thanks
 * [A trio of choices?] -> Thanks
