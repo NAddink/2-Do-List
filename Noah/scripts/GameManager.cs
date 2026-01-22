@@ -25,7 +25,14 @@ public partial class GameManager : Node
 
     public bool IsInDialog { get; private set; }
 
-    private Dictionary<string, bool> FlagsData;
+    private Dictionary<string, bool> FlagsData = new Dictionary<string, bool>();
+    
+    private static readonly string[] DefaultFlags = {
+        "selected_choice_3",
+        "selected_choice_4",
+        "selected_choice_5"
+    };
+
     private const string SavePath = "user://savegame.json";
 
     public void SetDialogState(bool paused)
@@ -61,11 +68,8 @@ public partial class GameManager : Node
     // Run on start
     public override void _EnterTree()
     {
-        FlagsData = new Dictionary<string, bool>();
         Load();
-
-        FlagsData.Add("ExampleTrueVar", true);
-        FlagsData.Add("ExampleFalseVar", false);
+        EnsureDefaultFlags();
         Save();
     }
 
@@ -100,8 +104,16 @@ public partial class GameManager : Node
         using FileAccess file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Read);
         string jsonText = file.GetAsText();
         file.Close();
+
+        if (!string.IsNullOrEmpty(jsonText))
+        {
+            FlagsData = JsonSerializer.Deserialize<Dictionary<string,bool>>(jsonText); 
+        }
+        else
+        {
+            GD.PrintErr("Attempted to load data from json but there was no data to load!");
+        }
         
-        FlagsData = JsonSerializer.Deserialize<Dictionary<string,bool>>(jsonText);
         
 
     }
@@ -126,4 +138,12 @@ public partial class GameManager : Node
         return FlagsData;
     }
 
+    private void EnsureDefaultFlags()
+    {
+        foreach (var flag in DefaultFlags)
+        {
+            if (!FlagsData.ContainsKey(flag))
+                FlagsData[flag] = false;
+        }
+    }
 }

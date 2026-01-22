@@ -2,12 +2,15 @@ using Godot;
 using GodotInk;
 using Ink.Parsed;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+
 
 public partial class InteractableObject : Node2D
 {
     [Export] float range = 1;
     [Export] private InkStory inkData;
+    private InkStory _story;            // runtime instance
 
     public bool InRange, Activated = false;
 
@@ -78,6 +81,14 @@ public partial class InteractableObject : Node2D
 
                 Activated = true;
                 DialogUI.Visible = true;
+
+                _story = (InkStory)inkData.Duplicate();
+                foreach (var kv in GameManager.Instance.GetFlags())
+                {
+                    _story.StoreVariable(kv.Key, kv.Value);
+                    _story.ObserveVariable(kv.Key, new Callable(this, nameof(OnInkVariableChanged)));
+                }
+
                 await DisplayNextLine();
             }
             else
@@ -111,10 +122,10 @@ public partial class InteractableObject : Node2D
     {
         
 
-        if(inkData != null)
+        if(_story != null)
         {
 
-            if (inkData.CurrentChoices.Count > 0)
+            if (_story.CurrentChoices.Count > 0)
             {
                 // ChoiceUI is already open, return
                 if(ChoiceUI.Visible) return;
@@ -124,11 +135,11 @@ public partial class InteractableObject : Node2D
                 GD.Print("Choice!");
 
                 // get array of each choice
-                string[] choices = new string[inkData.CurrentChoices.Count];
-                for(int i = 0; i < inkData.CurrentChoices.Count; i++)
+                string[] choices = new string[_story.CurrentChoices.Count];
+                for(int i = 0; i < _story.CurrentChoices.Count; i++)
                 {
-                    GD.Print(inkData.CurrentChoices[i].Text);
-                    choices[i] = inkData.CurrentChoices[i].Text;
+                    GD.Print(_story.CurrentChoices[i].Text);
+                    choices[i] = _story.CurrentChoices[i].Text;
                 }
                 
                 ChoiceUI.SetChoices(choices);
@@ -145,15 +156,15 @@ public partial class InteractableObject : Node2D
                 ChoiceUI.ClearChoices(); // remove all choice buttons
 
                 // select choice via ink and proceed
-                inkData.ChooseChoiceIndex(choiceIdx); 
+                _story.ChooseChoiceIndex(choiceIdx); 
                 await DisplayNextLine();
 
                 
                 
             }
-            else if (inkData.CanContinue)
+            else if (_story.CanContinue)
             {
-                string currentLine = inkData.Continue();
+                string currentLine = _story.Continue();
                 DialogUI.SpeakLine(currentLine);
 
             }
@@ -171,7 +182,8 @@ public partial class InteractableObject : Node2D
                 DialogUI.Visible = false;
                 DialogUI.DialogLine.VisibleRatio = 0;
                 Activated = false;
-                inkData.ResetState();
+
+                _story = null; // reset story
             }
 
         }
@@ -188,6 +200,11 @@ public partial class InteractableObject : Node2D
         {
             InteractCooldown -= (float)delta;
         }
+    }
+
+    public void OnInkVariableChanged(string name, bool value)
+    {
+        GameManager.Instance.AddFlag(name, value);
     }
 
 

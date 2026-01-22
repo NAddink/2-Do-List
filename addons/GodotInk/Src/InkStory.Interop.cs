@@ -82,6 +82,12 @@ public partial class InkStory
         BindExternalFunction(funcName, callable, false);
     }
 
+    internal void ObserveVariable(string key, object onInkVariableChanged)
+    {
+        throw new NotImplementedException();
+    }
+
+
     public static implicit operator InkStory(string v)
     {
         throw new NotImplementedException();
