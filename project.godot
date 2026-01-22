@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="2-Do-List"
-run/main_scene="uid://7g337vamw5sm"
+run/main_scene="uid://bxiviwrdc4gw"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 

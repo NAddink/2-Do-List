@@ -41,8 +41,10 @@ public partial class InteractableObject : Node2D
         activationArea.BodyExited += OnBodyExitedActivationArea;
 
         // get reference to dialogUI 
-        DialogUI = GetNode<DialogUI>("/root/MovementTest/UILayer/DialogUI");
-        ChoiceUI = GetNode<ChoiceUI>("/root/MovementTest/UILayer/ChoiceUI");
+        GD.Print("CURRENT SCENE");
+        GD.Print(GetTree().CurrentScene);
+        DialogUI = GetNode<DialogUI>("../UILayer/DialogUI");
+        ChoiceUI = GetNode<ChoiceUI>("../UILayer/ChoiceUI");
     }
 
     
