@@ -125,6 +125,8 @@ public partial class InteractableObject : Node2D
 
         if(_story == null) return;
 
+        GameManager.Instance.SetDialogState(true); // set dialog state to true - pauses movement
+
 
         while (_story.CanContinue && _story.CurrentChoices.Count == 0)
         {
@@ -191,6 +193,8 @@ public partial class InteractableObject : Node2D
         DialogUI.Visible = false;
         DialogUI.DialogLine.VisibleRatio = 0;
         Activated = false;
+
+        GameManager.Instance.SetDialogState(false); // set dialog state to false - frees movement
 
         _story = null; // reset story
     }

@@ -84,13 +84,6 @@ public partial class DialogUI : Control
 
     public override void _Process(double delta)
     {
-        // If the dialog ui is visible, set the dialog state to true in Game Manager and vice versa
-        if(Visible)
-            if(!GameManager.Instance.IsInDialog)
-                GameManager.Instance.SetDialogState(true);
-        if(!Visible)
-            if(GameManager.Instance.IsInDialog)
-                GameManager.Instance.SetDialogState(false);
 
         if (IsAnimating)
         {
