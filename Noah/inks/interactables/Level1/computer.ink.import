@@ -3,11 +3,12 @@
 importer="ink"
 type="Resource"
 uid="uid://1rb7vhvmjasl"
-valid=false
+path="res://.godot/imported/computer.ink-90d9ee8d2f329379605d0c3407bcf9d5.res"
 
 [deps]
 
 source_file="res://Noah/inks/interactables/Level1/computer.ink"
+dest_files=["res://.godot/imported/computer.ink-90d9ee8d2f329379605d0c3407bcf9d5.res"]
 
 [params]
 

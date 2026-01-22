@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://7g337vamw5sm"]
 
-[ext_resource type="PackedScene" uid="uid://cghb561jvnqtb" path="res://Noah/scenes/Player.tscn" id="1_0q0jf"]
+[ext_resource type="PackedScene" uid="uid://cghb561jvnqtb" path="res://Noah/scenes/player.tscn" id="1_0q0jf"]
 [ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="2_ida4p"]
 [ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/InteractableObject.tscn" id="3_4uqj7"]
 [ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://Noah/scenes/DialogUI.tscn" id="4_7ud5i"]
@@ -12,7 +12,6 @@
 size = Vector2(447, 20)
 
 [node name="MovementTest" type="Node2D"]
-rotation = -0.0040095877
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_0q0jf")]
 z_index = 1

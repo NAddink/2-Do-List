@@ -7,7 +7,7 @@ Floor $$$ Hey diva.
 I'm the floor.
 [shake rate=20.0 level=5 connected=1]I hope u like my floor-ness...[/shake]
 
-{selected_choice_3 || selected_choice_4 || selected_choice_5:
+{selected_choice_3 == false && selected_choice_4 && selected_choice_5:
     -> AFTER_CHOICE
 - else:
     -> FIRST_TIME
