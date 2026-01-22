@@ -75,9 +75,9 @@ top_level = true
 tile_map_data = PackedByteArray("AAD5//n/AwAKAAwAAAD5//r/AwAKAA0AAAD5//3/AwAOAB4AAAD6//3/AwAPAB8AAAD8//3/AwAOACAAAAD9//3/AwAPAB8AAAD9////AwAMACEAAAD8////AwALACEAAAD7////AwAKACEAAAD6////AwAPAB0AAAD5////AwAOAB0AAAD4////AwANAB0AAAD5//7/AwAOABwAAAD6//7/AwAPABwAAAD7//7/AwAKACAAAAD8//7/AwALACAAAAD9//7/AwAMACAAAAD4//r/AwAJAA0AAAD4//n/AwAJAAwAAAACAPv/AwAIABIAAAA=")
 
 [node name="InteractableObject" parent="." groups=["interactable"] instance=ExtResource("5_middd")]
-z_index = 2
+z_index = 1
 position = Vector2(-111, -30)
-range = 2.0
+range = 5.585
 inkData = ExtResource("6_middd")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

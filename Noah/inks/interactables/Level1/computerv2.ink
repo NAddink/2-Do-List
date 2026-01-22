@@ -19,19 +19,19 @@ INCLUDE ../../globals.ink
 
 === respond_emails ===
 
-No sir your insurance does not cover you lighting yourself on fire for a football party, send.
+MC $$$ No sir your insurance does not cover you lighting yourself on fire for a football party, send.
 
 -> check_emails
 
 === clear_spam ===
 
-DIE SPAM DIEEEEE
+MC $$$ DIE SPAM DIEEEEE
 
 -> check_emails
 
 === back_from_emails ===
 
-See you tomorrow junk mail.
+MC $$$ See you tomorrow junk mail.
 
 -> main_menu
 
@@ -46,19 +46,19 @@ See you tomorrow junk mail.
 
 === ai_concern ===
 
-Dang Robots
+MC $$$ Dang Robots
 
 -> research_news
 
 === stealing_money ===
 
-Well Obviously.
+MC $$$ Well Obviously.
 
 -> research_news
 
 === back_from_research ===
 
-That’s enough research for today, or a lifetime.
+MC $$$ That’s enough research for today, or a lifetime.
 
 -> main_menu
 
@@ -72,9 +72,9 @@ That’s enough research for today, or a lifetime.
     -> main_menu
 
 === grace_monos ===
-Lets see here... ASU student... journalism... yep checks out.
+MC $$$ Lets see here... ASU student... journalism... yep checks out.
 -> update_records
 
 === joshua_alvarez ===
-Is this file just the lyrics of every Sabrina Carpenter song???
+MC $$$ Is this file just the lyrics of every Sabrina Carpenter song???
 -> update_records
