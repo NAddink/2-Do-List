@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://r5amonxtpau7"]
+[gd_scene load_steps=53 format=3 uid="uid://bf7hx7hb2sh16"]
 
 [ext_resource type="Script" uid="uid://b3oncg62p8htb" path="res://Noah/scripts/Player.cs" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://xrx2ll7mk4jj" path="res://Noah/assets/sprites/MC/Premade_Character_32x32_17.png" id="2_riucj"]
@@ -391,7 +391,8 @@ script = ExtResource("1_g2els")
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"walk_right"
 speed_scale = 4.0
+offset = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_3vyb7")
