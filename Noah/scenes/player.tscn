@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bf7hx7hb2sh16"]
+[gd_scene load_steps=53 format=3 uid="uid://c8dko06x8s0xi"]
 
 [ext_resource type="Script" uid="uid://b3oncg62p8htb" path="res://Noah/scripts/Player.cs" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://xrx2ll7mk4jj" path="res://Noah/assets/sprites/MC/Premade_Character_32x32_17.png" id="2_riucj"]
