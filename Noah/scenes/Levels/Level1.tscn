@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://dbfjcyje05s6n"]
+[gd_scene load_steps=7 format=4 uid="uid://dbfjcyje05s6n"]
 
 [ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="1_1sfx6"]
 [ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/Player.tscn" id="2_cxojc"]
 [ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/InteractableObject.tscn" id="3_mo1xh"]
 [ext_resource type="Resource" uid="uid://cuo5u1re2h6ww" path="res://Noah/inks/interactables/Level1/computerv2.ink" id="4_di1wp"]
+[ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://Noah/scenes/DialogUI.tscn" id="5_c3mfm"]
+[ext_resource type="PackedScene" uid="uid://de3565ykv4i6d" path="res://Noah/scenes/ChoiceUI.tscn" id="6_5plg3"]
 
 [node name="Level1" type="Node2D"]
 
@@ -35,12 +37,21 @@ position = Vector2(-115, -8)
 zoom = Vector2(2.175, 2.175)
 position_smoothing_enabled = true
 
-[node name="Interactables" type="Node2D" parent="."]
+[node name="Dialogue" type="Node2D" parent="."]
 
-[node name="InteractableObject" parent="Interactables" groups=["interactable"] instance=ExtResource("3_mo1xh")]
+[node name="InteractableObject" parent="Dialogue" groups=["interactable"] instance=ExtResource("3_mo1xh")]
 z_index = 1
-position = Vector2(48, -63)
+position = Vector2(47, -30)
 LabelText = "Computer"
-ActivationRange = 10.0
-VisibleRange = 60.0
+ActivationRange = 12.625
+VisibleRange = 27.07
+LabelYOffset = -39.86
 inkData = ExtResource("4_di1wp")
+
+[node name="UILayer" type="CanvasLayer" parent="Dialogue"]
+
+[node name="DialogUI" parent="Dialogue/UILayer" instance=ExtResource("5_c3mfm")]
+visible = false
+
+[node name="ChoiceUI" parent="Dialogue/UILayer" instance=ExtResource("6_5plg3")]
+visible = false
