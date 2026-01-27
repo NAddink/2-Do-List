@@ -6,7 +6,7 @@ INCLUDE ../../globals.ink
 + [Check Emails] -> check_emails
 + [Research Insurance News] -> research_news
 + [Update Client Records] -> update_records
-+ [Exit] -> END
++ [Back] -> END
 
 === check_emails ===
 

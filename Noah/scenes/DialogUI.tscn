@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu4fj76ix6ea2"]
+[gd_scene load_steps=9 format=3 uid="uid://bu4fj76ix6ea2"]
 
 [ext_resource type="Script" uid="uid://cl6lcwupxnpk7" path="res://Noah/scripts/DialogUI.cs" id="1_xh3aw"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_edwrk"]
@@ -14,6 +14,18 @@ bg_color = Color(0, 0, 0, 0.368627)
 [sub_resource type="Theme" id="Theme_edwrk"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_yjvli")
 RichTextLabel/font_sizes/normal_font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjgwd"]
+content_margin_left = 40.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+content_margin_bottom = 20.0
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ket"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_avaca"]
 font_size = 36
@@ -37,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sjgwd")
 
 [node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
 layout_mode = 2
@@ -54,26 +67,20 @@ offset_right = 200.0
 offset_bottom = -149.0
 grow_vertical = 0
 
-[node name="Polygon2D" type="Polygon2D" parent="SpeakerBox"]
-color = Color(0, 0, 0, 0.376471)
-polygon = PackedVector2Array(0, 0, 0, 50, 200, 50, 200, 0)
-
 [node name="SpeakerName" type="Label" parent="SpeakerBox"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -18.0
-offset_right = 42.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+offset_right = 25.0
+offset_bottom = -5.0
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_edwrk")
-text = "Broah"
+theme_override_styles/normal = SubResource("StyleBoxFlat_i0ket")
+text = "Speaker Name"
 label_settings = SubResource("LabelSettings_avaca")
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

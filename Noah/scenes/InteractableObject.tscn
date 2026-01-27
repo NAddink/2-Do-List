@@ -7,6 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gams"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04p7b"]
+radius = 60.0
 
 [node name="InteractableObject" type="Node2D"]
 script = ExtResource("1_3gams")
@@ -22,7 +23,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 10
 theme_override_fonts/normal_font = ExtResource("2_04p7b")
 theme_override_font_sizes/normal_font_size = 40
-text = "Interact"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://dbfjcyje05s6n"]
+[gd_scene load_steps=10 format=4 uid="uid://dbfjcyje05s6n"]
 
 [ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="1_1sfx6"]
 [ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/Player.tscn" id="2_cxojc"]
 [ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/InteractableObject.tscn" id="3_mo1xh"]
-[ext_resource type="Resource" uid="uid://cuo5u1re2h6ww" path="res://Noah/inks/interactables/Level1/computerv2.ink" id="4_di1wp"]
+[ext_resource type="Resource" uid="uid://cuo5u1re2h6ww" path="res://Noah/inks/interactables/Level1/computer.ink" id="4_di1wp"]
+[ext_resource type="Resource" uid="uid://byldxdniyihs2" path="res://Noah/inks/interactables/Level1/phone.ink" id="5_5plg3"]
 [ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://Noah/scenes/DialogUI.tscn" id="5_c3mfm"]
 [ext_resource type="PackedScene" uid="uid://de3565ykv4i6d" path="res://Noah/scenes/ChoiceUI.tscn" id="6_5plg3"]
+[ext_resource type="Resource" uid="uid://beqqvtp6h51sg" path="res://Noah/inks/interactables/Level1/photos.ink" id="6_7quv6"]
+[ext_resource type="Resource" uid="uid://catlhyxwo8j2p" path="res://Noah/inks/interactables/Level1/FilingCabinet.ink" id="6_ka8fv"]
 
 [node name="Level1" type="Node2D"]
 
@@ -18,16 +21,16 @@ tile_map_data = PackedByteArray("AAD7//z/AgALAAYAAAD7//3/AgALAAYAAAD8//z/AgALAAY
 
 [node name="TileMapLayerMid" parent="Tilemaps" instance=ExtResource("1_1sfx6")]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD9//3/AwAAABsAAAD//wAAAwACABsAAAAAAP3/AwABABsAAAAAAAAAAwACABsAAAABAP3/AwABABsAAAABAAAAAwACABsAAAACAP3/AwAGABsAAAACAP7/AwAGABwAAAACAP//AwAAABwAAAACAAAAAwACABsAAAD9//7/AwAAABwAAAD+//7/AwABABwAAAD///7/AwABABwAAAD//wEAAwACABwAAAAAAP7/AwABABwAAAAAAAEAAwACABwAAAABAP7/AwABABwAAAABAAEAAwACABwAAAACAAEAAwACABwAAADy//3/AwAAABsAAADy//7/AwAAABwAAADz//3/AwABABsAAADz//7/AwABABwAAAD0//3/AwABABsAAAD0//7/AwABABwAAAD1//3/AwABABsAAAD1//7/AwABABwAAAD2//3/AwABABsAAAD2//7/AwABABwAAAD3//3/AwAGABsAAAD3//7/AwAGABwAAAAIAP3/AwAAABsAAAAIAP7/AwAAABwAAAAJAP3/AwABABsAAAAJAP7/AwABABwAAAAKAP3/AwAFABsAAAAKAP7/AwABABwAAAAKAAAAAwACABsAAAAKAAEAAwACABwAAAALAP3/AwABABsAAAALAP7/AwABABwAAAALAAAAAwACABsAAAALAAEAAwACABwAAAAMAP3/AwABABsAAAAMAP7/AwABABwAAAAMAAAAAwACABsAAAAMAAEAAwACABwAAAANAP3/AwAGABsAAAANAP7/AwAGABwAAAANAP//AwAAABwAAAANAAAAAwACABsAAAANAAEAAwACABwAAAD3////AwAAABwAAADy////AwAAABwAAADz/wAAAwAFABsAAADz/wEAAwABABwAAADy/wAAAwAAABwAAAD0/wAAAwAFABsAAAD0/wEAAwABABwAAAD1/wAAAwAFABsAAAD1/wEAAwABABwAAAD///3/AwABABsAAAD+//3/AwABABsAAAAPAPr/AgAHAAIAAAAPAPv/AgAHAAIAAAAPAPz/AgAHAAIAAAAPAP3/AgAHAAIAAAAQAP3/AgABAAsAAAAXAP3/AgABAAsAAAAWAP3/AgABAAsAAAAVAP3/AgABAAsAAAAUAP3/AgABAAsAAAARAP3/AgABAAsAAAASAP3/AgABAAsAAAAQAP7/AgABAAwAAAARAP7/AgABAAwAAAASAP7/AgABAAwAAAAUAP7/AgABAAwAAAAVAP7/AgABAAwAAAAWAP7/AgABAAwAAAAXAP7/AgABAAwAAAAPAP7/AgAHAAIAAAA=")
+tile_map_data = PackedByteArray("AAD9//3/AwAAABsAAAAAAP3/AwABABsAAAABAP3/AwABABsAAAACAP3/AwAGABsAAAACAP7/AwAGABwAAAACAP//AwAAABwAAAD9//7/AwAAABwAAAD+//7/AwABABwAAAD///7/AwABABwAAAAAAP7/AwABABwAAAABAP7/AwABABwAAADy//3/AwAAABsAAADy//7/AwAAABwAAADz//3/AwABABsAAADz//7/AwABABwAAAD0//3/AwABABsAAAD0//7/AwABABwAAAD1//3/AwABABsAAAD1//7/AwABABwAAAD2//3/AwABABsAAAD2//7/AwABABwAAAD3//3/AwAGABsAAAD3//7/AwAGABwAAAAIAP3/AwAAABsAAAAIAP7/AwAAABwAAAAJAP3/AwABABsAAAAJAP7/AwABABwAAAAKAP3/AwAFABsAAAAKAP7/AwABABwAAAAKAAAAAwACABsAAAAKAAEAAwACABwAAAALAP3/AwABABsAAAALAP7/AwABABwAAAALAAAAAwACABsAAAALAAEAAwACABwAAAAMAP3/AwABABsAAAAMAP7/AwABABwAAAAMAAAAAwACABsAAAAMAAEAAwACABwAAAANAP3/AwAGABsAAAANAP7/AwAGABwAAAANAP//AwAAABwAAAANAAAAAwACABsAAAANAAEAAwACABwAAAD3////AwAAABwAAADy////AwAAABwAAADz/wAAAwAFABsAAADz/wEAAwABABwAAADy/wAAAwAAABwAAAD0/wAAAwAFABsAAAD0/wEAAwABABwAAAD1/wAAAwAFABsAAAD1/wEAAwABABwAAAD///3/AwABABsAAAD+//3/AwABABsAAAAPAPr/AgAHAAIAAAAPAPv/AgAHAAIAAAAPAPz/AgAHAAIAAAAPAP3/AgAHAAIAAAAQAP3/AgABAAsAAAAXAP3/AgABAAsAAAAWAP3/AgABAAsAAAAVAP3/AgABAAsAAAAUAP3/AgABAAsAAAARAP3/AgABAAsAAAASAP3/AgABAAsAAAAQAP7/AgABAAwAAAARAP7/AgABAAwAAAASAP7/AgABAAwAAAAUAP7/AgABAAwAAAAVAP7/AgABAAwAAAAWAP7/AgABAAwAAAAXAP7/AgABAAwAAAAPAP7/AgAHAAIAAAACAAEAAwACABsAAAABAAEAAwACABsAAAAAAAEAAwACABsAAAD//wEAAwACABsAAAACAAIAAwACABwAAAABAAIAAwACABwAAAAAAAIAAwACABwAAAD//wIAAwACABwAAAACAAAAAwAAABwAAAA=")
 
 [node name="TileMapLayerMidTop" parent="Tilemaps" instance=ExtResource("1_1sfx6")]
 y_sort_enabled = true
 position = Vector2(-2, 0)
-tile_map_data = PackedByteArray("AAD0//7/AwAEAB4AAAD2//3/AwAIACYAAAD2//7/AwAIACcAAAD2////AwAIACgAAAD3//3/AwAJACYAAAD3//7/AwAJACcAAAD3////AwAJACgAAAABAP7/AwAEAB4AAAAMAP7/AwABAB4AAAAFAP7/AwAGABIAAAAWAPr/AwAKABwAAAAWAPj/AwACAAoAAAAWAPn/AwACAAsAAAARAPf/AwAJAA4AAAARAPj/AwAJAA8AAAASAPf/AwAKAA4AAAASAPj/AwAKAA8AAAAQAPj/AwAEAA8AAAAQAPn/AwAEABAAAAATAPn/AwAGAAwAAAAXAPn/AwADACcAAAAHAPr/AwAMAA8AAAAHAPv/AwAMABAAAAAHAPz/AwAMABEAAAA=")
+tile_map_data = PackedByteArray("AAD0//7/AwAEAB4AAAD2//3/AwAIACYAAAD2//7/AwAIACcAAAD2////AwAIACgAAAD3//3/AwAJACYAAAD3//7/AwAJACcAAAD3////AwAJACgAAAABAP7/AwAEAB4AAAAMAP7/AwABAB4AAAAFAP7/AwAGABIAAAAWAPr/AwAKABwAAAAWAPj/AwACAAoAAAAWAPn/AwACAAsAAAARAPf/AwAJAA4AAAARAPj/AwAJAA8AAAASAPf/AwAKAA4AAAASAPj/AwAKAA8AAAAQAPj/AwAEAA8AAAAQAPn/AwAEABAAAAATAPn/AwAGAAwAAAAXAPn/AwADACcAAAAHAPr/AwAMAA8AAAAHAPv/AwAMABAAAAAHAPz/AwAMABEAAAACAAAAAwALAA0AAAACAAEAAwALAA4AAAD//wAAAwAGABIAAAA=")
 
 [node name="TileMapLayerTop" parent="Tilemaps" instance=ExtResource("1_1sfx6")]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAABAP7/AwALABoAAAD0//7/AwAKACAAAAD4//r/AwAAABcAAAD4//v/AwAAABgAAAD4//z/AwAAABkAAAD5//r/AwABABcAAAD5//v/AwABABgAAAD5//z/AwABABkAAADw//r/AwAHAAwAAADw//v/AwAHAA0AAADw//z/AwAHAA4AAADx//r/AwAIAAwAAADx//v/AwAIAA0AAADx//z/AwAIAA4AAAD4/wIAAwAGAAcAAAD7//z/AwAGAAcAAAAAAP7/AwAGAAoAAAAEAPr/AwAJAAwAAAAEAPv/AwAJAA0AAAAFAPr/AwAKAAwAAAAFAPv/AwAKAA0AAAD1/wAAAwAHAAgAAAAMAP7/AwAOABoAAAAFAP7/AwAIABYAAAAKAP3/AwAFAAwAAAAWAPn/AwAOAAgAAAAWAPr/AwAOAAkAAAAXAPn/AwAIACUAAAAVAPr/AwALAA8AAAAVAPf/AwAFAA0AAAAXAPf/AwACAAwAAAAXAPj/AwACAA0AAAARAPr/AwAHAAwAAAARAPv/AwAHAA0AAAARAPz/AwAHAA4AAAASAPr/AwAIAAwAAAASAPv/AwAIAA0AAAASAPz/AwAIAA4AAAAUAPf/AwAIAAoAAAAUAPj/AwAIAAsAAAAUAP3/AwAIAAgAAAAUAP7/AwAIAAkAAAAVAP3/AwAJAAgAAAAVAP7/AwAJAAkAAAA=")
+tile_map_data = PackedByteArray("AAD0//7/AwAKACAAAAD4//r/AwAAABcAAAD4//v/AwAAABgAAAD4//z/AwAAABkAAAD5//r/AwABABcAAAD5//v/AwABABgAAAD5//z/AwABABkAAADw//r/AwAHAAwAAADw//v/AwAHAA0AAADw//z/AwAHAA4AAADx//r/AwAIAAwAAADx//v/AwAIAA0AAADx//z/AwAIAA4AAAD4/wIAAwAGAAcAAAD7//z/AwAGAAcAAAAEAPr/AwAJAAwAAAAEAPv/AwAJAA0AAAAFAPr/AwAKAAwAAAAFAPv/AwAKAA0AAAD1/wAAAwAHAAgAAAAMAP7/AwAOABoAAAAFAP7/AwAIABYAAAAKAP3/AwAFAAwAAAAWAPn/AwAOAAgAAAAWAPr/AwAOAAkAAAAXAPn/AwAIACUAAAAVAPr/AwALAA8AAAAVAPf/AwAFAA0AAAAXAPf/AwACAAwAAAAXAPj/AwACAA0AAAARAPr/AwAHAAwAAAARAPv/AwAHAA0AAAARAPz/AwAHAA4AAAASAPr/AwAIAAwAAAASAPv/AwAIAA0AAAASAPz/AwAIAA4AAAAUAPf/AwAIAAoAAAAUAPj/AwAIAAsAAAAUAP3/AwAIAAgAAAAUAP7/AwAIAAkAAAAVAP3/AwAJAAgAAAAVAP7/AwAJAAkAAAAAAP7/AwALABoAAAACAP7/AwAMABoAAAD+//7/AwAGAAcAAAD//wAAAwANABoAAAA=")
 
 [node name="Player" parent="Tilemaps" groups=["player"] instance=ExtResource("2_cxojc")]
 y_sort_enabled = true
@@ -39,14 +42,41 @@ position_smoothing_enabled = true
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="InteractableObject" parent="Dialogue" groups=["interactable"] instance=ExtResource("3_mo1xh")]
+[node name="Computer" parent="Dialogue" groups=["interactable"] instance=ExtResource("3_mo1xh")]
 z_index = 1
-position = Vector2(47, -30)
+position = Vector2(18, -29)
 LabelText = "Computer"
 ActivationRange = 12.625
 VisibleRange = 27.07
-LabelYOffset = -39.86
+LabelYOffset = -40.0
 inkData = ExtResource("4_di1wp")
+
+[node name="Phone" parent="Dialogue" groups=["interactable"] instance=ExtResource("3_mo1xh")]
+z_index = 1
+position = Vector2(-15, 8)
+LabelText = "Phone"
+ActivationRange = 12.625
+VisibleRange = 27.07
+LabelYOffset = -9.115
+inkData = ExtResource("5_5plg3")
+
+[node name="Photos" parent="Dialogue" groups=["interactable"] instance=ExtResource("3_mo1xh")]
+z_index = 1
+position = Vector2(72, -28)
+LabelText = "Photos"
+ActivationRange = 12.625
+VisibleRange = 27.07
+LabelYOffset = -26.345
+inkData = ExtResource("6_7quv6")
+
+[node name="FilingCabinet" parent="Dialogue" groups=["interactable"] instance=ExtResource("3_mo1xh")]
+z_index = 1
+position = Vector2(75, 18)
+LabelText = "Filing Cabinet"
+ActivationRange = 14.7
+VisibleRange = 27.07
+LabelYOffset = -13.745
+inkData = ExtResource("6_ka8fv")
 
 [node name="UILayer" type="CanvasLayer" parent="Dialogue"]
 

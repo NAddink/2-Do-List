@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://beqqvtp6h51sg"
+path="res://.godot/imported/photos.ink-4f9e42126feb75e955f0f56729b5080c.res"
+
+[deps]
+
+source_file="res://Noah/inks/interactables/Level1/photos.ink"
+dest_files=["res://.godot/imported/photos.ink-4f9e42126feb75e955f0f56729b5080c.res"]
+
+[params]
+
+is_main_file=true
+compress=true
