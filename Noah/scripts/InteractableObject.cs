@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 public partial class InteractableObject : Node2D
 {
-    [Export] float range = 1;
+    [Export] string LabelText;
+
+    [Export] float ActivationRange = 1;
+    [Export] float VisibleRange = 2;
     [Export] private InkStory inkData;
     private InkStory _story;            // runtime instance
 
@@ -29,19 +32,30 @@ public partial class InteractableObject : Node2D
         GameManager.Instance.DialogProceed += DialogProceed;
 
         // get interaction icon and set visibility to false
-        GetNode<Sprite2D>("InteractIcon").Visible = false;
+        GetNode<RichTextLabel>("TextLabel").Visible = false;
+
+        // set label to text to text specified in the field
+        GetNode<RichTextLabel>("TextLabel").Text = LabelText;
+
 
         // get activation area and scale based on range var
-        Area2D activationArea = GetNode<Area2D>("Area2D");
-        activationArea.Scale = new Vector2(range, range);
+        Area2D activationArea = GetNode<Area2D>("ActivationArea");
+        CircleShape2D activationShape = (CircleShape2D)GetNode<CollisionShape2D>("ActivationArea/CollisionShape2D").Shape;
+        activationShape.Radius = ActivationRange;
 
         // Add hooks to activationArea for onEnter and onExit
         activationArea.BodyEntered += OnBodyEnteredActivationArea;
         activationArea.BodyExited += OnBodyExitedActivationArea;
 
+        // get visible area and scale based on range var
+        Area2D visibleArea = GetNode<Area2D>("VisibleArea");
+        CircleShape2D visibleShape = (CircleShape2D)GetNode<CollisionShape2D>("VisibleArea/CollisionShape2D").Shape;
+        visibleShape.Radius = VisibleRange;
+
+        visibleArea.BodyEntered += OnBodyEnteredVisibleArea;
+        visibleArea.BodyExited += OnBodyExitedVisibleArea;
+
         // get reference to dialogUI 
-        GD.Print("CURRENT SCENE");
-        GD.Print(GetTree().CurrentScene);
         DialogUI = GetNode<DialogUI>("../UILayer/DialogUI");
         ChoiceUI = GetNode<ChoiceUI>("../UILayer/ChoiceUI");
     }
@@ -52,9 +66,10 @@ public partial class InteractableObject : Node2D
     {
         if (body.IsInGroup("player"))
         {
-            // set bool flag to true and make sprite invisible
+            // set bool flag to true and make label visible
             InRange = true;
-            GetNode<Sprite2D>("InteractIcon").Visible = true;
+            GetNode<RichTextLabel>("TextLabel").AddThemeColorOverride("font_outline_color", Colors.White);
+            GetNode<RichTextLabel>("TextLabel").AddThemeColorOverride("default_color", Colors.Black);
         }
     }
 
@@ -62,9 +77,28 @@ public partial class InteractableObject : Node2D
     {
         if (body.IsInGroup("player"))
         {
-            // set inRange bool flag to false and make sprite invisible
+            // set inRange bool flag to false and make label invisible
             InRange = false;
-            GetNode<Sprite2D>("InteractIcon").Visible = false;
+            GetNode<RichTextLabel>("TextLabel").AddThemeColorOverride("font_outline_color", Colors.Transparent);
+            GetNode<RichTextLabel>("TextLabel").AddThemeColorOverride("default_color", Colors.White);
+        }
+    }
+
+    private void OnBodyEnteredVisibleArea(Node2D body)
+    {
+        if (body.IsInGroup("player"))
+        {
+            // make text label visible
+            GetNode<RichTextLabel>("TextLabel").Visible = true;
+        }
+    }
+
+    private void OnBodyExitedVisibleArea(Node2D body)
+    {
+        if (body.IsInGroup("player"))
+        {
+            // make text label invisible
+            GetNode<RichTextLabel>("TextLabel").Visible = false;
         }
     }
 
@@ -145,7 +179,6 @@ public partial class InteractableObject : Node2D
             if(ChoiceUI.Visible) return;
 
             // Choice
-            // TODO: Choice UI will be called here, along with choice logic
             GD.Print("Choice!");
 
             DialogUI.Visible = false; // hide dialog UI

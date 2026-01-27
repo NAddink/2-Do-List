@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=4 uid="uid://dbfjcyje05s6n"]
+[gd_scene load_steps=5 format=4 uid="uid://dbfjcyje05s6n"]
 
 [ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="1_1sfx6"]
 [ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/Player.tscn" id="2_cxojc"]
+[ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/InteractableObject.tscn" id="3_mo1xh"]
+[ext_resource type="Resource" uid="uid://cuo5u1re2h6ww" path="res://Noah/inks/interactables/Level1/computerv2.ink" id="4_di1wp"]
 
 [node name="Level1" type="Node2D"]
 
@@ -32,3 +34,13 @@ position = Vector2(-115, -8)
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player"]
 zoom = Vector2(2.175, 2.175)
 position_smoothing_enabled = true
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="InteractableObject" parent="Interactables" groups=["interactable"] instance=ExtResource("3_mo1xh")]
+z_index = 1
+position = Vector2(48, -63)
+LabelText = "Computer"
+ActivationRange = 10.0
+VisibleRange = 60.0
+inkData = ExtResource("4_di1wp")

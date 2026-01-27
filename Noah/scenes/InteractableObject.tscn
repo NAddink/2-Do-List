@@ -1,18 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://75s6u7fw0ik3"]
+[gd_scene load_steps=6 format=3 uid="uid://75s6u7fw0ik3"]
 
 [ext_resource type="Script" uid="uid://bvx80msroncle" path="res://Noah/scripts/InteractableObject.cs" id="1_3gams"]
 [ext_resource type="Texture2D" uid="uid://c6pdvqvrb72or" path="res://Noah/assets/sprites/Icons/Sprite-0003.png" id="1_aq1v0"]
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_04p7b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gams"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04p7b"]
 
 [node name="InteractableObject" type="Node2D"]
 script = ExtResource("1_3gams")
 
+[node name="TextLabel" type="RichTextLabel" parent="."]
+offset_left = -35.0
+offset_top = -7.0
+offset_right = 273.0
+offset_bottom = 47.04348
+scale = Vector2(0.23, 0.23)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("2_04p7b")
+theme_override_font_sizes/normal_font_size = 40
+text = "Interact"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="InteractIcon" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_aq1v0")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ActivationArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea" groups=["player"]]
 shape = SubResource("CircleShape2D_3gams")
+
+[node name="VisibleArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea"]
+shape = SubResource("CircleShape2D_04p7b")
