@@ -15,9 +15,9 @@ Answering Machine $$$ ***BEEEEEEP*** Hey! This is Boss! Make yourself useful and
 
 === dead_end ===
 
-* [Sympathetic]
++ [Sympathetic]
     -> dead_end_sympathetic
-* [Witty]
++ [Witty]
     -> dead_end_witty
 + [Back]
     -> main_menu

@@ -54,8 +54,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_sjgwd")
 [node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_edwrk")
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "This is a line of dialog! Wow I can't wait to dialog it up!"
+text = "Wow some dialogue! Can't wait to dialogue it up with this dialogue! This dialogue box should be able to hold up to 3 lines of text total. After that a scroll wheel will allow more than 3 lines."
+autowrap_mode = 2
 
 [node name="SpeakerBox" type="Control" parent="."]
 layout_mode = 1
