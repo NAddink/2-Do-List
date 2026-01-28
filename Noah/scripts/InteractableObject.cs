@@ -118,8 +118,8 @@ public partial class InteractableObject : ActivatableObject
         visibleArea.BodyExited += OnBodyExitedVisibleArea;
 
         // get reference to dialogUI 
-        DialogUI = GetNode<DialogUI>("../UILayer/DialogUI");
-        ChoiceUI = GetNode<ChoiceUI>("../UILayer/ChoiceUI");
+        DialogUI = GetNode<DialogUI>("../../UILayer/DialogUI");
+        ChoiceUI = GetNode<ChoiceUI>("../../UILayer/ChoiceUI");
 
         
     }

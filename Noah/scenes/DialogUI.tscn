@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu4fj76ix6ea2"]
+[gd_scene load_steps=10 format=3 uid="uid://bu4fj76ix6ea2"]
 
 [ext_resource type="Script" uid="uid://cl6lcwupxnpk7" path="res://Noah/scripts/DialogUI.cs" id="1_xh3aw"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_edwrk"]
@@ -21,6 +21,9 @@ content_margin_top = 20.0
 content_margin_right = 40.0
 content_margin_bottom = 20.0
 bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0ket"]
+content_margin_top = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ket"]
 content_margin_left = 15.0
@@ -55,6 +58,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_sjgwd")
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_edwrk")
 theme_override_font_sizes/normal_font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i0ket")
 bbcode_enabled = true
 text = "Wow some dialogue! Can't wait to dialogue it up with this dialogue! This dialogue box should be able to hold up to 3 lines of text total. After that a scroll wheel will allow more than 3 lines."
 autowrap_mode = 2
