@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dbfjcyje05s6n"]
+[gd_scene load_steps=11 format=4 uid="uid://dbfjcyje05s6n"]
 
 [ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="1_1sfx6"]
 [ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/Player.tscn" id="2_cxojc"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://de3565ykv4i6d" path="res://Noah/scenes/ChoiceUI.tscn" id="6_5plg3"]
 [ext_resource type="Resource" uid="uid://beqqvtp6h51sg" path="res://Noah/inks/interactables/Level1/photos.ink" id="6_7quv6"]
 [ext_resource type="Resource" uid="uid://catlhyxwo8j2p" path="res://Noah/inks/interactables/Level1/FilingCabinet.ink" id="6_ka8fv"]
+[ext_resource type="PackedScene" uid="uid://caaf2ffjgs8ir" path="res://Noah/scenes/DescriptionObject.tscn" id="8_xa7eh"]
 
 [node name="Level1" type="Node2D"]
 
@@ -38,7 +39,7 @@ tile_map_data = PackedByteArray("AAD0//7/AwAKACAAAAD4//r/AwAAABcAAAD4//v/AwAAABg
 
 [node name="Player" parent="Tilemaps" groups=["player"] instance=ExtResource("2_cxojc")]
 y_sort_enabled = true
-position = Vector2(687, -178)
+position = Vector2(-159, -7)
 
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player"]
 zoom = Vector2(2.175, 2.175)
@@ -81,6 +82,14 @@ ActivationRange = 14.7
 VisibleRange = 27.07
 LabelYOffset = -13.745
 inkData = ExtResource("6_ka8fv")
+
+[node name="ExampleDescription" parent="Dialogue" groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(-48, -45)
+LabelText = "Plant"
+DescriptionText = "I love my little plant!"
+ActivationRange = 13.5
+VisibleRange = 32.07
+LabelYOffset = -33.21
 
 [node name="UILayer" type="CanvasLayer" parent="Dialogue"]
 

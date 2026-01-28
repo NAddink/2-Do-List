@@ -105,17 +105,17 @@ public partial class Player : CharacterBody2D
     // Activates the closest visible interactable
     private void ActivateClosestInteractable()
     {
-        Godot.Collections.Array<InteractableObject> interactablesInRange = [];
+        Godot.Collections.Array<ActivatableObject> interactablesInRange = [];
         float closestDistance = float.MaxValue;
-        InteractableObject closestInteractable = null;
+        ActivatableObject closestInteractable = null;
 
         
 
         foreach(Node node in GetTree().GetNodesInGroup("interactable"))
         {
-            // make sure node is interactableObject- it should be
+            // make sure node is ActivatableObject- it should be
             // adds any in range interactables to the list
-            if (node is InteractableObject interactable) 
+            if (node is ActivatableObject interactable) 
                 if(interactable.InRange)
                     interactablesInRange.Add(interactable);
         }
@@ -123,7 +123,7 @@ public partial class Player : CharacterBody2D
         // GD.Print($"{interactablesInRange.Count} Total interactables in range.");
 
         // find closest in-range interactable 
-        foreach(InteractableObject interactable in interactablesInRange)
+        foreach(ActivatableObject interactable in interactablesInRange)
         {
             float distance = interactable.GlobalPosition.DistanceTo(this.GlobalPosition);
             if( distance < closestDistance)
@@ -138,7 +138,7 @@ public partial class Player : CharacterBody2D
             // GD.Print($"Closest interactable is {closestDistance} away. Activating.");
             if (!closestInteractable.Activated)
             {
-                closestInteractable.activateInteractable();
+                closestInteractable.Activate();
             }
         }
         else

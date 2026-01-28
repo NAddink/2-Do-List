@@ -1,17 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://75s6u7fw0ik3"]
+[gd_scene load_steps=6 format=3 uid="uid://caaf2ffjgs8ir"]
 
-[ext_resource type="Script" uid="uid://bvx80msroncle" path="res://Noah/scripts/InteractableObject.cs" id="1_3gams"]
-[ext_resource type="Texture2D" uid="uid://c6pdvqvrb72or" path="res://Noah/assets/sprites/Icons/Sprite-0003.png" id="1_aq1v0"]
-[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_04p7b"]
+[ext_resource type="Script" uid="uid://bb0ffuff6mkyx" path="res://Noah/scripts/DescriptionObject.cs" id="1_yd4xp"]
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_wp3hm"]
+[ext_resource type="Texture2D" uid="uid://c6pdvqvrb72or" path="res://Noah/assets/sprites/Icons/Sprite-0003.png" id="3_agji4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gams"]
-radius = 14.7
+radius = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04p7b"]
-radius = 27.07
+radius = 2.0
 
-[node name="InteractableObject" type="Node2D"]
-script = ExtResource("1_3gams")
+[node name="DescriptionObject" type="Node2D"]
+script = ExtResource("1_yd4xp")
 
 [node name="TextLabel" type="RichTextLabel" parent="."]
 offset_left = -35.0
@@ -22,7 +22,7 @@ scale = Vector2(0.23, 0.23)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 10
-theme_override_fonts/normal_font = ExtResource("2_04p7b")
+theme_override_fonts/normal_font = ExtResource("2_wp3hm")
 theme_override_font_sizes/normal_font_size = 40
 fit_content = true
 scroll_active = false
@@ -33,7 +33,7 @@ vertical_alignment = 1
 [node name="InteractIcon" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_aq1v0")
+texture = ExtResource("3_agji4")
 
 [node name="ActivationArea" type="Area2D" parent="."]
 
