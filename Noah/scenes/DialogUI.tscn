@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu4fj76ix6ea2"]
+[gd_scene format=3 uid="uid://bu4fj76ix6ea2"]
 
 [ext_resource type="Script" uid="uid://cl6lcwupxnpk7" path="res://Noah/scripts/DialogUI.cs" id="1_xh3aw"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_edwrk"]
@@ -22,9 +22,6 @@ content_margin_right = 40.0
 content_margin_bottom = 20.0
 bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0ket"]
-content_margin_top = 10.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ket"]
 content_margin_left = 15.0
 content_margin_right = 15.0
@@ -33,7 +30,7 @@ bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_avaca"]
 font_size = 36
 
-[node name="DialogUI" type="Control"]
+[node name="DialogUI" type="Control" unique_id=1735026924]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +40,7 @@ grow_vertical = 2
 theme = SubResource("Theme_edwrk")
 script = ExtResource("1_xh3aw")
 
-[node name="DialogBox" type="PanelContainer" parent="."]
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=381949512]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 1
 anchors_preset = 12
@@ -54,16 +51,16 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjgwd")
 
-[node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
+[node name="DialogLine" type="RichTextLabel" parent="DialogBox" unique_id=358325532]
+clip_contents = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_edwrk")
 theme_override_font_sizes/normal_font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxEmpty_i0ket")
 bbcode_enabled = true
-text = "Wow some dialogue! Can't wait to dialogue it up with this dialogue! This dialogue box should be able to hold up to 3 lines of text total. After that a scroll wheel will allow more than 3 lines."
+text = "Wow some dialogue! Can't wait to dialogue it up with this dialogue it sure is dia"
 autowrap_mode = 2
 
-[node name="SpeakerBox" type="Control" parent="."]
+[node name="SpeakerBox" type="Control" parent="." unique_id=1903239797]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -73,7 +70,7 @@ offset_right = 200.0
 offset_bottom = -149.0
 grow_vertical = 0
 
-[node name="SpeakerName" type="Label" parent="SpeakerBox"]
+[node name="SpeakerName" type="Label" parent="SpeakerBox" unique_id=973173010]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -88,7 +85,7 @@ text = "Speaker Name"
 label_settings = SubResource("LabelSettings_avaca")
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1731662659]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -100,11 +97,11 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Polygon2D" type="Polygon2D" parent="Control"]
+[node name="Polygon2D" type="Polygon2D" parent="Control" unique_id=1675108089]
 position = Vector2(-20, -20)
 polygon = PackedVector2Array(0, 0, 30, 15, 0, 30)
 
-[node name="Audio" type="Node" parent="."]
+[node name="Audio" type="Node" parent="." unique_id=1949856351]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=1962039231]
 stream = ExtResource("2_yjvli")
