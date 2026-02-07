@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dbfjcyje05s6n"]
 
 [ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="1_1sfx6"]
-[ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/Player.tscn" id="2_cxojc"]
+[ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/player.tscn" id="2_cxojc"]
 [ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/InteractableObject.tscn" id="3_mo1xh"]
 [ext_resource type="Resource" uid="uid://cuo5u1re2h6ww" path="res://Noah/inks/interactables/Level1/computer.ink" id="4_di1wp"]
 [ext_resource type="Resource" uid="uid://byldxdniyihs2" path="res://Noah/inks/interactables/Level1/phone.ink" id="5_5plg3"]

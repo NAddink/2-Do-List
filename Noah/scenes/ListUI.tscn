@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://c2b5b317h20m2"]
+
+[ext_resource type="Texture2D" uid="uid://bdg343ikit2i0" path="res://Noah/assets/sprites/ListUI/closed-eyes-anim.png" id="1_5h4vt"]
+[ext_resource type="Script" uid="uid://c7r3aju6grsrp" path="res://Noah/scripts/ListUI.cs" id="1_hxi28"]
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_wiuat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wiuat"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(0, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxi28"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(256, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1ied"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(512, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf5tf"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(768, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5lok"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(1024, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5bil"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(1280, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4awd"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(1536, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx40q"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(1792, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qweit"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(2048, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fphbp"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(2304, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpnob"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(2560, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7gut"]
+atlas = ExtResource("1_5h4vt")
+region = Rect2(2816, 0, 256, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgp64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wiuat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxi28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1ied")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf5tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5lok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5bil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4awd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx40q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qweit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fphbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpnob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7gut")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="ListUI" type="Control" unique_id=764078147]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hxi28")
+
+[node name="Panel" type="Panel" parent="." unique_id=2122046048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel" unique_id=1448223277]
+texture_filter = 2
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_hgp64")
+autoplay = "default"
+frame_progress = 0.20370701
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=522366095]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 181.0
+offset_top = 105.0
+offset_right = -221.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ListItems" type="Control" parent="." unique_id=1080779351]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -497.0
+offset_top = -254.0
+offset_right = 496.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogLine" type="RichTextLabel" parent="ListItems" unique_id=1281321192]
+clip_contents = false
+layout_mode = 0
+offset_left = 189.0
+offset_top = -13.0
+offset_right = 475.0
+offset_bottom = 23.0
+theme_override_fonts/normal_font = ExtResource("2_wiuat")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake rate=2.0 level=15 connected=1][wave amp=30.0 freq=1.0 connected=1]Respond to emails"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="DialogLine2" type="RichTextLabel" parent="ListItems" unique_id=1717681953]
+clip_contents = false
+layout_mode = 0
+offset_left = 409.0
+offset_top = 61.0
+offset_right = 816.0
+offset_bottom = 97.0
+theme_override_fonts/normal_font = ExtResource("2_wiuat")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake rate=2.0 level=15 connected=1][wave amp=30.0 freq=1.0 connected=1]Research insurance news"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="DialogLine3" type="RichTextLabel" parent="ListItems" unique_id=15435618]
+clip_contents = false
+layout_mode = 0
+offset_left = 196.0
+offset_top = 128.0
+offset_right = 544.0
+offset_bottom = 164.0
+theme_override_fonts/normal_font = ExtResource("2_wiuat")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake rate=2.0 level=15 connected=1][wave amp=30.0 freq=1.0 connected=1]Update client records"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="DialogLine4" type="RichTextLabel" parent="ListItems" unique_id=1038803323]
+clip_contents = false
+layout_mode = 0
+offset_left = 129.0
+offset_top = 324.0
+offset_right = 716.0
+offset_bottom = 360.0
+theme_override_fonts/normal_font = ExtResource("2_wiuat")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake rate=2.0 level=15 connected=1][wave amp=30.0 freq=1.0 connected=1]Reschedule shareholder appointment"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="DialogLine5" type="RichTextLabel" parent="ListItems" unique_id=79793208]
+clip_contents = false
+layout_mode = 0
+offset_left = 481.0
+offset_top = 216.0
+offset_right = 797.0
+offset_bottom = 252.0
+theme_override_fonts/normal_font = ExtResource("2_wiuat")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake rate=2.0 level=15 connected=1][wave amp=30.0 freq=1.0 connected=1]Call potential clients"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1

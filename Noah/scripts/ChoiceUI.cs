@@ -13,7 +13,8 @@ public partial class ChoiceUI : Control
     public override void _Ready()
     {
         vBox = GetNode<VBoxContainer>("VBoxContainer");
-        buttonScene = GD.Load<PackedScene>("res://Noah/scenes/ChoiceButton.tscn");
+        // ChoiceButton.tscn
+        buttonScene = GD.Load<PackedScene>("uid://cji1ck82vffii");
     }
 
 

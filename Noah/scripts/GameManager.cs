@@ -56,11 +56,6 @@ public partial class GameManager : Node
                 {
                     EmitSignal(SignalName.DialogButtonPressed);
                 }
-
-                if(inputKey.Keycode == Key.P)
-                {
-                    GetTree().ChangeSceneToFile("res://Noah/scenes/DialogUI.tscn");
-                }
             }
         }
     }
