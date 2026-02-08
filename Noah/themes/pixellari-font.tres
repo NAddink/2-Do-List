@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://pm2gelwn2dk0"]
+
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="1_jpeiv"]
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/normal_font = ExtResource("1_jpeiv")

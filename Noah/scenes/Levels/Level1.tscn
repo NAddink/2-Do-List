@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://beqqvtp6h51sg" path="res://Noah/inks/interactables/Level1/photos.ink" id="6_7quv6"]
 [ext_resource type="Resource" uid="uid://catlhyxwo8j2p" path="res://Noah/inks/interactables/Level1/FilingCabinet.ink" id="6_ka8fv"]
 [ext_resource type="PackedScene" uid="uid://caaf2ffjgs8ir" path="res://Noah/scenes/DescriptionObject.tscn" id="8_xa7eh"]
+[ext_resource type="PackedScene" uid="uid://c2b5b317h20m2" path="res://Noah/scenes/ListUI.tscn" id="11_ola80"]
 
 [node name="Level1" type="Node2D" unique_id=1839961033]
 
@@ -109,4 +110,7 @@ LabelYOffset = -29.435
 visible = false
 
 [node name="ChoiceUI" parent="Dialogue/UILayer" unique_id=923372394 instance=ExtResource("6_5plg3")]
+visible = false
+
+[node name="ListUI" parent="Dialogue/UILayer" unique_id=764078147 instance=ExtResource("11_ola80")]
 visible = false

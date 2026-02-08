@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bdg343ikit2i0" path="res://Noah/assets/sprites/ListUI/closed-eyes-anim.png" id="1_5h4vt"]
 [ext_resource type="Script" uid="uid://c7r3aju6grsrp" path="res://Noah/scripts/ListUI.cs" id="1_hxi28"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_wiuat"]
+[ext_resource type="Theme" uid="uid://pm2gelwn2dk0" path="res://Noah/themes/pixellari-font.tres" id="3_s1ied"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiuat"]
 atlas = ExtResource("1_5h4vt")
@@ -104,6 +105,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hxi28")
+DescriptionText = "Respond to emails
+Research insurance news
+Update client records
+Call potential Clients
+Reschedule shareholder appointment
+Put in your lunch order"
+SelectedTheme = ExtResource("3_s1ied")
 
 [node name="Panel" type="Panel" parent="." unique_id=2122046048]
 layout_mode = 1
@@ -118,7 +126,7 @@ texture_filter = 2
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_hgp64")
 autoplay = "default"
-frame_progress = 0.20370701
+frame_progress = 0.6090369
 centered = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=522366095]
@@ -150,21 +158,26 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DialogLine" type="RichTextLabel" parent="ListItems" unique_id=1281321192]
+visible = false
 clip_contents = false
-layout_mode = 0
-offset_left = 189.0
-offset_top = -13.0
-offset_right = 475.0
-offset_bottom = 23.0
-theme_override_fonts/normal_font = ExtResource("2_wiuat")
-theme_override_font_sizes/normal_font_size = 36
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_right = 143.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme = ExtResource("3_s1ied")
 bbcode_enabled = true
 text = "[shake rate=2.0 level=15 connected=1][wave amp=30.0 freq=1.0 connected=1]Respond to emails"
 fit_content = true
+scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="DialogLine2" type="RichTextLabel" parent="ListItems" unique_id=1717681953]
+visible = false
 clip_contents = false
 layout_mode = 0
 offset_left = 409.0
@@ -180,6 +193,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="DialogLine3" type="RichTextLabel" parent="ListItems" unique_id=15435618]
+visible = false
 clip_contents = false
 layout_mode = 0
 offset_left = 196.0
@@ -195,12 +209,16 @@ autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="DialogLine4" type="RichTextLabel" parent="ListItems" unique_id=1038803323]
+visible = false
 clip_contents = false
-layout_mode = 0
-offset_left = 129.0
-offset_top = 324.0
-offset_right = 716.0
-offset_bottom = 360.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -293.5
+offset_right = 293.5
+offset_bottom = 36.0
+grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("2_wiuat")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
@@ -210,6 +228,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="DialogLine5" type="RichTextLabel" parent="ListItems" unique_id=79793208]
+visible = false
 clip_contents = false
 layout_mode = 0
 offset_left = 481.0
