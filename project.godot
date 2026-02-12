@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="2-Do-List"
 run/main_scene="uid://dbfjcyje05s6n"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dk0flf48e0j6h"
 
 [autoload]
 
