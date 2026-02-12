@@ -228,7 +228,7 @@ public partial class DescriptionObject : ActivatableObject
     // also parses speaker names.
     private async Task DisplayNextLine()
     {
-        
+        GameManager.Instance.SetDialogState(true);   
         DialogUI.SpeakLine("MC $$$ " + DescriptionText);
         // End of dialog- cooldown timer
             

@@ -114,3 +114,7 @@ visible = false
 
 [node name="ListUI" parent="Dialogue/UILayer" unique_id=764078147 instance=ExtResource("11_ola80")]
 visible = false
+DescriptionText = "Respond to emails
+Research insurance news
+Update client records
+Call potential Clients"
