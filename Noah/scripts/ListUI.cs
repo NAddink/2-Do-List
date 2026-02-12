@@ -81,7 +81,7 @@ public partial class ListUI : Control
 
         Random rand = new Random();
 
-        foreach (string part in items)
+        foreach (string item in items)
         {
             RichTextLabel label = new RichTextLabel();
             label.BbcodeEnabled = true;
@@ -93,11 +93,33 @@ public partial class ListUI : Control
             // labels will match the width of the parent node to center properly
             label.CustomMinimumSize = new Vector2(990, 30); 
 
-            label.Text =
-                "[shake rate=2.0 level=15 connected=1]" +
-                "[wave amp=30.0 freq=1.0 connected=1]" +
-                part +
-                "[/wave][/shake]";
+            string[] parts = item.Split("$$$");
+            if(parts.Length < 2)
+            {
+                GD.PrintErr("Todo list item " + parts[0] + " is missing an assigned flag.");
+                return;
+            }
+
+            string itemName = parts[0].Trim();
+            string itemFlag = parts[1].Trim();
+
+            // If flag is set to true - checked
+            if (GameManager.Instance.GetFlag(itemFlag))
+            {
+                label.Text =
+                    "[s][color=DIM_GRAY]" +
+                    itemName +
+                    "[/color][/s]";
+
+            }
+            else // unchecked
+            {
+                label.Text =
+                    "[shake rate=2.0 level=15 connected=1]" +
+                    "[wave amp=30.0 freq=1.0 connected=1]" +
+                    itemName +
+                    "[/wave][/shake]";
+            }
 
             // Center X around 300, shift randomly left/right
             int randXOffset = rand.Next(-50, 51);

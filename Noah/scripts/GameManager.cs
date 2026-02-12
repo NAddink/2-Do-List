@@ -72,7 +72,13 @@ public partial class GameManager : Node
     public void Save()
     {
         ConfigFile configFile = new ConfigFile();
-        var jsonData = JsonSerializer.Serialize(FlagsData);
+
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+
+        var jsonData = JsonSerializer.Serialize(FlagsData, options);
 
         using FileAccess file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
         if (file != null)
@@ -126,6 +132,20 @@ public partial class GameManager : Node
         }
 
         Save();
+    }
+
+    public bool GetFlag(string flagName)
+    {
+        Load(); // Get updated flagdata
+
+        if (FlagsData.ContainsKey(flagName))
+        {
+            return FlagsData[flagName]; // Return flag as true or false
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public Dictionary<string, bool> GetFlags()
