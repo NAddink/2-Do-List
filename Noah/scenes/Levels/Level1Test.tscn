@@ -1,12 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://bxiviwrdc4gw"]
+[gd_scene format=4 uid="uid://bxiviwrdc4gw"]
 
-[ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/Player.tscn" id="1_2i83t"]
-[ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="2_kq4n5"]
-[ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/InteractableObject.tscn" id="5_middd"]
-[ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://Noah/scenes/DialogUI.tscn" id="6_a82gr"]
+[ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/Misc/player.tscn" id="1_2i83t"]
+[ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/Misc/TileMap.tscn" id="2_kq4n5"]
+[ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/Interactables/InteractableObject.tscn" id="5_middd"]
+[ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://Noah/scenes/UI/DialogUI.tscn" id="6_a82gr"]
 [ext_resource type="Resource" uid="uid://cuo5u1re2h6ww" path="res://Noah/inks/interactables/Level1/computer.ink" id="6_middd"]
 [ext_resource type="AudioStream" uid="uid://bh8hgvrj7ie6u" path="res://Noah/assets/audio/bgm-cherryblossom.mp3" id="7_2i83t"]
-[ext_resource type="PackedScene" uid="uid://de3565ykv4i6d" path="res://Noah/scenes/ChoiceUI.tscn" id="7_rb1j2"]
+[ext_resource type="PackedScene" uid="uid://de3565ykv4i6d" path="res://Noah/scenes/UI/ChoiceUI.tscn" id="7_rb1j2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ida4p"]
 size = Vector2(447, 20)

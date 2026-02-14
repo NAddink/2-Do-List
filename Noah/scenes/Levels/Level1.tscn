@@ -1,16 +1,17 @@
 [gd_scene format=4 uid="uid://dbfjcyje05s6n"]
 
-[ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/TileMap.tscn" id="1_1sfx6"]
-[ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/player.tscn" id="2_cxojc"]
-[ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/InteractableObject.tscn" id="3_mo1xh"]
+[ext_resource type="PackedScene" uid="uid://d1oqowc15cidg" path="res://Noah/scenes/Misc/TileMap.tscn" id="1_1sfx6"]
+[ext_resource type="PackedScene" uid="uid://c8dko06x8s0xi" path="res://Noah/scenes/Misc/player.tscn" id="2_cxojc"]
+[ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/Interactables/InteractableObject.tscn" id="3_mo1xh"]
 [ext_resource type="Resource" uid="uid://cuo5u1re2h6ww" path="res://Noah/inks/interactables/Level1/computer.ink" id="4_di1wp"]
 [ext_resource type="Resource" uid="uid://byldxdniyihs2" path="res://Noah/inks/interactables/Level1/phone.ink" id="5_5plg3"]
-[ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://Noah/scenes/DialogUI.tscn" id="5_c3mfm"]
-[ext_resource type="PackedScene" uid="uid://de3565ykv4i6d" path="res://Noah/scenes/ChoiceUI.tscn" id="6_5plg3"]
+[ext_resource type="PackedScene" uid="uid://bu4fj76ix6ea2" path="res://Noah/scenes/UI/DialogUI.tscn" id="5_c3mfm"]
+[ext_resource type="PackedScene" uid="uid://de3565ykv4i6d" path="res://Noah/scenes/UI/ChoiceUI.tscn" id="6_5plg3"]
 [ext_resource type="Resource" uid="uid://beqqvtp6h51sg" path="res://Noah/inks/interactables/Level1/photos.ink" id="6_7quv6"]
 [ext_resource type="Resource" uid="uid://catlhyxwo8j2p" path="res://Noah/inks/interactables/Level1/FilingCabinet.ink" id="6_ka8fv"]
-[ext_resource type="PackedScene" uid="uid://caaf2ffjgs8ir" path="res://Noah/scenes/DescriptionObject.tscn" id="8_xa7eh"]
-[ext_resource type="PackedScene" uid="uid://c2b5b317h20m2" path="res://Noah/scenes/ListUI.tscn" id="11_ola80"]
+[ext_resource type="PackedScene" uid="uid://caaf2ffjgs8ir" path="res://Noah/scenes/Interactables/DescriptionObject.tscn" id="8_xa7eh"]
+[ext_resource type="PackedScene" uid="uid://c2b5b317h20m2" path="res://Noah/scenes/UI/ListUI.tscn" id="11_ola80"]
+[ext_resource type="AudioStream" uid="uid://bh8hgvrj7ie6u" path="res://Noah/assets/audio/bgm-cherryblossom.mp3" id="12_gm6ah"]
 
 [node name="Level1" type="Node2D" unique_id=1839961033]
 
@@ -36,11 +37,11 @@ tile_map_data = PackedByteArray("AAD0//7/AwAEAB4AAAABAP7/AwAEAB4AAAAMAP7/AwABAB4
 
 [node name="TileMapLayerTop" parent="Tilemaps" unique_id=1918337589 instance=ExtResource("1_1sfx6")]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD0//7/AwAKACAAAAD4/wIAAwAGAAcAAAD7//z/AwAGAAcAAAAEAPr/AwAJAAwAAAAEAPv/AwAJAA0AAAAFAPr/AwAKAAwAAAAFAPv/AwAKAA0AAAD1/wAAAwAHAAgAAAAMAP7/AwAOABoAAAAFAP7/AwAIABYAAAAKAP3/AwAFAAwAAAAXAPn/AwAIACUAAAAVAPr/AwALAA8AAAAVAPf/AwAFAA0AAAAXAPf/AwACAAwAAAAXAPj/AwACAA0AAAAUAPf/AwAIAAoAAAAUAPj/AwAIAAsAAAAUAP3/AwAIAAgAAAAUAP7/AwAIAAkAAAAVAP3/AwAJAAgAAAAVAP7/AwAJAAkAAAAAAP7/AwALABoAAAACAP7/AwAMABoAAAD+//7/AwAGAAcAAAD//wAAAwANABoAAADs/wEAAwABAA4AAADn////AwAGAAoAAADo//7/AwABAA4AAAAWAPr/AwAOAAgAAAARAPr/AwAHAAwAAADx//v/AwAHAAwAAADr/wEAAwAAAA4AAAD4//v/AwAAABcAAAD5//7/AwAAABcAAAA=")
+tile_map_data = PackedByteArray("AAD0//7/AwAKACAAAAD4/wIAAwAGAAcAAAD7//z/AwAGAAcAAAAEAPr/AwAJAAwAAAAEAPv/AwAJAA0AAAAFAPr/AwAKAAwAAAAFAPv/AwAKAA0AAAD1/wAAAwAHAAgAAAAMAP7/AwAOABoAAAAFAP7/AwAIABYAAAAKAP3/AwAFAAwAAAAXAPn/AwAIACUAAAAVAPr/AwALAA8AAAAVAPf/AwAFAA0AAAAXAPf/AwACAAwAAAAXAPj/AwACAA0AAAAUAPf/AwAIAAoAAAAUAPj/AwAIAAsAAAAUAP3/AwAIAAgAAAAUAP7/AwAIAAkAAAAVAP3/AwAJAAgAAAAVAP7/AwAJAAkAAAAAAP7/AwALABoAAAACAP7/AwAMABoAAAD+//7/AwAGAAcAAAD//wAAAwANABoAAADs/wEAAwABAA4AAADn////AwAGAAoAAADo//7/AwABAA4AAAAWAPr/AwAOAAgAAAARAPr/AwAHAAwAAADx//v/AwAHAAwAAADr/wEAAwAAAA4AAAD4//v/AwAAABcAAAA=")
 
 [node name="Player" parent="Tilemaps" unique_id=54148630 groups=["player"] instance=ExtResource("2_cxojc")]
 y_sort_enabled = true
-position = Vector2(-586, -33)
+position = Vector2(-195, 23)
 
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player" unique_id=468719523]
 zoom = Vector2(2.175, 2.175)
@@ -118,3 +119,8 @@ DescriptionText = "Respond to emails $$$ day0_office_RespondedToEmails
 Research insurance news $$$ day0_office_ResearchedInsurance
 Update client records $$$ day0_office_UpdatedRecords
 Call potential Clients $$$ day0_office_CalledClients"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1135089640]
+stream = ExtResource("12_gm6ah")
+volume_db = -3.68
+autoplay = true

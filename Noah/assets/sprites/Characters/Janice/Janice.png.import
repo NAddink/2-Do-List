@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b457rxvbim80q"
-path="res://.godot/imported/walk.png-eb4ab1da508a9b31e21f151f42cd2d1a.ctex"
+uid="uid://1gv8vtrtauic"
+path="res://.godot/imported/Janice.png-d127dab7374faa4264a98e956ba5083e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Noah/assets/sprites/lpc_male_animations_2025-11-17T21-16-47/walk.png"
-dest_files=["res://.godot/imported/walk.png-eb4ab1da508a9b31e21f151f42cd2d1a.ctex"]
+source_file="res://Noah/assets/sprites/Characters/Janice/Janice.png"
+dest_files=["res://.godot/imported/Janice.png-d127dab7374faa4264a98e956ba5083e.ctex"]
 
 [params]
 

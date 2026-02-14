@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://clwf58cldm21q"]
+
+[ext_resource type="PackedScene" uid="uid://75s6u7fw0ik3" path="res://Noah/scenes/Interactables/InteractableObject.tscn" id="1_fe55j"]
+
+[node name="Node2D" type="AnimatedSprite2D" unique_id=708329903]
+
+[node name="InteractableObject" parent="." unique_id=1140398923 instance=ExtResource("1_fe55j")]
