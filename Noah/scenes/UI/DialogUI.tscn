@@ -41,6 +41,7 @@ theme = SubResource("Theme_edwrk")
 script = ExtResource("1_xh3aw")
 
 [node name="DialogBox" type="PanelContainer" parent="." unique_id=381949512]
+clip_contents = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 1
 anchors_preset = 12

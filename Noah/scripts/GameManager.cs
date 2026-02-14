@@ -28,9 +28,11 @@ public partial class GameManager : Node
     private Dictionary<string, bool> FlagsData = new Dictionary<string, bool>();
     
     private static readonly string[] DefaultFlags = {
-        "selected_choice_3",
-        "selected_choice_4",
-        "selected_choice_5"
+        "day0_office_RespondedToEmails",
+        "day0_office_ResearchedInsurance",
+        "day0_office_UpdatedRecords",
+        "day0_office_CalledClients",
+        "day0_office_TalkedToSam"
     };
 
     private const string SavePath = "user://savegame.json";
