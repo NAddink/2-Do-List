@@ -187,11 +187,20 @@ public partial class InteractableObject : ActivatableObject
                 DialogUI.Visible = true;
 
                 _story = (InkStory)inkData.Duplicate();
-                foreach (var kv in GameManager.Instance.GetFlags())
+                try
                 {
-                    _story.StoreVariable(kv.Key, kv.Value);
-                    _story.ObserveVariable(kv.Key, new Callable(this, nameof(OnInkVariableChanged)));
+                    foreach (var kv in GameManager.Instance.GetFlags())
+                    {
+                        _story.StoreVariable(kv.Key, kv.Value);
+                        _story.ObserveVariable(kv.Key, new Callable(this, nameof(OnInkVariableChanged)));
+                    }
                 }
+                catch (Exception e)
+                {
+                    GD.PrintErr("=====\n=====\nIssue with flags, some flags are missing or misformed." + e.Message);
+                    GD.PrintErr("Make sure the flags are the same in globals.ink AND gamemanager.cs\n=====\n=====");
+                }
+                
 
                 await DisplayNextLine();
             }
