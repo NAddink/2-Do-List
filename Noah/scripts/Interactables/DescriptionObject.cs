@@ -33,11 +33,7 @@ public partial class DescriptionObject : InteractableObject
         }
         else
         {
-            InteractCooldown = CooldownTime;
-            DialogUI.Visible = false;
-            DialogUI.DialogLine.VisibleRatio = 0;
-            Activated = false;
-            GameManager.Instance.SetDialogState(false);
+            ExitDialog();
         }
     }
 

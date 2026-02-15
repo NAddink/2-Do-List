@@ -298,7 +298,15 @@ public partial class InteractableObject : ActivatableObject
             
             
         }
-    
+
+        // Exit dialog
+        ExitDialog();
+
+        _story = null; // reset story
+    }
+
+    public void ExitDialog()
+    {
         // End of dialog- cooldown timer
         InteractCooldown = CooldownTime;
 
@@ -312,8 +320,6 @@ public partial class InteractableObject : ActivatableObject
         Activated = false;
 
         GameManager.Instance.SetDialogState(false); // set dialog state to false - frees movement
-
-        _story = null; // reset story
     }
 
     public override void _PhysicsProcess(double delta)
