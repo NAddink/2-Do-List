@@ -305,7 +305,7 @@ public partial class InteractableObject : ActivatableObject
         _story = null; // reset story
     }
 
-    public void ExitDialog()
+    public virtual void ExitDialog()
     {
         // End of dialog- cooldown timer
         InteractCooldown = CooldownTime;

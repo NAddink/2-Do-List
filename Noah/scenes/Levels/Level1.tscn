@@ -147,6 +147,7 @@ tile_map_data = PackedByteArray("AAD0//7/AwAKACAAAAD4/wIAAwAGAAcAAAD7//z/AwAGAAc
 y_sort_enabled = true
 
 [node name="Player" parent="Tilemaps/Characters" unique_id=54148630 groups=["player"] instance=ExtResource("2_cxojc")]
+unique_name_in_owner = true
 y_sort_enabled = true
 position = Vector2(-195, 23)
 
