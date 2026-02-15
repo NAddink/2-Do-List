@@ -228,16 +228,16 @@ inkData = ExtResource("9_ai0mw")
 
 [node name="Plant" parent="Interactables/DescriptionObjects" unique_id=1873577332 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-48, -45)
-LabelText = "Plant"
 DescriptionText = "I love my little plant!"
+LabelText = "Plant"
 ActivationRange = 13.5
 VisibleRange = 32.07
 LabelYOffset = -33.21
 
 [node name="SamAward" parent="Interactables/DescriptionObjects" unique_id=261245220 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-336, 34)
-LabelText = "Award"
 DescriptionText = "Of course [wave amp=50.0 freq=5.0 connected=1]Sam[/wave] of all people gets employee of the month... what a prick..."
+LabelText = "Award"
 ActivationRange = 13.5
 VisibleRange = 32.07
 LabelYOffset = -29.435

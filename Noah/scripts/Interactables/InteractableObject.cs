@@ -65,10 +65,10 @@ public partial class InteractableObject : ActivatableObject
     public float InteractCooldown;
 
     // reference to dialogUI
-    private DialogUI DialogUI;
+    protected DialogUI DialogUI;
 
     // reference to choiceUI
-    private ChoiceUI ChoiceUI;
+    protected ChoiceUI ChoiceUI;
 
     public override void _Ready()
     {
@@ -168,7 +168,13 @@ public partial class InteractableObject : ActivatableObject
 
     public override void Activate()
     {
-        _ = activateInteractable();
+        _ = ActivateInternal();
+    }
+
+    // For subclasses, Activate remains unchanged but ActivateInternal logic can be changed
+    protected virtual async Task ActivateInternal()
+    {
+        await activateInteractable();
     }
 
     // To be called via player object interaction
@@ -212,7 +218,7 @@ public partial class InteractableObject : ActivatableObject
     }
 
     // When E or Space is pressed
-    private async void DialogProceed()
+    protected virtual async void DialogProceed()
     {
         if (Activated)
         {
