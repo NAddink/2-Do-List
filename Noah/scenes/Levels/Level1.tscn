@@ -177,7 +177,7 @@ offset = Vector2(0, -32)
 z_index = 1
 position = Vector2(18, -29)
 LabelText = "Computer"
-ActivationRange = 12.625
+ActivationRange = 7.14
 VisibleRange = 27.07
 LabelYOffset = -40.0
 inkData = ExtResource("4_di1wp")
@@ -195,8 +195,8 @@ inkData = ExtResource("5_5plg3")
 z_index = 1
 position = Vector2(72, -28)
 LabelText = "Photos"
-ActivationRange = 12.625
-VisibleRange = 27.07
+ActivationRange = 13.955
+VisibleRange = 27.355
 LabelYOffset = -26.345
 inkData = ExtResource("6_7quv6")
 
@@ -230,18 +230,10 @@ inkData = ExtResource("9_ai0mw")
 [node name="Plant" parent="Interactables/DescriptionObjects" unique_id=1873577332 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-48, -45)
 DescriptionText = "I love my little plant!"
-LabelText = "Plant"
-ActivationRange = 13.5
-VisibleRange = 32.07
-LabelYOffset = -33.21
 
 [node name="SamAward" parent="Interactables/DescriptionObjects" unique_id=261245220 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-336, 34)
 DescriptionText = "Of course [wave amp=50.0 freq=5.0 connected=1]Sam[/wave] of all people gets employee of the month... what a prick..."
-LabelText = "Award"
-ActivationRange = 13.5
-VisibleRange = 32.07
-LabelYOffset = -29.435
 
 [node name="Characters" type="Node2D" parent="Interactables" unique_id=1999727995]
 

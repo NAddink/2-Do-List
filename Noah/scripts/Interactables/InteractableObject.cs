@@ -27,6 +27,7 @@ public partial class InteractableObject : ActivatableObject
         {
             _activationRange = value;
             UpdateActivationArea();
+            QueueRedraw();
         }
     }
     private float _activationRange = 1f;
@@ -39,6 +40,7 @@ public partial class InteractableObject : ActivatableObject
         {
             _visibleRange = value;
             UpdateVisibleArea();
+            QueueRedraw();
         }
     }
     private float _visibleRange = 2f;
@@ -54,6 +56,9 @@ public partial class InteractableObject : ActivatableObject
         }
     }
     private float _labelYOffset = 0f;
+
+    private Area2D _activationArea;
+    private Area2D _visibleArea;
 
 
 
@@ -83,6 +88,11 @@ public partial class InteractableObject : ActivatableObject
 
     private void RuntimeSetup()
     {
+
+        CreateActivationArea();
+        CreateVisibleArea();
+        
+        
         // Attatch proceed logic to proceed signal
         GameManager.Instance.DialogProceed += DialogProceed;
 
@@ -99,23 +109,6 @@ public partial class InteractableObject : ActivatableObject
         pos.Y = _labelYOffset;
         label.Position = pos;
 
-
-        // get activation area and scale based on range var
-        Area2D activationArea = GetNode<Area2D>("ActivationArea");
-        CircleShape2D activationShape = (CircleShape2D)GetNode<CollisionShape2D>("ActivationArea/CollisionShape2D").Shape;
-        activationShape.Radius = ActivationRange;
-
-        // Add hooks to activationArea for onEnter and onExit
-        activationArea.BodyEntered += OnBodyEnteredActivationArea;
-        activationArea.BodyExited += OnBodyExitedActivationArea;
-
-        // get visible area and scale based on range var
-        Area2D visibleArea = GetNode<Area2D>("VisibleArea");
-        CircleShape2D visibleShape = (CircleShape2D)GetNode<CollisionShape2D>("VisibleArea/CollisionShape2D").Shape;
-        visibleShape.Radius = VisibleRange;
-
-        visibleArea.BodyEntered += OnBodyEnteredVisibleArea;
-        visibleArea.BodyExited += OnBodyExitedVisibleArea;
 
         // get reference to dialogUI 
         DialogUI = GetTree().GetRoot().GetNode<DialogUI>("Level/UI/DialogUI");
@@ -339,15 +332,54 @@ public partial class InteractableObject : ActivatableObject
     }
 
 
+    
+    private void CreateActivationArea()
+    {
+        _activationArea = new Area2D();
+        _activationArea.Name = "ActivationArea";
 
+        var collision = new CollisionShape2D();
+        var shape = new CircleShape2D();
+        shape.Radius = ActivationRange;
+
+        collision.Shape = shape;
+
+        _activationArea.AddChild(collision);
+        AddChild(_activationArea);
+
+        _activationArea.BodyEntered += OnBodyEnteredActivationArea;
+        _activationArea.BodyExited += OnBodyExitedActivationArea;
+    }
+
+    private void CreateVisibleArea()
+    {
+        _visibleArea = new Area2D();
+        _visibleArea.Name = "VisibleArea";
+
+        var collision = new CollisionShape2D();
+        var shape = new CircleShape2D();
+        shape.Radius = VisibleRange;
+
+        collision.Shape = shape;
+
+        _visibleArea.AddChild(collision);
+        AddChild(_visibleArea);
+
+        _visibleArea.BodyEntered += OnBodyEnteredVisibleArea;
+        _visibleArea.BodyExited += OnBodyExitedVisibleArea;
+    }
+
+
+    // =============================================
+    // Everything below here is for range visibility in editor
+    // Not related to game logic
+    // =============================================
 
     // Code for updating areas visually in editor for creating scenes
     private void EditorSetup()
     {
-        UpdateActivationArea();
-        UpdateVisibleArea();
+        QueueRedraw();
 
-        // Optional: preview label text
         var label = GetNodeOrNull<RichTextLabel>("TextLabel");
         if (label != null)
         {
@@ -359,9 +391,11 @@ public partial class InteractableObject : ActivatableObject
     // Helper methods for showing ranges and text in editor
     private void UpdateActivationArea()
     {
-        var shape = GetNodeOrNull<CollisionShape2D>(
-            "ActivationArea/CollisionShape2D"
-        )?.Shape as CircleShape2D;
+        if (_activationArea == null) return;
+
+        var shape = _activationArea
+            .GetNode<CollisionShape2D>("CollisionShape2D")
+            .Shape as CircleShape2D;
 
         if (shape != null)
             shape.Radius = _activationRange;
@@ -369,12 +403,15 @@ public partial class InteractableObject : ActivatableObject
 
     private void UpdateVisibleArea()
     {
-        var shape = GetNodeOrNull<CollisionShape2D>(
-            "VisibleArea/CollisionShape2D"
-        )?.Shape as CircleShape2D;
+        if (_visibleArea == null) return;
 
-        if (shape != null)
+        var shape = _visibleArea.GetNode<CollisionShape2D>("CollisionShape2D").Shape as CircleShape2D;
+
+        if(shape != null)
+        {
             shape.Radius = _visibleRange;
+        }
+
     }
 
     private void UpdateLabelText()
@@ -402,6 +439,16 @@ public partial class InteractableObject : ActivatableObject
         var pos = label.Position;
         pos.Y = _labelYOffset;
         label.Position = pos;
+    }
+
+
+    public override void _Draw()
+    {
+        if (!Engine.IsEditorHint())
+            return;
+
+        DrawCircle(Vector2.Zero, ActivationRange, new Color(1, 0, 0, 0.25f));
+        DrawCircle(Vector2.Zero, VisibleRange, new Color(0, 1, 0, 0.25f));
     }
 
 
