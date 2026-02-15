@@ -21,8 +21,8 @@ config/icon="uid://dk0flf48e0j6h"
 
 [autoload]
 
-GameManager="*res://Noah/scripts/GameManager.cs"
-FullScreenToggle="*res://Noah/scripts/FullScreenToggle.cs"
+GameManager="*res://Noah/scripts/Misc/GameManager.cs"
+FullScreenToggle="*res://Noah/scripts/Misc/FullScreenToggle.cs"
 
 [display]
 

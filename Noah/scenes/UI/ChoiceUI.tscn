@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://de3565ykv4i6d"]
+[gd_scene format=3 uid="uid://de3565ykv4i6d"]
 
-[ext_resource type="Script" uid="uid://ceo546hjuey7u" path="res://Noah/scripts/ChoiceUI.cs" id="1_citsw"]
+[ext_resource type="Script" uid="uid://ceo546hjuey7u" path="res://Noah/scripts/UI/ChoiceUI.cs" id="1_citsw"]
 
 [node name="ChoiceUi" type="Control"]
 layout_mode = 3

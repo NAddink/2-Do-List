@@ -117,7 +117,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Level1" type="Node2D" unique_id=1839961033]
+[node name="Level" type="Node2D" unique_id=1839961033]
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=89937668]
 y_sort_enabled = true
@@ -168,11 +168,11 @@ sprite_frames = SubResource("SpriteFrames_p302f")
 autoplay = "default"
 offset = Vector2(0, -32)
 
-[node name="Dialogue" type="Node2D" parent="." unique_id=205441093]
+[node name="Interactables" type="Node2D" parent="." unique_id=205441093]
 
-[node name="Interactables" type="Node2D" parent="Dialogue" unique_id=1182411012]
+[node name="InteractableObjects" type="Node2D" parent="Interactables" unique_id=1182411012]
 
-[node name="Computer" parent="Dialogue/Interactables" unique_id=1965503528 groups=["interactable"] instance=ExtResource("3_mo1xh")]
+[node name="Computer" parent="Interactables/InteractableObjects" unique_id=1965503528 groups=["interactable"] instance=ExtResource("3_mo1xh")]
 z_index = 1
 position = Vector2(18, -29)
 LabelText = "Computer"
@@ -181,7 +181,7 @@ VisibleRange = 27.07
 LabelYOffset = -40.0
 inkData = ExtResource("4_di1wp")
 
-[node name="Phone" parent="Dialogue/Interactables" unique_id=915346944 groups=["interactable"] instance=ExtResource("3_mo1xh")]
+[node name="Phone" parent="Interactables/InteractableObjects" unique_id=915346944 groups=["interactable"] instance=ExtResource("3_mo1xh")]
 z_index = 1
 position = Vector2(-15, 8)
 LabelText = "Phone"
@@ -190,7 +190,7 @@ VisibleRange = 27.07
 LabelYOffset = -9.115
 inkData = ExtResource("5_5plg3")
 
-[node name="Photos" parent="Dialogue/Interactables" unique_id=1717382728 groups=["interactable"] instance=ExtResource("3_mo1xh")]
+[node name="Photos" parent="Interactables/InteractableObjects" unique_id=1717382728 groups=["interactable"] instance=ExtResource("3_mo1xh")]
 z_index = 1
 position = Vector2(72, -28)
 LabelText = "Photos"
@@ -199,7 +199,7 @@ VisibleRange = 27.07
 LabelYOffset = -26.345
 inkData = ExtResource("6_7quv6")
 
-[node name="FilingCabinet" parent="Dialogue/Interactables" unique_id=1641032232 groups=["interactable"] instance=ExtResource("3_mo1xh")]
+[node name="FilingCabinet" parent="Interactables/InteractableObjects" unique_id=1641032232 groups=["interactable"] instance=ExtResource("3_mo1xh")]
 z_index = 1
 position = Vector2(75, 18)
 LabelText = "Filing Cabinet"
@@ -208,7 +208,7 @@ VisibleRange = 27.07
 LabelYOffset = -13.745
 inkData = ExtResource("6_ka8fv")
 
-[node name="Sam" parent="Dialogue/Interactables" unique_id=426496707 groups=["interactable"] instance=ExtResource("3_mo1xh")]
+[node name="Sam" parent="Interactables/InteractableObjects" unique_id=426496707 groups=["interactable"] instance=ExtResource("3_mo1xh")]
 position = Vector2(-368, -38)
 LabelText = "Sam"
 ActivationRange = 49.4
@@ -216,7 +216,7 @@ VisibleRange = 53.84
 LabelYOffset = -25.765
 inkData = ExtResource("14_un138")
 
-[node name="Janice" parent="Dialogue/Interactables" unique_id=1305940835 groups=["interactable"] instance=ExtResource("3_mo1xh")]
+[node name="Janice" parent="Interactables/InteractableObjects" unique_id=1305940835 groups=["interactable"] instance=ExtResource("3_mo1xh")]
 position = Vector2(389, -40)
 LabelText = "Janice"
 ActivationRange = 49.4
@@ -224,9 +224,9 @@ VisibleRange = 53.84
 LabelYOffset = -25.765
 inkData = ExtResource("9_ai0mw")
 
-[node name="DescriptionObjects" type="Node2D" parent="Dialogue" unique_id=939569979]
+[node name="DescriptionObjects" type="Node2D" parent="Interactables" unique_id=939569979]
 
-[node name="Plant" parent="Dialogue/DescriptionObjects" unique_id=1873577332 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+[node name="Plant" parent="Interactables/DescriptionObjects" unique_id=1873577332 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-48, -45)
 LabelText = "Plant"
 DescriptionText = "I love my little plant!"
@@ -234,7 +234,7 @@ ActivationRange = 13.5
 VisibleRange = 32.07
 LabelYOffset = -33.21
 
-[node name="SamAward" parent="Dialogue/DescriptionObjects" unique_id=261245220 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+[node name="SamAward" parent="Interactables/DescriptionObjects" unique_id=261245220 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-336, 34)
 LabelText = "Award"
 DescriptionText = "Of course [wave amp=50.0 freq=5.0 connected=1]Sam[/wave] of all people gets employee of the month... what a prick..."
@@ -242,24 +242,24 @@ ActivationRange = 13.5
 VisibleRange = 32.07
 LabelYOffset = -29.435
 
-[node name="UILayer" type="CanvasLayer" parent="Dialogue" unique_id=778027844]
-
-[node name="DialogUI" parent="Dialogue/UILayer" unique_id=594315065 instance=ExtResource("5_c3mfm")]
-visible = false
-
-[node name="ChoiceUI" parent="Dialogue/UILayer" unique_id=923372394 instance=ExtResource("6_5plg3")]
-visible = false
-
-[node name="ListUI" parent="Dialogue/UILayer" unique_id=764078147 instance=ExtResource("11_ola80")]
-visible = false
-DescriptionText = "Respond to emails $$$ day0_office_RespondedToEmails
-Research insurance news $$$ day0_office_ResearchedInsurance
-Update client records $$$ day0_office_UpdatedRecords
-Call potential Clients $$$ day0_office_CalledClients"
-
-[node name="Characters" type="Node2D" parent="Dialogue" unique_id=1999727995]
+[node name="Characters" type="Node2D" parent="Interactables" unique_id=1999727995]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1135089640]
 stream = ExtResource("12_gm6ah")
 volume_db = -3.68
 autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1798486162]
+
+[node name="DialogUI" parent="UI" unique_id=1735026924 instance=ExtResource("5_c3mfm")]
+visible = false
+
+[node name="ChoiceUI" parent="UI" unique_id=333104384 instance=ExtResource("6_5plg3")]
+visible = false
+
+[node name="ListUI" parent="UI" unique_id=764078147 instance=ExtResource("11_ola80")]
+visible = false
+DescriptionText = "Respond to emails $$$ day0_office_RespondedToEmails
+Research insurance news $$$ day0_office_ResearchedInsurance
+Update client records $$$ day0_office_UpdatedRecords
+Call potential Clients $$$ day0_office_CalledClients"

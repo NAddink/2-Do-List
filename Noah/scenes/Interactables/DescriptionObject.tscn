@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://caaf2ffjgs8ir"]
+[gd_scene format=3 uid="uid://caaf2ffjgs8ir"]
 
-[ext_resource type="Script" uid="uid://bb0ffuff6mkyx" path="res://Noah/scripts/DescriptionObject.cs" id="1_yd4xp"]
+[ext_resource type="Script" uid="uid://bb0ffuff6mkyx" path="res://Noah/scripts/Interactables/DescriptionObject.cs" id="1_yd4xp"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_wp3hm"]
 [ext_resource type="Texture2D" uid="uid://c6pdvqvrb72or" path="res://Noah/assets/sprites/Icons/Sprite-0003.png" id="3_agji4"]
 

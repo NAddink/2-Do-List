@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 [Tool]
-public partial class InteractableObject : ActivatableObject
+public partial class DescriptionObject : ActivatableObject
 {
     [Export]
     public string LabelText
@@ -18,6 +18,10 @@ public partial class InteractableObject : ActivatableObject
         }
     }
     private string _labelText = "";
+
+    [Export(PropertyHint.MultilineText)]
+    public string DescriptionText;
+
 
     [Export]
     public float ActivationRange
@@ -56,9 +60,6 @@ public partial class InteractableObject : ActivatableObject
     private float _labelYOffset = 0f;
 
 
-
-    [Export] private InkStory inkData;
-    private InkStory _story;            // runtime instance
 
     // short interact buffer so pressing e to end last dialog line doesn't reopen dialog
     public float CooldownTime = .1f;
@@ -118,8 +119,8 @@ public partial class InteractableObject : ActivatableObject
         visibleArea.BodyExited += OnBodyExitedVisibleArea;
 
         // get reference to dialogUI 
-        DialogUI = GetNode<DialogUI>("../../UILayer/DialogUI");
-        ChoiceUI = GetNode<ChoiceUI>("../../UILayer/ChoiceUI");
+        DialogUI = GetTree().GetRoot().GetNode<DialogUI>("Level/UI/DialogUI");
+        ChoiceUI = GetTree().GetRoot().GetNode<ChoiceUI>("Level/UI/ChoiceUI");
 
         
     }
@@ -166,13 +167,15 @@ public partial class InteractableObject : ActivatableObject
         }
     }
 
+
     public override void Activate()
     {
-        _ = activateInteractable();
+        _ = activateDescription();
     }
 
+
     // To be called via player object interaction
-    public async Task activateInteractable()
+    public async Task activateDescription()
     {
         if (!Activated)
         {
@@ -186,21 +189,6 @@ public partial class InteractableObject : ActivatableObject
                 Activated = true;
                 DialogUI.Visible = true;
 
-                _story = (InkStory)inkData.Duplicate();
-                try
-                {
-                    foreach (var kv in GameManager.Instance.GetFlags())
-                    {
-                        _story.StoreVariable(kv.Key, kv.Value);
-                        _story.ObserveVariable(kv.Key, new Callable(this, nameof(OnInkVariableChanged)));
-                    }
-                }
-                catch (Exception e)
-                {
-                    GD.PrintErr("=====\n=====\nIssue with flags, some flags are missing or misformed." + e.Message);
-                    GD.PrintErr("Make sure the flags are the same in globals.ink AND gamemanager.cs\n=====\n=====");
-                }
-                
 
                 await DisplayNextLine();
             }
@@ -224,7 +212,14 @@ public partial class InteractableObject : ActivatableObject
             }
             else
             {
-                await DisplayNextLine();
+                // would normally display next line, since description object only has one line- end
+                InteractCooldown = CooldownTime;
+                GD.Print("End of data, hiding dialogUI");
+                DialogUI.Visible = false;
+                DialogUI.DialogLine.VisibleRatio = 0;
+                Activated = false;
+
+                GameManager.Instance.SetDialogState(false); // set dialog state to false - frees movement
             }
         }
     }
@@ -233,81 +228,11 @@ public partial class InteractableObject : ActivatableObject
     // also parses speaker names.
     private async Task DisplayNextLine()
     {
-        
-
-        if(_story == null) return;
-
-        GameManager.Instance.SetDialogState(true); // set dialog state to true - pauses movement
-
-
-        while (_story.CanContinue && _story.CurrentChoices.Count == 0)
-        {
-            string line = _story.Continue().Trim();
-            if (!string.IsNullOrEmpty(line))
-            {
-                DialogUI.SpeakLine(line);
-                return;
-            }
-        }
-    
-
-        if (_story.CurrentChoices.Count > 0)
-        {
-            // ChoiceUI is already open, return
-            if(ChoiceUI.Visible) return;
-
-            // Choice
-            GD.Print("Choice!");
-
-            DialogUI.Visible = false; // hide dialog UI
-
-            // get array of each choice
-            string[] choices = new string[_story.CurrentChoices.Count];
-            for(int i = 0; i < _story.CurrentChoices.Count; i++)
-            {
-                GD.Print(_story.CurrentChoices[i].Text);
-                choices[i] = _story.CurrentChoices[i].Text;
-            }
-            
-            ChoiceUI.SetChoices(choices);
-            ChoiceUI.Visible = true;
-
-
-
-            var result = await ToSignal(ChoiceUI, ChoiceUI.SignalName.SelectionMade);
-            int choiceIdx = (int)result[0];
-
-            GD.Print("Button " + choiceIdx + " selected.");
-
-            ChoiceUI.Visible = false; // hide choiceUI
-            ChoiceUI.ClearChoices(); // remove all choice buttons
-
-            // select choice via ink and proceed
-            _story.ChooseChoiceIndex(choiceIdx); 
-
-            DialogUI.Visible = true; // display dialogUI again
-            await DisplayNextLine();
-            return;
-
-            
-            
-        }
-    
+        GameManager.Instance.SetDialogState(true);   
+        DialogUI.SpeakLine("MC $$$ " + DescriptionText);
         // End of dialog- cooldown timer
-        InteractCooldown = CooldownTime;
+            
 
-        // End of dialog. 
-        // hide dialog ui, set activated to false,
-        // reset inkdata state
-        // unpause player movement
-        GD.Print("End of data, hiding dialogUI");
-        DialogUI.Visible = false;
-        DialogUI.DialogLine.VisibleRatio = 0;
-        Activated = false;
-
-        GameManager.Instance.SetDialogState(false); // set dialog state to false - frees movement
-
-        _story = null; // reset story
     }
 
     public override void _PhysicsProcess(double delta)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2b5b317h20m2"]
 
 [ext_resource type="Texture2D" uid="uid://bdg343ikit2i0" path="res://Noah/assets/sprites/ListUI/closed-eyes-anim.png" id="1_5h4vt"]
-[ext_resource type="Script" uid="uid://c7r3aju6grsrp" path="res://Noah/scripts/ListUI.cs" id="1_hxi28"]
+[ext_resource type="Script" uid="uid://c7r3aju6grsrp" path="res://Noah/scripts/UI/ListUI.cs" id="1_hxi28"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_wiuat"]
 [ext_resource type="Theme" uid="uid://pm2gelwn2dk0" path="res://Noah/themes/pixellari-font.tres" id="3_s1ied"]
 

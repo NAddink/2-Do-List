@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bu4fj76ix6ea2"]
 
-[ext_resource type="Script" uid="uid://cl6lcwupxnpk7" path="res://Noah/scripts/DialogUI.cs" id="1_xh3aw"]
+[ext_resource type="Script" uid="uid://cl6lcwupxnpk7" path="res://Noah/scripts/UI/DialogUI.cs" id="1_xh3aw"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_edwrk"]
 [ext_resource type="AudioStream" uid="uid://dotrkrmqmiugj" path="res://Noah/assets/audio/bleep030.ogg" id="2_yjvli"]
 
