@@ -58,6 +58,10 @@ public partial class Player : CharacterBody2D
 
         if (Input.IsActionJustPressed("interact"))
         {
+            if (GameManager.Instance.IsInDialog)
+            {
+                GD.Print("In dialog when E was pressed");
+            }
             ActivateClosestInteractable();
         }
     }

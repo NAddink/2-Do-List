@@ -1,11 +1,16 @@
 using System;
 using System.Threading.Tasks;
 using Godot;
+
+[Tool]
 public partial class InteractableSprite : InteractableObject
 {
     [Export]
     AnimatedSprite2D Sprite;
     Player Player;
+
+
+    String CurrentAnimation;
 
     public override void _Ready()
     {
@@ -25,26 +30,34 @@ public partial class InteractableSprite : InteractableObject
         // Difference between this pos and player
         Vector2 directionVector = (Position - Player.Position).Normalized();
 
+        // Save current animation for unrotate
+        CurrentAnimation = Sprite.Animation;
+
+
         if(Mathf.Abs(directionVector.X) > Mathf.Abs(directionVector.Y)) // left or right
         {
             if(directionVector.X > 0)
             {
-                // Rotate sprite right
+                // Rotate sprite left
+                Sprite.Animation = "idle-left";
             }
             else
             {
-                // Rotate sprite left
+                // Rotate sprite right
+                Sprite.Animation = "idle-right";
             }
         }
         else // up or down
         {
             if(directionVector.Y > 0)
             {
-                // Rotate sprite down
+                // Rotate sprite up
+                Sprite.Animation = "idle-up";
             }
             else
             {
-                // Rotate sprite up
+                // Rotate sprite down
+                Sprite.Animation = "idle-down";
             }
         }
 
@@ -53,6 +66,12 @@ public partial class InteractableSprite : InteractableObject
     public void UnrotateSprite()
     {
         // restore saved sprite animation
+        Sprite.Animation = CurrentAnimation;
+    }
+
+    public void SetSpriteAnimation(string animationName)
+    {
+        Sprite.Animation = animationName;
     }
 
 

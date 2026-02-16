@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://or86mee2kkxj"]
+
+[ext_resource type="Script" uid="uid://cjovugp1ca3au" path="res://Noah/scripts/Interactables/InteractableSprite.cs" id="1_0lgp6"]
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_6row5"]
+[ext_resource type="Texture2D" uid="uid://c6pdvqvrb72or" path="res://Noah/assets/sprites/Icons/Sprite-0003.png" id="3_pdrhr"]
+
+[node name="InteractableObject" type="Node2D" unique_id=1007780207]
+script = ExtResource("1_0lgp6")
+
+[node name="TextLabel" type="RichTextLabel" parent="." unique_id=757072914]
+offset_left = -35.0
+offset_top = -7.0
+offset_right = 273.0
+offset_bottom = 47.04348
+scale = Vector2(0.23, 0.23)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("2_6row5")
+theme_override_font_sizes/normal_font_size = 40
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractIcon" type="Sprite2D" parent="." unique_id=822641860]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_pdrhr")

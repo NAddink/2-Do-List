@@ -161,6 +161,10 @@ public partial class InteractableObject : ActivatableObject
 
     public override void Activate()
     {
+        if (Activated) return;
+        if (InteractCooldown > 0) return;
+        if (!InRange) return;
+        
         _ = ActivateInternal();
     }
 
