@@ -25,6 +25,8 @@ That woman drives me up the wall I swear...
 -> END
 
 === SamInitial ===
-Sam $$$ Hey bossman told you to reschedule that shareholder meeting happening later today didn't't he? I'll tell you what, Janice needs some help with her claims, you do that and I'll handle this scheduling mess. I can't deal with that woman today.
+Sam $$$ Hey bossman told you to reschedule that shareholder meeting happening later today didn't he? 
+I'll tell you what, Janice needs some help with her claims, you do that and I'll handle this scheduling mess. 
+I can't deal with that woman today.
 ~ day0_office_TalkedToSam = true
 -> END

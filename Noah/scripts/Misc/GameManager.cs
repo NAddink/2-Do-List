@@ -150,6 +150,17 @@ public partial class GameManager : Node
         }
     }
 
+    // Sets all flags to false
+    public void ResetAllFlags()
+    {
+        foreach(System.Collections.Generic.KeyValuePair<string, bool> flag in FlagsData)
+        {
+            FlagsData[flag.Key] = false;
+        }
+
+        Save();
+    }
+
     public Dictionary<string, bool> GetFlags()
     {
         return FlagsData;
