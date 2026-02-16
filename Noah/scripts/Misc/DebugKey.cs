@@ -7,26 +7,29 @@ public partial class DebugKey : Node
     {
         if (@event is InputEventKey inputEventKey)
         {
-            // Check if the specific key is Key.E and if it was pressed down (not an echo/repeat)
             if (inputEventKey.PhysicalKeycode == Key.P && inputEventKey.Pressed && !inputEventKey.Echo)
             {
-                GD.Print("The 'P' key was just pressed!");
-                // Add your code here
                 GameManager.Instance.ResetAllFlags();
-                LabelPopup();
+                LabelPopup("Debug: Reset all flags");
+            }
+
+            if (inputEventKey.PhysicalKeycode == Key.L && inputEventKey.Pressed && !inputEventKey.Echo)
+            {
+                GameManager.Instance.Load();
+                LabelPopup("Debug: Force loaded current flags");
             }
 
         }
     }
 
 
-    public async void LabelPopup()
+    public async void LabelPopup(string text)
     {
         Player player = (Player) GetTree().GetRoot().FindChild("Player", true, false);
 
         Label label = new Label();
 
-        label.Text = "Debug: Reset all flags";
+        label.Text = text;
         label.Visible = true;
         label.Position = player.Position;
 
