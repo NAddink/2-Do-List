@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ejmin0pyeddp"
-path="res://.godot/imported/Sam.png-cac0e46d50eafe0a360398160bc70419.ctex"
+path="res://.godot/imported/Sam.png-26c3454261eaf29b6fc929c2ce24bcd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Noah/assets/sprites/Characters/Sam/Sam.png"
-dest_files=["res://.godot/imported/Sam.png-cac0e46d50eafe0a360398160bc70419.ctex"]
+source_file="res://Noah/assets/sprites/Characters/Level0/Sam/Sam.png"
+dest_files=["res://.godot/imported/Sam.png-26c3454261eaf29b6fc929c2ce24bcd5.ctex"]
 
 [params]
 

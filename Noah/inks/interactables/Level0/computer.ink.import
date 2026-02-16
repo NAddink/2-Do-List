@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://cuo5u1re2h6ww"
+path="res://.godot/imported/computer.ink-5109fc689d8dde668d72f6e775ec9eed.res"
+
+[deps]
+
+source_file="res://Noah/inks/interactables/Level0/computer.ink"
+dest_files=["res://.godot/imported/computer.ink-5109fc689d8dde668d72f6e775ec9eed.res"]
+
+[params]
+
+is_main_file=true
+compress=true

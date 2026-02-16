@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://catlhyxwo8j2p"
+path="res://.godot/imported/FilingCabinet.ink-35cd9c68bb5c6b3235e2e6de68ab6560.res"
+
+[deps]
+
+source_file="res://Noah/inks/interactables/Level0/FilingCabinet.ink"
+dest_files=["res://.godot/imported/FilingCabinet.ink-35cd9c68bb5c6b3235e2e6de68ab6560.res"]
+
+[params]
+
+is_main_file=true
+compress=true

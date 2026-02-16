@@ -27,13 +27,6 @@ public partial class GameManager : Node
 
     private Dictionary<string, bool> FlagsData = new Dictionary<string, bool>();
     
-    private static readonly string[] DefaultFlags = {
-        "day0_office_RespondedToEmails",
-        "day0_office_ResearchedInsurance",
-        "day0_office_UpdatedRecords",
-        "day0_office_CalledClients",
-        "day0_office_TalkedToSam"
-    };
 
     private const string SavePath = "user://savegame.json";
 
@@ -168,10 +161,49 @@ public partial class GameManager : Node
 
     private void EnsureDefaultFlags()
     {
-        foreach (var flag in DefaultFlags)
+        foreach (var flag in GetFlagsFromGlobals())
         {
             if (!FlagsData.ContainsKey(flag))
                 FlagsData[flag] = false;
         }
+        
     }
+
+    private string[] GetFlagsFromGlobals()
+    {
+        string filePath = "uid://ca0njxatk543h";
+        
+        if (!FileAccess.FileExists(filePath))
+        {
+            GD.PrintErr("Globals.ink not found!");
+            FlagsData = new Dictionary<string, bool>();
+            return null;
+        }
+
+        using FileAccess file = FileAccess.Open(filePath, FileAccess.ModeFlags.Read);
+        string text = file.GetAsText();
+        file.Close();
+
+        if (!string.IsNullOrEmpty(text))
+        {
+            // get string list of flags from globals.ink
+            string[] lines = text.Split("\n");
+
+            for(int i = 0; i < lines.Length; i++)
+            {
+                lines[i] = lines[i].Replace("VAR","").Replace("= false","").Trim();
+            }
+
+            return lines;
+
+        }
+        else
+        {
+            GD.PrintErr("Attempted to load data from globals.ink but there was no data to load!");
+            return null;
+        }
+
+    }
+
+   
 }

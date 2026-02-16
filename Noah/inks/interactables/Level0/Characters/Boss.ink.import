@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://db001pbwccy8p"
+path="res://.godot/imported/Boss.ink-49e638ed8f9ca3a5f0187f52e457322a.res"
+
+[deps]
+
+source_file="res://Noah/inks/interactables/Level0/Characters/Boss.ink"
+dest_files=["res://.godot/imported/Boss.ink-49e638ed8f9ca3a5f0187f52e457322a.res"]
+
+[params]
+
+is_main_file=true
+compress=true

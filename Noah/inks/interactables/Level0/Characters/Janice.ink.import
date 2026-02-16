@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://dify6d60u3vpj"
+path="res://.godot/imported/Janice.ink-61c884ed054e4e69802b8fc81bb87146.res"
+
+[deps]
+
+source_file="res://Noah/inks/interactables/Level0/Characters/Janice.ink"
+dest_files=["res://.godot/imported/Janice.ink-61c884ed054e4e69802b8fc81bb87146.res"]
+
+[params]
+
+is_main_file=true
+compress=true
