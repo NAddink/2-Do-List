@@ -5,6 +5,11 @@ using System.Collections;
 public partial class Player : CharacterBody2D
 {
     [Export] int MaxSpeed = 100;
+    [Export] int SprintSpeed; // speed when holding shift
+
+    [Export] float AnimationSpeed;
+    [Export] float SprintAnimationSpeed;
+
     Vector2 LastDirection = new Vector2(1,0);
 
     private bool isPaused = false;
@@ -43,8 +48,20 @@ public partial class Player : CharacterBody2D
             return;
 
         Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-        Velocity = direction * MaxSpeed;
+        
+        int currentSpeed = MaxSpeed;
+        bool isSprinting = Input.IsActionPressed("sprint");
+        if (isSprinting)
+            currentSpeed = SprintSpeed;
+
+        // Speed up animation while sprinting
+        AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        sprite.SpeedScale = isSprinting ? SprintAnimationSpeed : AnimationSpeed;
+        
+        Velocity = direction * currentSpeed;
         MoveAndSlide();
+
+        
 
         if(direction.Length() > 0)
         {

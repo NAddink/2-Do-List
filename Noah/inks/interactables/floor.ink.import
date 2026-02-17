@@ -3,12 +3,11 @@
 importer="ink"
 type="Resource"
 uid="uid://cnovbdtr668re"
-path="res://.godot/imported/floor.ink-dbc2d136c9f126f59fb8ebfcd5992762.res"
+valid=false
 
 [deps]
 
 source_file="res://Noah/inks/interactables/floor.ink"
-dest_files=["res://.godot/imported/floor.ink-dbc2d136c9f126f59fb8ebfcd5992762.res"]
 
 [params]
 
