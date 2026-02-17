@@ -8,3 +8,5 @@ VAR day0_office_TalkedToBoss = false
 VAR day0_office_GaveBossCoffee = false
 VAR day0_office_MadeCoffeeBad = false
 VAR day0_office_MadeCoffeeGood = false
+VAR day0_office_ClearedSpam = false
+VAR day0_office_StartedCoffee = false

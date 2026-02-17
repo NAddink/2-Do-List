@@ -33,4 +33,5 @@ MC $$$ I forgot my wallet at my place, I'll pay for the next one.
 
 === call_clients ===
 MC $$$ Hi sir, we’d love to welcome you to the General Insurance family, No worries at a low price!
+~ day0_office_CalledClients = true
 -> main_menu

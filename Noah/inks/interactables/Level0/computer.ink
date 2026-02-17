@@ -3,16 +3,16 @@ INCLUDE ../../globals.ink
 -> main_menu
 
 === main_menu ===
-+ [Check Emails] -> check_emails
++ {not (day0_office_ClearedSpam && day0_office_RespondedToEmails) }[Check Emails] -> check_emails
 + [Research Insurance News] -> research_news
 + [Update Client Records] -> update_records
 + [Back] -> END
 
 === check_emails ===
 
-+ [Respond to emails]
++ { not day0_office_RespondedToEmails } [Respond to emails]
     -> respond_emails
-+ [Clear spam]
++ { not day0_office_ClearedSpam } [Clear spam]
     -> clear_spam
 + [Back]
     -> back_from_emails
@@ -20,12 +20,13 @@ INCLUDE ../../globals.ink
 === respond_emails ===
 
 MC $$$ No sir your insurance does not cover you lighting yourself on fire for a football party, send.
-
+~ day0_office_RespondedToEmails = true
 -> check_emails
 
 === clear_spam ===
 
 MC $$$ DIE SPAM DIEEEEE
+~ day0_office_ClearedSpam = true
 
 -> check_emails
 
@@ -47,12 +48,14 @@ MC $$$ See you tomorrow junk mail.
 === ai_concern ===
 
 MC $$$ Dang Robots
+~ day0_office_ResearchedInsurance = true
 
 -> research_news
 
 === stealing_money ===
 
 MC $$$ Well Obviously.
+~ day0_office_ResearchedInsurance = true
 
 -> research_news
 
@@ -73,8 +76,10 @@ MC $$$ That’s enough research for today, or a lifetime.
 
 === grace_monos ===
 MC $$$ Lets see here... ASU student... journalism... yep checks out.
+~ day0_office_UpdatedRecords = true
 -> update_records
 
 === joshua_alvarez ===
 MC $$$ Is this file just the lyrics of every Sabrina Carpenter song???
+~ day0_office_UpdatedRecords = true
 -> update_records

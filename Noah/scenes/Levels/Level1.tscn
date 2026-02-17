@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://catlhyxwo8j2p" path="res://Noah/inks/interactables/Level0/FilingCabinet.ink" id="6_ka8fv"]
 [ext_resource type="PackedScene" uid="uid://caaf2ffjgs8ir" path="res://Noah/scenes/Interactables/DescriptionObject.tscn" id="8_xa7eh"]
 [ext_resource type="Resource" uid="uid://dify6d60u3vpj" path="res://Noah/inks/interactables/Level0/Characters/Janice.ink" id="9_ai0mw"]
+[ext_resource type="Resource" uid="uid://cysmqj5at3eh5" path="res://Noah/inks/interactables/Level0/CoffeeMachine.ink" id="11_6kem1"]
 [ext_resource type="PackedScene" uid="uid://c2b5b317h20m2" path="res://Noah/scenes/UI/ListUI.tscn" id="11_ola80"]
 [ext_resource type="AudioStream" uid="uid://bh8hgvrj7ie6u" path="res://Noah/assets/audio/bgm-cherryblossom.mp3" id="12_gm6ah"]
 [ext_resource type="PackedScene" uid="uid://or86mee2kkxj" path="res://Noah/scenes/Interactables/InteractableSprite.tscn" id="13_2gvlp"]
@@ -608,7 +609,7 @@ tile_map_data = PackedByteArray("AAD9//3/AwAAABsAAAAAAP3/AwABABsAAAABAP3/AwABABs
 
 [node name="TileMapLayerMid" parent="Tilemaps" unique_id=1913805754 instance=ExtResource("1_1sfx6")]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD9//3/AwAAABsAAAAAAP3/AwABABsAAAABAP3/AwABABsAAAACAP3/AwAGABsAAAACAP7/AwAGABwAAAACAP//AwAAABwAAAD9//7/AwAAABwAAAD+//7/AwABABwAAAD///7/AwABABwAAAAAAP7/AwABABwAAAABAP7/AwABABwAAADy//3/AwAAABsAAADy//7/AwAAABwAAADz//3/AwABABsAAADz//7/AwABABwAAAD0//3/AwABABsAAAD0//7/AwABABwAAAD1//3/AwABABsAAAD1//7/AwABABwAAAD2//3/AwABABsAAAD2//7/AwABABwAAAD3//3/AwAGABsAAAD3//7/AwAGABwAAAAIAP3/AwAAABsAAAAIAP7/AwAAABwAAAAJAP3/AwABABsAAAAJAP7/AwABABwAAAAKAP3/AwAFABsAAAAKAP7/AwABABwAAAAKAAAAAwACABsAAAAKAAEAAwACABwAAAALAP3/AwABABsAAAALAP7/AwABABwAAAALAAAAAwACABsAAAALAAEAAwACABwAAAAMAP3/AwABABsAAAAMAP7/AwABABwAAAAMAAAAAwACABsAAAAMAAEAAwACABwAAAANAP3/AwAGABsAAAANAP7/AwAGABwAAAANAP//AwAAABwAAAANAAAAAwACABsAAAANAAEAAwACABwAAAD3////AwAAABwAAADy////AwAAABwAAADz/wAAAwAFABsAAADz/wEAAwABABwAAADy/wAAAwAAABwAAAD0/wAAAwAFABsAAAD0/wEAAwABABwAAAD1/wAAAwAFABsAAAD1/wEAAwABABwAAAD///3/AwABABsAAAD+//3/AwABABsAAAAPAPr/AgAHAAIAAAAPAPv/AgAHAAIAAAAPAPz/AgAHAAIAAAAPAP3/AgAHAAIAAAAQAP3/AgABAAsAAAAXAP3/AgABAAsAAAAWAP3/AgABAAsAAAAVAP3/AgABAAsAAAAUAP3/AgAAAAsAAAARAP3/AgABAAsAAAASAP3/AgACAAsAAAAQAP7/AgABAAwAAAARAP7/AgABAAwAAAASAP7/AgACAAwAAAAUAP7/AgAAAAwAAAAVAP7/AgABAAwAAAAWAP7/AgABAAwAAAAXAP7/AgABAAwAAAAPAP7/AgAHAAIAAAACAAEAAwACABsAAAABAAEAAwACABsAAAAAAAEAAwACABsAAAD//wEAAwACABsAAAACAAIAAwACABwAAAABAAIAAwACABwAAAAAAAIAAwACABwAAAD//wIAAwACABwAAAACAAAAAwAAABwAAADp//v/AwAMAA8AAADp//z/AwAMABAAAADp//3/AwAMABEAAADo//7/AwACAAgAAAA=")
+tile_map_data = PackedByteArray("AAD9//3/AwAAABsAAAAAAP3/AwABABsAAAABAP3/AwABABsAAAACAP3/AwAGABsAAAACAP7/AwAGABwAAAACAP//AwAAABwAAAD9//7/AwAAABwAAAD+//7/AwABABwAAAD///7/AwABABwAAAAAAP7/AwABABwAAAABAP7/AwABABwAAADy//3/AwAAABsAAADy//7/AwAAABwAAADz//3/AwABABsAAADz//7/AwABABwAAAD0//3/AwABABsAAAD0//7/AwABABwAAAD1//3/AwABABsAAAD1//7/AwABABwAAAD2//3/AwABABsAAAD2//7/AwABABwAAAD3//3/AwAGABsAAAD3//7/AwAGABwAAAAIAP3/AwAAABsAAAAIAP7/AwAAABwAAAAJAP3/AwABABsAAAAJAP7/AwABABwAAAAKAP3/AwAFABsAAAAKAP7/AwABABwAAAAKAAAAAwACABsAAAAKAAEAAwACABwAAAALAP3/AwABABsAAAALAP7/AwABABwAAAALAAAAAwACABsAAAALAAEAAwACABwAAAAMAP3/AwABABsAAAAMAP7/AwABABwAAAAMAAAAAwACABsAAAAMAAEAAwACABwAAAANAP3/AwAGABsAAAANAP7/AwAGABwAAAANAP//AwAAABwAAAANAAAAAwACABsAAAANAAEAAwACABwAAAD3////AwAAABwAAADy////AwAAABwAAADz/wAAAwAFABsAAADz/wEAAwABABwAAADy/wAAAwAAABwAAAD0/wAAAwAFABsAAAD0/wEAAwABABwAAAD1/wAAAwAFABsAAAD1/wEAAwABABwAAAD///3/AwABABsAAAD+//3/AwABABsAAAAPAPr/AgAHAAIAAAAPAPv/AgAHAAIAAAAPAPz/AgAHAAIAAAAPAP3/AgAHAAIAAAAQAP3/AgABAAsAAAAXAP3/AgABAAsAAAAWAP3/AgABAAsAAAAVAP3/AgABAAsAAAAUAP3/AgAAAAsAAAARAP3/AgABAAsAAAASAP3/AgACAAsAAAAQAP7/AgABAAwAAAARAP7/AgABAAwAAAASAP7/AgACAAwAAAAUAP7/AgAAAAwAAAAVAP7/AgABAAwAAAAWAP7/AgABAAwAAAAXAP7/AgABAAwAAAAPAP7/AgAHAAIAAAACAAEAAwACABsAAAABAAEAAwACABsAAAAAAAEAAwACABsAAAD//wEAAwACABsAAAACAAIAAwACABwAAAABAAIAAwACABwAAAAAAAIAAwACABwAAAD//wIAAwACABwAAAACAAAAAwAAABwAAADp//3/AwAMABEAAADp//z/AwAMABAAAADp//v/AwAMAA8AAAA=")
 
 [node name="TileMapLayerMidTop" parent="Tilemaps" unique_id=1616469999 instance=ExtResource("1_1sfx6")]
 y_sort_enabled = true
@@ -625,7 +626,7 @@ y_sort_enabled = true
 [node name="Player" parent="Tilemaps/Characters" unique_id=54148630 groups=["player"] instance=ExtResource("2_cxojc")]
 unique_name_in_owner = true
 y_sort_enabled = true
-position = Vector2(616, -120)
+position = Vector2(-634, -64)
 
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Characters/Player" unique_id=468719523]
 zoom = Vector2(2.175, 2.175)
@@ -694,6 +695,15 @@ VisibleRange = 27.07
 LabelYOffset = -13.745
 inkData = ExtResource("6_ka8fv")
 
+[node name="CoffeeMachine" parent="Interactables/InteractableObjects" unique_id=1007780207 groups=["interactable"] instance=ExtResource("3_mo1xh")]
+z_index = 1
+position = Vector2(-766, -110)
+LabelText = "Coffee Machine"
+ActivationRange = 25.34
+VisibleRange = 40.49
+LabelYOffset = -32.01
+inkData = ExtResource("11_6kem1")
+
 [node name="DescriptionObjects" type="Node2D" parent="Interactables" unique_id=939569979]
 
 [node name="Plant" parent="Interactables/DescriptionObjects" unique_id=1873577332 groups=["interactable"] instance=ExtResource("8_xa7eh")]
@@ -712,11 +722,19 @@ ActivationRange = 13.445
 VisibleRange = 27.08
 LabelYOffset = -22.565
 
+[node name="SamEspressoMachine" parent="Interactables/DescriptionObjects" unique_id=1468673238 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(-297, -52)
+DescriptionText = "Sam's espresso machine. I really doubt he would let me use it."
+LabelText = "Espresso machine"
+ActivationRange = 32.26
+VisibleRange = 38.98
+LabelYOffset = -28.565
+
 [node name="Characters" type="Node2D" parent="Interactables" unique_id=1999727995]
 
 [node name="InteractableSprites" type="Node2D" parent="Interactables" unique_id=1748596743]
 
-[node name="Janice" parent="Interactables/InteractableSprites" unique_id=1007780207 node_paths=PackedStringArray("Sprite") groups=["interactable"] instance=ExtResource("13_2gvlp")]
+[node name="Janice" parent="Interactables/InteractableSprites" unique_id=127197868 node_paths=PackedStringArray("Sprite") groups=["interactable"] instance=ExtResource("13_2gvlp")]
 position = Vector2(388, -41)
 Sprite = NodePath("../../../Tilemaps/Characters/Janice")
 LabelText = "Janice"
@@ -761,4 +779,7 @@ visible = false
 DescriptionText = "Respond to emails $$$ day0_office_RespondedToEmails
 Research insurance news $$$ day0_office_ResearchedInsurance
 Update client records $$$ day0_office_UpdatedRecords
-Call potential Clients $$$ day0_office_CalledClients"
+Call potential Clients $$$ day0_office_CalledClients
+Give boss his coffee $$$ day0_office_GaveBossCoffee
+Talk to Sam $$$ day0_office_TalkedToSam
+Help Janice with her claims $$$ day0_office_HelpedJanice"

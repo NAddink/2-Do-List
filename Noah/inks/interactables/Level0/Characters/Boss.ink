@@ -24,6 +24,8 @@ day0_office_MadeCoffeeGood
 
 {
     - day0_office_MadeCoffeeGood || day0_office_MadeCoffeeBad:
+        Boss $$$ Oh, perfect. You got my coffee?
+        ~ day0_office_TalkedToBoss = true
         + [Give Coffee] -> GiveCoffee
         + [Nevermind...] -> END
     - else:
