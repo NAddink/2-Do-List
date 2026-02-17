@@ -11,6 +11,9 @@ public partial class GameManager : Node
     public override void _Ready()
     {
         Instance = this;
+        Load();
+        EnsureDefaultFlags();
+        Save();
     }
 
 
@@ -56,12 +59,10 @@ public partial class GameManager : Node
     }
 
     // Run on start
-    public override void _EnterTree()
-    {
-        Load();
-        EnsureDefaultFlags();
-        Save();
-    }
+    // public override void _Ready()
+    // {
+        
+    // }
 
 
     public void Save()
@@ -178,7 +179,7 @@ public partial class GameManager : Node
 
     private string[] GetFlagsFromGlobals()
     {
-        string filePath = "uid://ca0njxatk543h";
+        string filePath = "res://Noah/inks/globals.txt";
         
         if (!FileAccess.FileExists(filePath))
         {
