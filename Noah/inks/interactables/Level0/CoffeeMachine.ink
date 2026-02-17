@@ -17,7 +17,7 @@ VAR correct_topping = false
 
 === Initial ===
 I can't forget what kind of coffee boss man likes!
-He always gets an [color=green]iced americano[/color] with [color=green]almond milk[/color], [color=green]macha powder[/color] and he gets it [color=green]blended[/color] with a [color=green]caramel[/color] drizzle..
+He always gets an [color=green]iced americano[/color] with [color=green]almond milk[/color], [color=green]matcha powder[/color] and he gets it [color=green]blended[/color] with a [color=green]caramel[/color] drizzle..
 -> Main
 
 === Main ===
