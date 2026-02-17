@@ -161,7 +161,14 @@ public partial class GameManager : Node
 
     private void EnsureDefaultFlags()
     {
-        foreach (var flag in GetFlagsFromGlobals())
+        var flags = GetFlagsFromGlobals();
+        if (flags == null)
+        {
+            GD.Print("Globals.ink had no flags!");
+            return;
+        }
+
+        foreach (var flag in flags)
         {
             if (!FlagsData.ContainsKey(flag))
                 FlagsData[flag] = false;
