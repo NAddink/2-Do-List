@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cvujn3nralyn7"]
+
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="1_dr7c1"]
+[ext_resource type="Script" uid="uid://bv5n8pm4qfcr0" path="res://Noah/scripts/UI/MainMenu.cs" id="1_l1uea"]
+
+[node name="MainMenu" type="Control" unique_id=136352209 node_paths=PackedStringArray("NewGame", "LoadAutoSave", "Options", "Exit")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l1uea")
+NewGame = NodePath("VBoxContainer/Button")
+LoadAutoSave = NodePath("VBoxContainer/Button2")
+Options = NodePath("VBoxContainer/Button3")
+Exit = NodePath("VBoxContainer/Button4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=91460277]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -182.0
+offset_right = 4.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 26
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1214039137]
+custom_minimum_size = Vector2(0, 88.125)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dr7c1")
+theme_override_font_sizes/font_size = 64
+text = "Start New Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1369185769]
+custom_minimum_size = Vector2(0, 88.125)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dr7c1")
+theme_override_font_sizes/font_size = 64
+text = "Load AutoSave"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1464058468]
+custom_minimum_size = Vector2(0, 88.125)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dr7c1")
+theme_override_font_sizes/font_size = 64
+text = "Options"
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=376499860]
+custom_minimum_size = Vector2(0, 88.125)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dr7c1")
+theme_override_font_sizes/font_size = 64
+text = "Exit"

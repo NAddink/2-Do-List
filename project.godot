@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
 
 player=""
 interactable=""
+Persist=""
 
 [input]
 

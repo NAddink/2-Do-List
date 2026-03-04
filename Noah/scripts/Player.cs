@@ -168,4 +168,14 @@ public partial class Player : CharacterBody2D
         }
 
     }
+
+    public Godot.Collections.Dictionary<string, Variant> Save()
+    {
+        return new Godot.Collections.Dictionary<string, Variant>()
+        {
+            { "PosX", Position.X }, // Vector2 is not supported by JSON
+            { "PosY", Position.Y },
+        };
+    }
+    
 }

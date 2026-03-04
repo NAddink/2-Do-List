@@ -623,7 +623,7 @@ tile_map_data = PackedByteArray("AAD0//7/AwAKACAAAAD4/wIAAwAGAAcAAAD7//z/AwAGAAc
 [node name="Characters" type="Node2D" parent="Tilemaps" unique_id=495432713]
 y_sort_enabled = true
 
-[node name="Player" parent="Tilemaps/Characters" unique_id=54148630 groups=["player"] instance=ExtResource("2_cxojc")]
+[node name="Player" parent="Tilemaps/Characters" unique_id=54148630 groups=["Persist", "player"] instance=ExtResource("2_cxojc")]
 unique_name_in_owner = true
 y_sort_enabled = true
 position = Vector2(36, 4)
@@ -786,3 +786,5 @@ Call potential Clients $$$ day0_office_CalledClients
 Give boss his coffee $$$ day0_office_GaveBossCoffee
 Talk to Sam $$$ day0_office_TalkedToSam
 Help Janice with her claims $$$ day0_office_HelpedJanice"
+
+[node name="SaveGame" type="Node2D" parent="." unique_id=1348482209]
