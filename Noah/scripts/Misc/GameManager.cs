@@ -3,7 +3,7 @@ using System;
 using Godot.Collections;
 using System.Text.Json;
 
-public partial class GameManager : Node
+public partial class GameManager : Node2D
 {
 
     public static GameManager Instance { get; private set; }

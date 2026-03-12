@@ -19,6 +19,14 @@ public partial class DebugKey : Node
                 LabelPopup("Debug: Force loaded current flags");
             }
 
+            if (inputEventKey.PhysicalKeycode == Key.N && inputEventKey.Pressed && !inputEventKey.Echo)
+            {
+                SaveGame saveGame = (SaveGame) GetTree().GetRoot().FindChild("SaveGame", true, false);
+                GD.Print("Got savegame node: " + saveGame);
+                saveGame.Save();
+                
+            }
+
         }
     }
 

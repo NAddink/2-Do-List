@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class SaveGame : Node
+public partial class SaveGame : Node2D
 {
 
     public void Save()

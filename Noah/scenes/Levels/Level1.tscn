@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ejmin0pyeddp" path="res://Noah/assets/sprites/Characters/Level0/Sam/Sam.png" id="13_rokw5"]
 [ext_resource type="Resource" uid="uid://b58kyu65sm44p" path="res://Noah/inks/interactables/Level0/Characters/Sam.ink" id="14_un138"]
 [ext_resource type="Resource" uid="uid://db001pbwccy8p" path="res://Noah/inks/interactables/Level0/Characters/Boss.ink" id="15_txpyo"]
+[ext_resource type="Script" uid="uid://b8oqp3d58bdcx" path="res://Noah/scripts/Misc/SaveGame.cs" id="21_bk2af"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_534j1"]
 atlas = ExtResource("13_rokw5")
@@ -765,6 +766,7 @@ LabelYOffset = -50.65
 inkData = ExtResource("15_txpyo")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1135089640]
+visible = false
 stream = ExtResource("12_gm6ah")
 volume_db = -3.68
 autoplay = true
@@ -788,3 +790,4 @@ Talk to Sam $$$ day0_office_TalkedToSam
 Help Janice with her claims $$$ day0_office_HelpedJanice"
 
 [node name="SaveGame" type="Node2D" parent="." unique_id=1348482209]
+script = ExtResource("21_bk2af")
