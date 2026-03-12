@@ -75,7 +75,7 @@ public partial class InteractableObject : ActivatableObject
     // reference to choiceUI
     protected ChoiceUI ChoiceUI;
 
-    private GameManager GameManager;
+    protected GameManager GameManager;
 
     public override void _Ready()
     {
