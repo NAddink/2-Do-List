@@ -9,6 +9,13 @@ public partial class DescriptionObject : InteractableObject
 {
     [Export(PropertyHint.MultilineText)]
     public string DescriptionText;
+    private GameManager GameManager;
+
+    public override void _Ready()
+    {
+        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+    }
+
 
     protected override async Task ActivateInternal()
     {
@@ -17,7 +24,7 @@ public partial class DescriptionObject : InteractableObject
             Activated = true;
             DialogUI.Visible = true;
 
-            GameManager.Instance.SetDialogState(true);
+            GameManager.SetDialogState(true);
 
             DialogUI.SpeakLine("MC $$$ " + DescriptionText);
         }

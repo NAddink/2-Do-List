@@ -11,9 +11,11 @@ public partial class InteractableSprite : InteractableObject
 
 
     String CurrentAnimation;
+    private GameManager GameManager;
 
     public override void _Ready()
     {
+        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
         base._Ready();
         Player = GetNode<Player>("%Player");
      }
@@ -89,7 +91,7 @@ public partial class InteractableSprite : InteractableObject
         DialogUI.DialogLine.VisibleRatio = 0;
         Activated = false;
 
-        GameManager.Instance.SetDialogState(false); // set dialog state to false - frees movement
+        GameManager.SetDialogState(false); // set dialog state to false - frees movement
 
         UnrotateSprite();
     }

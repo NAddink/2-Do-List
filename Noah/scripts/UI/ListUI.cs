@@ -12,9 +12,12 @@ public partial class ListUI : Control
     [Export]
     public Theme SelectedTheme { get; set; }
 
+    private GameManager GameManager;
+
 
     public override void _Ready()
     {
+        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
         Theme = SelectedTheme;
         DisplayLabels();
 
@@ -32,12 +35,12 @@ public partial class ListUI : Control
                     if (Visible)
                     {
                         Visible = false;
-                        GameManager.Instance.SetDialogState(false);
+                        GameManager.SetDialogState(false);
                     }
                     else if (!Visible)
                     {
                         Visible = true;
-                        GameManager.Instance.SetDialogState(true);
+                        GameManager.SetDialogState(true);
                         DisplayLabels();
                     }
                     
@@ -104,7 +107,7 @@ public partial class ListUI : Control
             string itemFlag = parts[1].Trim();
 
             // If flag is set to true - checked
-            if (GameManager.Instance.GetFlag(itemFlag))
+            if (GameManager.GetFlag(itemFlag))
             {
                 label.Text =
                     "[s][color=DIM_GRAY]" +

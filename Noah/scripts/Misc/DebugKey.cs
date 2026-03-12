@@ -3,19 +3,27 @@ using System;
 
 public partial class DebugKey : Node
 {
+
+    private GameManager GameManager;
+
+    public override void _Ready()
+    {
+        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+    }
+
     public override void _Input(InputEvent @event)
     {
         if (@event is InputEventKey inputEventKey)
         {
             if (inputEventKey.PhysicalKeycode == Key.P && inputEventKey.Pressed && !inputEventKey.Echo)
             {
-                GameManager.Instance.ResetAllFlags();
+                GameManager.ResetAllFlags();
                 LabelPopup("Debug: Reset all flags");
             }
 
             if (inputEventKey.PhysicalKeycode == Key.L && inputEventKey.Pressed && !inputEventKey.Echo)
             {
-                GameManager.Instance.Load();
+                GameManager.Load();
                 LabelPopup("Debug: Force loaded current flags");
             }
 

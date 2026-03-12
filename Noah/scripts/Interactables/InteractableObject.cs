@@ -75,6 +75,8 @@ public partial class InteractableObject : ActivatableObject
     // reference to choiceUI
     protected ChoiceUI ChoiceUI;
 
+    private GameManager GameManager;
+
     public override void _Ready()
     {
         if (Engine.IsEditorHint())
@@ -94,7 +96,8 @@ public partial class InteractableObject : ActivatableObject
         
         
         // Attatch proceed logic to proceed signal
-        GameManager.Instance.DialogProceed += DialogProceed;
+        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+        GameManager.DialogProceed += DialogProceed;
 
         // TEXT LABEL
         RichTextLabel label = GetNode<RichTextLabel>("TextLabel");
@@ -111,8 +114,8 @@ public partial class InteractableObject : ActivatableObject
 
 
         // get reference to dialogUI 
-        DialogUI = GetTree().GetRoot().GetNode<DialogUI>("Level/UI/DialogUI");
-        ChoiceUI = GetTree().GetRoot().GetNode<ChoiceUI>("Level/UI/ChoiceUI");
+        DialogUI = GetTree().CurrentScene.GetNode<DialogUI>("UI/DialogUI");
+        ChoiceUI = GetTree().CurrentScene.GetNode<ChoiceUI>("UI/ChoiceUI");
 
         
     }
@@ -192,7 +195,7 @@ public partial class InteractableObject : ActivatableObject
                 _story = (InkStory)inkData.Duplicate();
                 try
                 {
-                    foreach (var kv in GameManager.Instance.GetFlags())
+                    foreach (var kv in GameManager.GetFlags())
                     {
                         _story.StoreVariable(kv.Key, kv.Value);
                         _story.ObserveVariable(kv.Key, new Callable(this, nameof(OnInkVariableChanged)));
@@ -240,7 +243,7 @@ public partial class InteractableObject : ActivatableObject
 
         if(_story == null) return;
 
-        GameManager.Instance.SetDialogState(true); // set dialog state to true - pauses movement
+        GameManager.SetDialogState(true); // set dialog state to true - pauses movement
 
 
         while (_story.CanContinue && _story.CurrentChoices.Count == 0)
@@ -316,7 +319,7 @@ public partial class InteractableObject : ActivatableObject
         DialogUI.DialogLine.VisibleRatio = 0;
         Activated = false;
 
-        GameManager.Instance.SetDialogState(false); // set dialog state to false - frees movement
+        GameManager.SetDialogState(false); // set dialog state to false - frees movement
     }
 
     public override void _PhysicsProcess(double delta)
@@ -332,7 +335,7 @@ public partial class InteractableObject : ActivatableObject
 
     public void OnInkVariableChanged(string name, bool value)
     {
-        GameManager.Instance.AddFlag(name, value);
+        GameManager.AddFlag(name, value);
     }
 
 

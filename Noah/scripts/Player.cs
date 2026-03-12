@@ -13,10 +13,12 @@ public partial class Player : CharacterBody2D
     Vector2 LastDirection = new Vector2(1,0);
 
     private bool isPaused = false;
+    private GameManager GameManager;
 
     public override void _Ready()
     {
-        GameManager.Instance.ToggleDialog += OnDialogEnter;
+        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+        GameManager.ToggleDialog += OnDialogEnter;
     }
 
     // Called when player enters dialog state
@@ -75,7 +77,7 @@ public partial class Player : CharacterBody2D
 
         if (Input.IsActionJustPressed("interact"))
         {
-            if (GameManager.Instance.IsInDialog)
+            if (GameManager.IsInDialog)
             {
                 GD.Print("In dialog when E was pressed");
             }

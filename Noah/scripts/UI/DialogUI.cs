@@ -21,9 +21,12 @@ public partial class DialogUI : Control
     
     public int NoiseCounter = 0;
 
+    private GameManager GameManager;
+
     public override void _Ready()
     {
-        GameManager.Instance.DialogButtonPressed += DialogProceed;
+        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+        GameManager.DialogButtonPressed += DialogProceed;
 
         SpeakerName = GetNode<Label>("SpeakerBox/SpeakerName");
         DialogLine = GetNode<RichTextLabel>("DialogBox/DialogLine");
@@ -114,7 +117,7 @@ public partial class DialogUI : Control
     {
         if (Visible)
         {
-            GameManager.Instance.SignalDialogProceed();
+            GameManager.SignalDialogProceed();
         }
     }
 }
