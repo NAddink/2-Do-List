@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://7eapc6hmjvnp"]
+
+[ext_resource type="Texture2D" uid="uid://bomh2ydouarib" path="res://Noah/assets/sprites/CharacterPortraits/Sam/Sam.png" id="1_nicv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ul57"]
+atlas = ExtResource("1_nicv1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl7i2"]
+atlas = ExtResource("1_nicv1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awtc6"]
+atlas = ExtResource("1_nicv1")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my6w0"]
+atlas = ExtResource("1_nicv1")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdcat"]
+atlas = ExtResource("1_nicv1")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xav6"]
+atlas = ExtResource("1_nicv1")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwypa"]
+atlas = ExtResource("1_nicv1")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slek0"]
+atlas = ExtResource("1_nicv1")
+region = Rect2(576, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ul57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl7i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awtc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my6w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdcat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xav6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwypa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slek0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

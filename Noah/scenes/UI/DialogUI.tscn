@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b3jswhegido1f" path="res://Noah/assets/sprites/UI/DialogueUI.png" id="2_7bn6l"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_edwrk"]
 [ext_resource type="AudioStream" uid="uid://dotrkrmqmiugj" path="res://Noah/assets/audio/bleep030.ogg" id="2_yjvli"]
+[ext_resource type="SpriteFrames" uid="uid://7eapc6hmjvnp" path="res://Noah/assets/sprites/CharacterPortraits/Sam/SamPortrait.tres" id="5_ssglm"]
+[ext_resource type="Texture2D" uid="uid://dkrk51mee2uov" path="res://Noah/assets/sprites/CharacterPortraits/PortraitBg.png" id="5_yglax"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjvli"]
 content_margin_left = 40.0
@@ -86,8 +88,8 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -55.0
-offset_right = 25.0
-offset_bottom = -5.0
+offset_right = 262.0
+offset_bottom = -4.9999886
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_edwrk")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i0ket")
@@ -116,3 +118,25 @@ polygon = PackedVector2Array(0, 0, 30, 15, 0, 30)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=1962039231]
 stream = ExtResource("2_yjvli")
 volume_db = 11.143
+
+[node name="PortraitBox" type="Control" parent="." unique_id=845159261]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -263.0
+offset_right = 72.0
+offset_bottom = -199.0
+grow_vertical = 0
+scale = Vector2(1.99, 1.99)
+
+[node name="BG" type="Sprite2D" parent="PortraitBox" unique_id=424429680]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_yglax")
+offset = Vector2(40, 40)
+
+[node name="Portrait" type="AnimatedSprite2D" parent="PortraitBox" unique_id=703839260]
+sprite_frames = ExtResource("5_ssglm")
+autoplay = "default"
+offset = Vector2(32, 32)
