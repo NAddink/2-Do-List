@@ -1,11 +1,12 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class DialogUI : Control
 {
 
 
-    [Export] public Label SpeakerName;
+    public AnimatedSprite2D PortraitSprite;
     public RichTextLabel DialogLine;
     public bool IsAnimating = false;
 
@@ -23,17 +24,25 @@ public partial class DialogUI : Control
 
     private GameManager GameManager;
 
+    private Dictionary<string, SpriteFrames> Portraits = new Dictionary<string, SpriteFrames>();
+
+
     public override void _Ready()
     {
         GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
         GameManager.DialogButtonPressed += DialogProceed;
 
-        SpeakerName = GetNode<Label>("SpeakerBox/SpeakerName");
+        PortraitSprite = GetNode<AnimatedSprite2D>("PortraitBox/Portrait");
         DialogLine = GetNode<RichTextLabel>("DialogBox/DialogLine");
 
 
         // Get audio stream player for playing noises   
         Audio =  (AudioStreamPlayer2D)GetNode("Audio/AudioStreamPlayer2D");
+
+        // Set spritesheets for portraits
+        Portraits["Sam"] = GD.Load<SpriteFrames>("uid://7eapc6hmjvnp");
+        Portraits["Janice"] = GD.Load<SpriteFrames>("uid://dhu47qrousdeq");
+        Portraits["Boss"] = GD.Load<SpriteFrames>("uid://dn3kme42byuqd");
     }
 
 
@@ -60,13 +69,15 @@ public partial class DialogUI : Control
         // Has a name, set speaker text to the name
         if(speaker != null && speaker != "MC")
         {
-            SpeakerName.Text = speaker;
-            GetNode<Control>("SpeakerBox").Visible = true;
+            PortraitSprite.SpriteFrames = Portraits[speaker];
+            GetNode<Control>("PortraitBox").Visible = true;
         }
 
         // For MC remove the speaker box
         if(speaker == "MC")
-            GetNode<Control>("SpeakerBox").Visible = false;
+        {
+            GetNode<Control>("PortraitBox").Visible = false;
+        }
 
         // Sets characters to all invisble and starts animation
         DialogLine.VisibleCharacters = 0;

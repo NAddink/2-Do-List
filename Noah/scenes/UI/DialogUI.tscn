@@ -28,14 +28,6 @@ bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bn6l"]
 content_margin_top = 8.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ket"]
-content_margin_left = 15.0
-content_margin_right = 15.0
-bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_avaca"]
-font_size = 36
-
 [node name="DialogUI" type="Control" unique_id=1735026924]
 layout_mode = 3
 anchors_preset = 15
@@ -71,31 +63,6 @@ bbcode_enabled = true
 text = "Wow some dialogue! Can't wait to dialogue it up with this dialogue it sure is dia
 Wow some dialogue! Can't wait to dialogue it up with this dialogue it sure is dia"
 autowrap_mode = 2
-
-[node name="SpeakerBox" type="Control" parent="." unique_id=1903239797]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -199.0
-offset_right = 200.0
-offset_bottom = -149.0
-grow_vertical = 0
-
-[node name="SpeakerName" type="Label" parent="SpeakerBox" unique_id=973173010]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -55.0
-offset_right = 262.0
-offset_bottom = -4.9999886
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_edwrk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_i0ket")
-text = "Speaker Name"
-label_settings = SubResource("LabelSettings_avaca")
-vertical_alignment = 1
 
 [node name="Control" type="Control" parent="." unique_id=1731662659]
 layout_mode = 1

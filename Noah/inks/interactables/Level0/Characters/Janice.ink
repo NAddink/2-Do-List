@@ -18,7 +18,7 @@ day0_office_HelpedJanice
 }
 
 === Thanks ===
-Thanks again for the help! Such a sweet young man you are. If only everybody was so patient with me.
+Janice $$$ Thanks again for the help! Such a sweet young man you are. If only everybody was so patient with me.
 -> END
 
 === SamHelp ===
