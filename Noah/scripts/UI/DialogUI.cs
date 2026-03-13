@@ -70,6 +70,7 @@ public partial class DialogUI : Control
         if(speaker != null && speaker != "MC")
         {
             PortraitSprite.SpriteFrames = Portraits[speaker];
+            PortraitSprite.Play();
             GetNode<Control>("PortraitBox").Visible = true;
         }
 

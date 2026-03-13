@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b3jswhegido1f" path="res://Noah/assets/sprites/UI/DialogueUI.png" id="2_7bn6l"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_edwrk"]
 [ext_resource type="AudioStream" uid="uid://dotrkrmqmiugj" path="res://Noah/assets/audio/bleep030.ogg" id="2_yjvli"]
-[ext_resource type="SpriteFrames" uid="uid://7eapc6hmjvnp" path="res://Noah/assets/sprites/CharacterPortraits/Sam/SamPortrait.tres" id="5_ssglm"]
 [ext_resource type="Texture2D" uid="uid://dkrk51mee2uov" path="res://Noah/assets/sprites/CharacterPortraits/PortraitBg.png" id="5_yglax"]
+[ext_resource type="SpriteFrames" uid="uid://dhu47qrousdeq" path="res://Noah/assets/sprites/CharacterPortraits/Janice/Janice.tres" id="6_yglax"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjvli"]
 content_margin_left = 40.0
@@ -104,6 +104,7 @@ texture = ExtResource("5_yglax")
 offset = Vector2(40, 40)
 
 [node name="Portrait" type="AnimatedSprite2D" parent="PortraitBox" unique_id=703839260]
-sprite_frames = ExtResource("5_ssglm")
+sprite_frames = ExtResource("6_yglax")
 autoplay = "default"
+frame_progress = 0.5609829
 offset = Vector2(32, 32)
