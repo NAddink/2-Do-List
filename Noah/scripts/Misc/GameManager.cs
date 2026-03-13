@@ -6,14 +6,16 @@ using System.Text.Json;
 public partial class GameManager : Node2D
 {
 
-    public static GameManager Instance { get; private set; }
+    public SaveManager SaveManager;
 
     public override void _Ready()
     {
-        Instance = this;
-        Load();
+        // Get SaveManager
+        SaveManager = GetTree().CurrentScene.GetNode<SaveManager>("GameManager/SaveManager");
+
+        LoadChoices();
         EnsureDefaultFlags();
-        Save();
+        SaveChoices();
     }
 
 
@@ -58,63 +60,20 @@ public partial class GameManager : Node2D
         }
     }
 
-    // Run on start
-    // public override void _Ready()
-    // {
-        
-    // }
 
-
-    public void Save()
+    // Saves flags to disk
+    public void SaveChoices()
     {
-        ConfigFile configFile = new ConfigFile();
-
-        var options = new JsonSerializerOptions
-        {
-            WriteIndented = true
-        };
-
-        var jsonData = JsonSerializer.Serialize(FlagsData, options);
-
-        using FileAccess file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
-        if (file != null)
-        {
-            file.StoreString(jsonData);
-            file.Close();
-            GD.Print("Successfully saved game data as json");
-        }
-        else
-        {
-            GD.PrintErr("Error occured when attempting to save to file");
-        }
+        SaveManager.SaveChoices(SavePath, FlagsData);
     }
 
-    public void Load()
+    // Loads flags from disk
+    public void LoadChoices()
     {
-        if (!FileAccess.FileExists(SavePath))
-        {
-            GD.PrintErr("Save file not found!");
-            FlagsData = new Dictionary<string, bool>();
-            return;
-        }
-
-        using FileAccess file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Read);
-        string jsonText = file.GetAsText();
-        file.Close();
-
-        if (!string.IsNullOrEmpty(jsonText))
-        {
-            FlagsData = JsonSerializer.Deserialize<Dictionary<string,bool>>(jsonText); 
-        }
-        else
-        {
-            GD.PrintErr("Attempted to load data from json but there was no data to load!");
-        }
-        
-        
-
+        FlagsData = SaveManager.LoadChoices(SavePath, FlagsData);
     }
 
+    
     public void AddFlag(string flagName, bool flagValue)
     {
         // flag already exists, set data
@@ -127,13 +86,11 @@ public partial class GameManager : Node2D
             FlagsData.Add(flagName, flagValue);
         }
 
-        Save();
+        SaveChoices();
     }
 
     public bool GetFlag(string flagName)
     {
-        Load(); // Get updated flagdata
-
         if (FlagsData.ContainsKey(flagName))
         {
             return FlagsData[flagName]; // Return flag as true or false
@@ -152,12 +109,7 @@ public partial class GameManager : Node2D
             FlagsData[flag.Key] = false;
         }
 
-        Save();
-    }
-
-    public Dictionary<string, bool> GetFlags()
-    {
-        return FlagsData;
+        SaveChoices();
     }
 
     private void EnsureDefaultFlags()
@@ -165,7 +117,7 @@ public partial class GameManager : Node2D
         var flags = GetFlagsFromGlobals();
         if (flags == null)
         {
-            GD.Print("Globals.ink had no flags!");
+            GD.Print("Globals.txt had no flags!");
             return;
         }
 
@@ -177,6 +129,8 @@ public partial class GameManager : Node2D
         
     }
 
+    // Retrieves all flags from globals.txt and sets flagdata to contain all those flags as null
+    // Helps with consistency as otherwise
     private string[] GetFlagsFromGlobals()
     {
         string filePath = "res://Noah/inks/globals.txt";
@@ -191,26 +145,47 @@ public partial class GameManager : Node2D
         using FileAccess file = FileAccess.Open(filePath, FileAccess.ModeFlags.Read);
         string text = file.GetAsText();
         file.Close();
-
-        if (!string.IsNullOrEmpty(text))
+        
+        if (string.IsNullOrEmpty(text))
         {
-            // get string list of flags from globals.ink
-            string[] lines = text.Split("\n");
-
-            for(int i = 0; i < lines.Length; i++)
-            {
-                lines[i] = lines[i].Replace("VAR","").Replace("= false","").Trim();
-            }
-
-            return lines;
-
-        }
-        else
-        {
-            GD.PrintErr("Attempted to load data from globals.ink but there was no data to load!");
+            GD.PrintErr("globals.txt is empty!");
             return null;
         }
 
+
+        // get string list of flags from globals.ink
+        System.Collections.Generic.List<string> flags = new System.Collections.Generic.List<string>();
+
+        foreach(string line in text.Split("\n"))
+        {
+            string trimmed = line.Trim();
+
+            // Skip blank lines
+            if (string.IsNullOrEmpty(trimmed))
+                continue;
+
+            // Skip lines that don't start with VAR
+            if (!trimmed.StartsWith("VAR "))
+                continue;
+
+            string[] parts = trimmed.Split("=");
+            if (parts.Length < 2) // Lines should have =
+                continue;
+
+            string flagName = parts[0].Replace("VAR", "").Trim(); 
+
+            if (!string.IsNullOrEmpty(flagName))
+                flags.Add(flagName);            
+        }
+
+        return flags.ToArray();
+
+
+    }
+
+    public Dictionary<string, bool> GetFlags()
+    {
+        return FlagsData;
     }
 
    

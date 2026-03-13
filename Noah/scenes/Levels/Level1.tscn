@@ -20,8 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://ejmin0pyeddp" path="res://Noah/assets/sprites/Characters/Level0/Sam/Sam.png" id="13_rokw5"]
 [ext_resource type="Resource" uid="uid://b58kyu65sm44p" path="res://Noah/inks/interactables/Level0/Characters/Sam.ink" id="14_un138"]
 [ext_resource type="Resource" uid="uid://db001pbwccy8p" path="res://Noah/inks/interactables/Level0/Characters/Boss.ink" id="15_txpyo"]
-[ext_resource type="Script" uid="uid://b8oqp3d58bdcx" path="res://Noah/scripts/Misc/SaveGame.cs" id="21_bk2af"]
 [ext_resource type="Script" uid="uid://b8q52xjft6jyl" path="res://Noah/scripts/Misc/GameManager.cs" id="21_vjv0x"]
+[ext_resource type="Script" uid="uid://bw1va18gxqwm" path="res://Noah/scripts/Misc/SaveManager.cs" id="22_vjv0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_534j1"]
 atlas = ExtResource("13_rokw5")
@@ -790,8 +790,8 @@ Give boss his coffee $$$ day0_office_GaveBossCoffee
 Talk to Sam $$$ day0_office_TalkedToSam
 Help Janice with her claims $$$ day0_office_HelpedJanice"
 
-[node name="SaveGame" type="Node2D" parent="." unique_id=1348482209]
-script = ExtResource("21_bk2af")
-
 [node name="GameManager" type="Node2D" parent="." unique_id=251574153]
 script = ExtResource("21_vjv0x")
+
+[node name="SaveManager" type="Node2D" parent="GameManager" unique_id=1348482209]
+script = ExtResource("22_vjv0x")

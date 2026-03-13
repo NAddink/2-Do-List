@@ -23,15 +23,14 @@ public partial class DebugKey : Node
 
             if (inputEventKey.PhysicalKeycode == Key.L && inputEventKey.Pressed && !inputEventKey.Echo)
             {
-                GameManager.Load();
+                GameManager.LoadChoices();
                 LabelPopup("Debug: Force loaded current flags");
             }
 
             if (inputEventKey.PhysicalKeycode == Key.N && inputEventKey.Pressed && !inputEventKey.Echo)
             {
-                SaveGame saveGame = (SaveGame) GetTree().GetRoot().FindChild("SaveGame", true, false);
-                GD.Print("Got savegame node: " + saveGame);
-                saveGame.Save();
+                
+                GameManager.SaveManager.SaveNodeData();
                 
             }
 
