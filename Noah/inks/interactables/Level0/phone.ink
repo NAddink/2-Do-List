@@ -24,7 +24,7 @@ Answering Machine $$$ ***BEEEEEEP*** Hey! This is Boss! Make yourself useful and
 
 === dead_end_sympathetic ===
 
-MC $$$ I’m really sorry to have to do this ma’am but we are no longer able to offer you support.
+MC $$$ I'm really sorry to have to do this ma'am but we are no longer able to offer you support.
 -> dead_end
 
 === dead_end_witty ===
@@ -32,6 +32,6 @@ MC $$$ I forgot my wallet at my place, I'll pay for the next one.
 -> dead_end
 
 === call_clients ===
-MC $$$ Hi sir, we’d love to welcome you to the General Insurance family, No worries at a low price!
+MC $$$ Hi sir, we'd love to welcome you to the General Insurance family, No worries at a low price!
 ~ day0_office_CalledClients = true
 -> main_menu

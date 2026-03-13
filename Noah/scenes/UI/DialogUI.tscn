@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bu4fj76ix6ea2"]
 
 [ext_resource type="Script" uid="uid://cl6lcwupxnpk7" path="res://Noah/scripts/UI/DialogUI.cs" id="1_xh3aw"]
+[ext_resource type="Texture2D" uid="uid://b3jswhegido1f" path="res://Noah/assets/sprites/UI/DialogueUI.png" id="2_7bn6l"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_edwrk"]
 [ext_resource type="AudioStream" uid="uid://dotrkrmqmiugj" path="res://Noah/assets/audio/bleep030.ogg" id="2_yjvli"]
 
@@ -21,6 +22,9 @@ content_margin_top = 20.0
 content_margin_right = 40.0
 content_margin_bottom = 20.0
 bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bn6l"]
+content_margin_top = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ket"]
 content_margin_left = 15.0
@@ -52,13 +56,18 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjgwd")
 
+[node name="Sprite2D" type="Sprite2D" parent="DialogBox" unique_id=99201163]
+texture = ExtResource("2_7bn6l")
+centered = false
+
 [node name="DialogLine" type="RichTextLabel" parent="DialogBox" unique_id=358325532]
-clip_contents = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_edwrk")
 theme_override_font_sizes/normal_font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7bn6l")
 bbcode_enabled = true
-text = "Wow some dialogue! Can't wait to dialogue it up with this dialogue it sure is dia"
+text = "Wow some dialogue! Can't wait to dialogue it up with this dialogue it sure is dia
+Wow some dialogue! Can't wait to dialogue it up with this dialogue it sure is dia"
 autowrap_mode = 2
 
 [node name="SpeakerBox" type="Control" parent="." unique_id=1903239797]

@@ -61,7 +61,7 @@ MC $$$ Well Obviously.
 
 === back_from_research ===
 
-MC $$$ That’s enough research for today, or a lifetime.
+MC $$$ That's enough research for today, or a lifetime.
 
 -> main_menu
 
