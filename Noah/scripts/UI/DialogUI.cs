@@ -29,7 +29,7 @@ public partial class DialogUI : Control
 
     public override void _Ready()
     {
-        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+        GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
         GameManager.DialogButtonPressed += DialogProceed;
 
         PortraitSprite = GetNode<AnimatedSprite2D>("PortraitBox/Portrait");

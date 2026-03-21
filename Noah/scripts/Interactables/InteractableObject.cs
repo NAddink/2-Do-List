@@ -96,7 +96,7 @@ public partial class InteractableObject : ActivatableObject
         
         
         // Attatch proceed logic to proceed signal
-        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+        GameManager = GetNode<GameManager>("/root/GameManager");
         GameManager.DialogProceed += DialogProceed;
 
         // TEXT LABEL
@@ -114,8 +114,8 @@ public partial class InteractableObject : ActivatableObject
 
 
         // get reference to dialogUI 
-        DialogUI = GetTree().CurrentScene.GetNode<DialogUI>("UI/DialogUI");
-        ChoiceUI = GetTree().CurrentScene.GetNode<ChoiceUI>("UI/ChoiceUI");
+        DialogUI = GetNode<DialogUI>("../../../UI/DialogUI");
+        ChoiceUI = GetNode<ChoiceUI>("../../../UI/ChoiceUI");
 
         
     }

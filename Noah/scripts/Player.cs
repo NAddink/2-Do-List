@@ -17,7 +17,7 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
     {
-        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+        GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
         GameManager.ToggleDialog += OnDialogEnter;
     }
 
@@ -175,6 +175,7 @@ public partial class Player : CharacterBody2D
     {
         return new Godot.Collections.Dictionary<string, Variant>()
         {
+            { "NodeName", Name },
             { "PosX", Position.X }, // Vector2 is not supported by JSON
             { "PosY", Position.Y },
         };

@@ -34,21 +34,61 @@ public partial class MainMenu : Control
     private void LoadAutoSaveButtonPress()
     {
         
-        Node Level1Instance = Level1Scene.Instantiate();
+        Node levelInstance = Level1Scene.Instantiate();
 
         Node currentScene = GetTree().CurrentScene;
         Node root = GetTree().Root;
 
-        // 3. Add the new scene as a child of the root
-        Node2D player = (Node2D)Level1Instance.FindChild("Player");
-        player.Position = new Vector2I(-141, 86);
-        root.AddChild(Level1Instance);
+        // Set current scene to level1
+        root.AddChild(levelInstance);
+        GetTree().CurrentScene = levelInstance;
 
-        // 4. Set the new scene as the current scene for the SceneTree
-        GetTree().CurrentScene = Level1Instance;
+        // 🔑 Delay loading until scene is fully ready
+        CallDeferred(nameof(ApplySaveData), levelInstance);
 
-        // 5. Free the old scene (use CallDeferred to avoid issues if other nodes still need it this frame)
-        currentScene.QueueFree();
+        if (currentScene != null)
+        {
+            currentScene.SetProcess(false);
+            currentScene.SetPhysicsProcess(false);
+            currentScene.CallDeferred("queue_free");
+        }
+    }
+
+    private void ApplySaveData(Node levelInstance)
+    {
+        if (!FileAccess.FileExists("user://savegame.save"))
+        {
+            GD.Print("No save file found");
+            return;
+        }
+
+        using var saveFile = FileAccess.Open("user://savegame.save", FileAccess.ModeFlags.Read);
+
+        while (saveFile.GetPosition() < saveFile.GetLength())
+        {
+            string line = saveFile.GetLine();
+            var json = Json.ParseString(line);
+
+            if (json.VariantType != Variant.Type.Dictionary)
+                continue;
+
+            var data = (Godot.Collections.Dictionary)json;
+
+            if (!data.ContainsKey("NodeName"))
+                continue;
+
+            string nodeName = (string)data["NodeName"];
+
+            Node foundNode = levelInstance.FindChild(nodeName);
+
+            if (foundNode is Node2D node2D)
+            {
+                float x = (float)(double)data["PosX"];
+                float y = (float)(double)data["PosY"];
+
+                node2D.Position = new Vector2(x, y);
+            }
+        }
     }
 
     private void OptionsButtonPress()

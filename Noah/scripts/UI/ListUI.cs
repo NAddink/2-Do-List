@@ -17,7 +17,15 @@ public partial class ListUI : Control
 
     public override void _Ready()
     {
-        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+        GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
+        if(GameManager == null)
+        {
+            while (true)
+            {
+                GD.Print("GAME MANAGER IS NULL");
+                
+            }
+        }
         Theme = SelectedTheme;
         DisplayLabels();
 

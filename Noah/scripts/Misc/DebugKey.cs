@@ -8,7 +8,7 @@ public partial class DebugKey : Node
 
     public override void _Ready()
     {
-        GameManager = GetTree().CurrentScene.GetNode<GameManager>("GameManager");
+        GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
     }
 
     public override void _Input(InputEvent @event)

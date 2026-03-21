@@ -11,7 +11,7 @@ public partial class GameManager : Node2D
     public override void _Ready()
     {
         // Get SaveManager
-        SaveManager = GetTree().CurrentScene.GetNode<SaveManager>("GameManager/SaveManager");
+        SaveManager = GetTree().Root.GetNode<SaveManager>("SaveManager");;
 
         LoadChoices();
         EnsureDefaultFlags();

@@ -15,15 +15,16 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="2-Do-List"
-run/main_scene="uid://dbfjcyje05s6n"
+run/main_scene="uid://cvujn3nralyn7"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="uid://dk0flf48e0j6h"
 
 [autoload]
 
-GameManager="res://Noah/scripts/Misc/GameManager.cs"
+GameManager="*res://Noah/scripts/Misc/GameManager.cs"
 FullScreenToggle="*res://Noah/scripts/Misc/FullScreenToggle.cs"
 DebugKey="*res://Noah/scripts/Misc/DebugKey.cs"
+SaveManager="*uid://bw1va18gxqwm"
 
 [display]
 
