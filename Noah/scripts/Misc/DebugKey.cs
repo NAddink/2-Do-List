@@ -31,6 +31,7 @@ public partial class DebugKey : Node
             {
                 
                 GameManager.SaveManager.SaveNodeData();
+                LabelPopup("Debug: Added player pos to savegame");
                 
             }
 
