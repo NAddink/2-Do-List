@@ -69,9 +69,16 @@ public partial class DialogUI : Control
         // Has a name, set speaker text to the name
         if(speaker != null && speaker != "MC")
         {
-            PortraitSprite.SpriteFrames = Portraits[speaker];
-            PortraitSprite.Play();
-            GetNode<Control>("PortraitBox").Visible = true;
+            if (Portraits.ContainsKey(speaker))
+            {
+                PortraitSprite.SpriteFrames = Portraits[speaker];
+                PortraitSprite.Play();
+                GetNode<Control>("PortraitBox").Visible = true;
+            }
+            else
+            {
+                GetNode<Control>("PortraitBox").Visible = false;
+            }
         }
 
         // For MC remove the speaker box

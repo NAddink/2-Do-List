@@ -10,7 +10,7 @@ INCLUDE ../../globals.ink
 
 === check_messages ===
 
-Answering Machine $$$ ***BEEEEEEP*** Hey! This is Boss! Make yourself useful and grab me a coffee would ya? Stupid intern messed up my order...
+***BEEEEEEP*** Hey! This is Boss! Make yourself useful and grab me a coffee would ya? Stupid intern messed up my order...
 -> main_menu
 
 === dead_end ===
