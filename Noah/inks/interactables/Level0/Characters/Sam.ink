@@ -20,7 +20,7 @@ Did you already forget everything I just said to you?
 -> END
 
 === Repeat === 
-I SAID that bossman told you to reschedule the shareholder meeting. I said I would do it for you but in exchange, you need to go help Janice with her claims.
+Sam $$$ I SAID that bossman told you to reschedule the shareholder meeting. I said I would do it for you but in exchange, you need to go help Janice with her claims.
 That woman drives me up the wall I swear...
 -> END
 

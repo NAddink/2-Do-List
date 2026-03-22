@@ -43,6 +43,7 @@ public partial class DialogUI : Control
         Portraits["Sam"] = GD.Load<SpriteFrames>("uid://7eapc6hmjvnp");
         Portraits["Janice"] = GD.Load<SpriteFrames>("uid://dhu47qrousdeq");
         Portraits["Boss"] = GD.Load<SpriteFrames>("uid://dn3kme42byuqd");
+        Portraits["MC"] = GD.Load<SpriteFrames>("uid://ba0hatkdit40r");
     }
 
 
@@ -66,23 +67,13 @@ public partial class DialogUI : Control
             dialog = lineParts[0].Trim();
         }
 
-        // Has a name, set speaker text to the name
-        if(speaker != null && speaker != "MC")
+        if (Portraits.ContainsKey(speaker))
         {
-            if (Portraits.ContainsKey(speaker))
-            {
-                PortraitSprite.SpriteFrames = Portraits[speaker];
-                PortraitSprite.Play();
-                GetNode<Control>("PortraitBox").Visible = true;
-            }
-            else
-            {
-                GetNode<Control>("PortraitBox").Visible = false;
-            }
+            PortraitSprite.SpriteFrames = Portraits[speaker];
+            PortraitSprite.Play();
+            GetNode<Control>("PortraitBox").Visible = true;
         }
-
-        // For MC remove the speaker box
-        if(speaker == "MC")
+        else
         {
             GetNode<Control>("PortraitBox").Visible = false;
         }

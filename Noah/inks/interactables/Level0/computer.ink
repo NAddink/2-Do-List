@@ -38,15 +38,16 @@ MC $$$ See you tomorrow junk mail.
 
 === research_news ===
 
-+ [Should the insurance industry be concerned with AI?]
++ [News article on AI]
     -> ai_concern
-+ [Recent studies have shown that insurance companies are stealing your money.]
++ [News article on insurance companies]
     -> stealing_money
 + [Back]
     -> back_from_research
 
 === ai_concern ===
 
+News $$$ "Should the insurance industry be concerned with AI?"
 MC $$$ Dang Robots
 ~ day0_office_ResearchedInsurance = true
 
@@ -54,6 +55,7 @@ MC $$$ Dang Robots
 
 === stealing_money ===
 
+News $$$ "Recent studies have shown that insurance companies are stealing your money."
 MC $$$ Well Obviously.
 ~ day0_office_ResearchedInsurance = true
 

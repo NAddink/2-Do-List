@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ba0hatkdit40r"]
+
+[ext_resource type="Texture2D" uid="uid://bc2pn5wdnb11t" path="res://Noah/assets/sprites/CharacterPortraits/Broah/Broah.png" id="1_6ljtf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_130th"]
+atlas = ExtResource("1_6ljtf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnwof"]
+atlas = ExtResource("1_6ljtf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a26t"]
+atlas = ExtResource("1_6ljtf")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t20yf"]
+atlas = ExtResource("1_6ljtf")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb048"]
+atlas = ExtResource("1_6ljtf")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fak2c"]
+atlas = ExtResource("1_6ljtf")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj1o5"]
+atlas = ExtResource("1_6ljtf")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xufgr"]
+atlas = ExtResource("1_6ljtf")
+region = Rect2(576, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_130th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnwof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a26t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t20yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb048")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fak2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj1o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xufgr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
