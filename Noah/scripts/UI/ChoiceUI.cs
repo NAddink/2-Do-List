@@ -24,8 +24,10 @@ public partial class ChoiceUI : Control
         GD.Print("Creating" + choices.Length + "buttons.");
         for(int i = 0; i < choices.Length; i++)
         {
-            Button choice = (Button)buttonScene.Instantiate();
-            choice.Text = choices[i];
+            TextureButton choice = (TextureButton)buttonScene.Instantiate();
+            Label label = choice.GetNode<Label>("Label");
+
+            label.Text = choices[i];
             vBox.AddChild(choice);
 
             int buttonIdx = i;

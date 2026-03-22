@@ -1,14 +1,32 @@
 [gd_scene format=3 uid="uid://cji1ck82vffii"]
 
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="1_5miwk"]
+[ext_resource type="Texture2D" uid="uid://45uadw6jujg5" path="res://Noah/assets/sprites/UI/ChoiceUI/ChoiceButton.png" id="1_av5dr"]
+[ext_resource type="Texture2D" uid="uid://c7vgmfo7volxy" path="res://Noah/assets/sprites/UI/ChoiceUI/ChoiceButtonPressed.png" id="2_4jyhh"]
 
-[node name="ChoiceButton" type="Button" unique_id=1471214159]
+[node name="ChoiceButton" type="TextureButton" unique_id=178441030]
+custom_minimum_size = Vector2(750, 48)
 anchors_preset = -1
 anchor_right = 0.42700002
 anchor_bottom = 0.15100001
 offset_right = 8.095978
 offset_bottom = 2.1519928
+texture_normal = ExtResource("1_av5dr")
+texture_pressed = ExtResource("2_4jyhh")
+
+[node name="Label" type="Label" parent="." unique_id=794014822]
+custom_minimum_size = Vector2(750, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_5miwk")
 theme_override_font_sizes/font_size = 40
 text = "Bread clean the floor with the nail polish because yes"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
