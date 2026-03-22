@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://b7r5wocq5qacu"
+path="res://.godot/imported/BookShelf.ink-82bbf2251a7b5a8f6f228de6383b76a1.res"
+
+[deps]
+
+source_file="res://Noah/inks/interactables/Level0/BookShelf.ink"
+dest_files=["res://.godot/imported/BookShelf.ink-82bbf2251a7b5a8f6f228de6383b76a1.res"]
+
+[params]
+
+is_main_file=true
+compress=true

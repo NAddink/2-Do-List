@@ -19,7 +19,7 @@ public partial class DescriptionObject : InteractableObject
 
             GameManager.SetDialogState(true);
 
-            DialogUI.SpeakLine("MC $$$ " + DescriptionText);
+            DialogUI.SpeakLine(DescriptionText);
         }
     }
 

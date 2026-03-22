@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://cysmqj5at3eh5" path="res://Noah/inks/interactables/Level0/CoffeeMachine.ink" id="11_6kem1"]
 [ext_resource type="PackedScene" uid="uid://c2b5b317h20m2" path="res://Noah/scenes/UI/ListUI.tscn" id="11_ola80"]
 [ext_resource type="AudioStream" uid="uid://bh8hgvrj7ie6u" path="res://Noah/assets/audio/bgm-cherryblossom.mp3" id="12_gm6ah"]
+[ext_resource type="Resource" uid="uid://b7r5wocq5qacu" path="res://Noah/inks/interactables/Level0/BookShelf.ink" id="12_sleol"]
 [ext_resource type="PackedScene" uid="uid://or86mee2kkxj" path="res://Noah/scenes/Interactables/InteractableSprite.tscn" id="13_2gvlp"]
 [ext_resource type="Texture2D" uid="uid://1gv8vtrtauic" path="res://Noah/assets/sprites/Characters/Level0/Janice/Janice.png" id="13_ai0mw"]
 [ext_resource type="Texture2D" uid="uid://ejmin0pyeddp" path="res://Noah/assets/sprites/Characters/Level0/Sam/Sam.png" id="13_rokw5"]
@@ -709,11 +710,20 @@ VisibleRange = 40.49
 LabelYOffset = -32.01
 inkData = ExtResource("11_6kem1")
 
+[node name="Bookshelf" parent="Interactables/InteractableObjects" unique_id=1299690554 groups=["interactable"] instance=ExtResource("3_mo1xh")]
+z_index = 1
+position = Vector2(558, -152)
+LabelText = "Bookshelf"
+ActivationRange = 23.6
+VisibleRange = 40.04
+LabelYOffset = -19.895
+inkData = ExtResource("12_sleol")
+
 [node name="DescriptionObjects" type="Node2D" parent="Interactables" unique_id=939569979]
 
 [node name="Plant" parent="Interactables/DescriptionObjects" unique_id=1873577332 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-48, -45)
-DescriptionText = "I love my little plant!"
+DescriptionText = "MC $$$ I love my little plant! Even if it is plastic."
 LabelText = "Plant"
 ActivationRange = 17.98
 VisibleRange = 27.71
@@ -721,7 +731,7 @@ LabelYOffset = -32.685
 
 [node name="SamAward" parent="Interactables/DescriptionObjects" unique_id=261245220 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-336, 34)
-DescriptionText = "Of course [wave amp=50.0 freq=5.0 connected=1]Sam[/wave] of all people gets employee of the month... what a prick..."
+DescriptionText = "MC $$$ Of course [wave amp=50.0 freq=5.0 connected=1]Sam[/wave] of all people gets employee of the month... what a prick..."
 LabelText = "Award"
 ActivationRange = 13.445
 VisibleRange = 27.08
@@ -729,11 +739,75 @@ LabelYOffset = -22.565
 
 [node name="SamEspressoMachine" parent="Interactables/DescriptionObjects" unique_id=1468673238 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(-297, -52)
-DescriptionText = "Sam's espresso machine. I really doubt he would let me use it."
+DescriptionText = "MC $$$ Sam's espresso machine. I really doubt he would let me use it."
 LabelText = "Espresso machine"
 ActivationRange = 32.26
 VisibleRange = 38.98
 LabelYOffset = -28.565
+
+[node name="VendingMachine" parent="Interactables/DescriptionObjects" unique_id=1829288575 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(-232, -120)
+DescriptionText = "MC $$$ I'm convinced they haven't restocked this since I started working here..."
+LabelText = "Vending Machine"
+ActivationRange = 17.98
+VisibleRange = 27.71
+LabelYOffset = -56.61
+
+[node name="WaterFountain" parent="Interactables/DescriptionObjects" unique_id=970059595 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(238, -121)
+DescriptionText = "MC $$$ Mmm. Room temperature water out of a paper cup!"
+LabelText = "Water Cooler"
+ActivationRange = 17.98
+VisibleRange = 27.675
+LabelYOffset = -27.45
+
+[node name="VendingMachine2" parent="Interactables/DescriptionObjects" unique_id=1626780499 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(-618, -119)
+DescriptionText = "MC $$$ The card reader on this vending machine is broken. I'm sure those snacks have been there since this building was constructed."
+LabelText = "Vending Machine"
+ActivationRange = 17.98
+VisibleRange = 27.71
+LabelYOffset = -56.61
+
+[node name="Bookshelf2" parent="Interactables/DescriptionObjects" unique_id=1286394606 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(-463, -121)
+DescriptionText = "MC $$$ There aren't actually real books on this shelf. Just empty binders. Is the budget that tight?"
+LabelText = "Vending Machine"
+ActivationRange = 17.98
+VisibleRange = 27.71
+LabelYOffset = -33.425
+
+[node name="BossPlaque" parent="Interactables/DescriptionObjects" unique_id=1122845015 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(673, -35)
+DescriptionText = "MC $$$ Why do they call them 'plaques' anyhow? Always makes me think of the dentist..."
+LabelText = "Plaque"
+ActivationRange = 17.98
+VisibleRange = 27.71
+LabelYOffset = -33.425
+
+[node name="Plant2" parent="Interactables/DescriptionObjects" unique_id=255032454 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(176, -32)
+DescriptionText = "MC $$$ Whatever lunatic thought this many people should share one printer should be investigated. "
+LabelText = "Printer"
+ActivationRange = 24.36
+VisibleRange = 36.71
+LabelYOffset = -32.685
+
+[node name="Graph" parent="Interactables/DescriptionObjects" unique_id=1100892976 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(161, -140)
+DescriptionText = "MC $$$ Someone doodled a suprisingly well done cat here."
+LabelText = "Whiteboard"
+ActivationRange = 24.36
+VisibleRange = 36.71
+LabelYOffset = -32.685
+
+[node name="JanicePhoto" parent="Interactables/DescriptionObjects" unique_id=1268441362 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(336, -62)
+DescriptionText = "MC $$$ I assume this is Janice's granddaughter? Or her when she was younger? But I'm not sure they had color photos back then."
+LabelText = "Photo"
+ActivationRange = 21.1
+VisibleRange = 36.71
+LabelYOffset = -32.685
 
 [node name="Characters" type="Node2D" parent="Interactables" unique_id=1999727995]
 
@@ -758,12 +832,12 @@ LabelYOffset = -25.535
 inkData = ExtResource("14_un138")
 
 [node name="Boss" parent="Interactables/InteractableSprites" unique_id=986436898 node_paths=PackedStringArray("Sprite") groups=["interactable"] instance=ExtResource("13_2gvlp")]
-position = Vector2(717, -204)
+position = Vector2(718, -179)
 Sprite = NodePath("../../../Tilemaps/Characters/Boss")
 LabelText = "Boss"
-ActivationRange = 70.635
+ActivationRange = 58.77
 VisibleRange = 92.635
-LabelYOffset = -50.65
+LabelYOffset = -67.96
 inkData = ExtResource("15_txpyo")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1135089640]

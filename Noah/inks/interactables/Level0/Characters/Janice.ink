@@ -32,7 +32,7 @@ MC $$$ Janice seems a bit overwhelmed at the moment.
 
 === Main ===
 Janice $$$ Oh thank goodness! Just the person I needed!
-I can't remember how to open this excel file, and I figure you're so good with computers. Can you help me out here?
+Janice $$$ I can't remember how to open this excel file, and I figure you're so good with computers. Can you help me out here?
 
 + [Sure, Janice. You just click here.] -> Help
 + [No] -> No
@@ -44,6 +44,6 @@ Janice $$$ Oh... I can try to figure it out myself I suppose... thanks anyways.
 
 === Help ===
 Janice $$$ Oh I just knew you would help me!
-Such a kind young man. Not like Sam of course, that lazy bum never gives me the time of day!
+Janice $$$ Such a kind young man. Not like Sam of course, that lazy bum never gives me the time of day!
 ~ day0_office_HelpedJanice = true
 -> END
