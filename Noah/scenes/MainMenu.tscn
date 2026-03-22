@@ -2,6 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="1_dr7c1"]
 [ext_resource type="Script" uid="uid://bv5n8pm4qfcr0" path="res://Noah/scripts/UI/MainMenu.cs" id="1_l1uea"]
+[ext_resource type="Texture2D" uid="uid://cwe63btlu4rsb" path="res://Noah/assets/sprites/UI/MainMenu/MainMenu.png" id="2_bow6u"]
+[ext_resource type="Texture2D" uid="uid://c6cko3u2mwk3u" path="res://Noah/assets/sprites/UI/MainMenu/MainMenuPressed.png" id="3_hvt40"]
 
 [node name="MainMenu" type="Control" unique_id=136352209 node_paths=PackedStringArray("NewGame", "LoadAutoSave", "Options", "Exit")]
 layout_mode = 3
@@ -32,30 +34,79 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 26
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1214039137]
+[node name="Button" type="TextureButton" parent="VBoxContainer" unique_id=1239037630]
 custom_minimum_size = Vector2(0, 88.125)
 layout_mode = 2
+texture_normal = ExtResource("2_bow6u")
+texture_pressed = ExtResource("3_hvt40")
+ignore_texture_size = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Button" unique_id=1306314860]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_dr7c1")
 theme_override_font_sizes/font_size = 64
 text = "Start New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1369185769]
+[node name="Button2" type="TextureButton" parent="VBoxContainer" unique_id=366588481]
 custom_minimum_size = Vector2(0, 88.125)
 layout_mode = 2
+texture_normal = ExtResource("2_bow6u")
+texture_pressed = ExtResource("3_hvt40")
+
+[node name="Label" type="Label" parent="VBoxContainer/Button2" unique_id=94810125]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_dr7c1")
 theme_override_font_sizes/font_size = 64
 text = "Load AutoSave"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1464058468]
+[node name="Button3" type="TextureButton" parent="VBoxContainer" unique_id=606049924]
 custom_minimum_size = Vector2(0, 88.125)
 layout_mode = 2
+texture_normal = ExtResource("2_bow6u")
+texture_pressed = ExtResource("3_hvt40")
+
+[node name="Label" type="Label" parent="VBoxContainer/Button3" unique_id=1293706442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_dr7c1")
 theme_override_font_sizes/font_size = 64
 text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button4" type="Button" parent="VBoxContainer" unique_id=376499860]
+[node name="Button4" type="TextureButton" parent="VBoxContainer" unique_id=76641356]
 custom_minimum_size = Vector2(0, 88.125)
 layout_mode = 2
+texture_normal = ExtResource("2_bow6u")
+texture_pressed = ExtResource("3_hvt40")
+
+[node name="Label" type="Label" parent="VBoxContainer/Button4" unique_id=726038343]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_dr7c1")
 theme_override_font_sizes/font_size = 64
 text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1

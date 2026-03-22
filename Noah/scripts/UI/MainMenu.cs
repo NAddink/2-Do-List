@@ -3,10 +3,10 @@ using System;
 
 public partial class MainMenu : Control
 {
-    [Export] Button NewGame;
-    [Export] Button LoadAutoSave;
-    [Export] Button Options;
-    [Export] Button Exit;
+    [Export] TextureButton NewGame;
+    [Export] TextureButton LoadAutoSave;
+    [Export] TextureButton Options;
+    [Export] TextureButton Exit;
 
     private PackedScene Level1Scene;
 
@@ -98,7 +98,7 @@ public partial class MainMenu : Control
 
     private void ExitButtonPress()
     {
-        throw new NotImplementedException();
+        GetTree().Quit();
     }
     
 
