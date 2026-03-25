@@ -28,6 +28,7 @@ public partial class MainMenu : Control
 
     private void NewGameButtonPress()
     {
+        GetTree().Root.GetNode<GameManager>("GameManager").ResetAllFlags(); // Reset all flags. 
         GetTree().ChangeSceneToFile("res://Noah/scenes/Levels/Level1.tscn");
     }
 

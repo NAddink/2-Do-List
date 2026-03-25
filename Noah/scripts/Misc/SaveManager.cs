@@ -87,4 +87,15 @@ public partial class SaveManager : Node2D
         return Data;
         
     }
+
+
+    public override void _Notification(int what)
+    {
+        if (what == NotificationWMCloseRequest)
+        {
+            SaveNodeData();
+            GetTree().Root.GetNode<GameManager>("GameManager").SaveChoices();
+            GetTree().Quit();
+        }
+    }
 }

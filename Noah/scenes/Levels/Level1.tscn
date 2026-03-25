@@ -712,7 +712,7 @@ inkData = ExtResource("11_6kem1")
 
 [node name="Bookshelf" parent="Interactables/InteractableObjects" unique_id=1299690554 groups=["interactable"] instance=ExtResource("3_mo1xh")]
 z_index = 1
-position = Vector2(558, -152)
+position = Vector2(562, -153)
 LabelText = "Bookshelf"
 ActivationRange = 23.6
 VisibleRange = 40.04
@@ -751,7 +751,7 @@ DescriptionText = "MC $$$ I'm convinced they haven't restocked this since I star
 LabelText = "Vending Machine"
 ActivationRange = 17.98
 VisibleRange = 27.71
-LabelYOffset = -56.61
+LabelYOffset = -56.0
 
 [node name="WaterFountain" parent="Interactables/DescriptionObjects" unique_id=970059595 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(238, -121)
@@ -770,12 +770,12 @@ VisibleRange = 27.71
 LabelYOffset = -56.61
 
 [node name="Bookshelf2" parent="Interactables/DescriptionObjects" unique_id=1286394606 groups=["interactable"] instance=ExtResource("8_xa7eh")]
-position = Vector2(-463, -121)
+position = Vector2(-462, -121)
 DescriptionText = "MC $$$ There aren't actually real books on this shelf. Just empty binders. Is the budget that tight?"
-LabelText = "Vending Machine"
+LabelText = "Bookshelf"
 ActivationRange = 17.98
 VisibleRange = 27.71
-LabelYOffset = -33.425
+LabelYOffset = -33.465
 
 [node name="BossPlaque" parent="Interactables/DescriptionObjects" unique_id=1122845015 groups=["interactable"] instance=ExtResource("8_xa7eh")]
 position = Vector2(673, -35)
@@ -808,6 +808,22 @@ LabelText = "Photo"
 ActivationRange = 21.1
 VisibleRange = 36.71
 LabelYOffset = -32.685
+
+[node name="Magazine" parent="Interactables/DescriptionObjects" unique_id=497596633 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(-618, 40)
+DescriptionText = "MC $$$ A National Geographic magazine. Only it's a copy from 2010. "
+LabelText = "Magazine"
+ActivationRange = 13.445
+VisibleRange = 27.08
+LabelYOffset = -22.565
+
+[node name="Magazine2" parent="Interactables/DescriptionObjects" unique_id=195603864 groups=["interactable"] instance=ExtResource("8_xa7eh")]
+position = Vector2(-743, -59)
+DescriptionText = "MC $$$ A performance review written by someone about themselves. It's actually brutally honest."
+LabelText = "Papers"
+ActivationRange = 13.445
+VisibleRange = 27.08
+LabelYOffset = -6.57
 
 [node name="Characters" type="Node2D" parent="Interactables" unique_id=1999727995]
 

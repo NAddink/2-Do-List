@@ -5,7 +5,7 @@ INCLUDE ../../globals.ink
 === main_menu ===
 + [Check Messages] -> check_messages
 + [Cut off dead-end clients] -> dead_end
-+ [Call Potential Clients] -> call_clients
++ { not day0_office_CalledClients } [Call Potential Clients] -> call_clients
 + [Back] -> END
 
 === check_messages ===
