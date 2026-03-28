@@ -28,6 +28,9 @@ public partial class GameManager : Node2D
     [Signal]
     public delegate void DialogButtonPressedEventHandler();
 
+    [Signal]
+    public delegate void FlagChangedEventHandler(string flagName, bool value);
+
     public bool IsInDialog { get; private set; }
 
     private Dictionary<string, bool> FlagsData = new Dictionary<string, bool>();
@@ -76,17 +79,29 @@ public partial class GameManager : Node2D
     
     public void AddFlag(string flagName, bool flagValue)
     {
+        bool changed = false;
+        
         // flag already exists, set data
         if (FlagsData.ContainsKey(flagName))
         {
-            FlagsData[flagName] = flagValue;
+            if(FlagsData[flagName] != flagValue)
+            {
+                FlagsData[flagName] = flagValue;
+                changed = true;
+            }
         }
         else // flag does not already exist
         {
             FlagsData.Add(flagName, flagValue);
+            changed = true;
         }
 
-        SaveChoices();
+        if(changed)
+        {
+            EmitSignal(SignalName.FlagChanged, flagName, flagValue);
+            SaveChoices();
+        }
+
     }
 
     public bool GetFlag(string flagName)
