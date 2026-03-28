@@ -23,15 +23,13 @@ public partial class ListUI : Control
         GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
         if(GameManager == null)
         {
-            while (true)
-            {
-                GD.Print("GAME MANAGER IS NULL");
-                
-            }
+            GD.Print("GAME MANAGER IS NULL");
         }
         Theme = SelectedTheme;
         DisplayLabels();
         GameManager.FlagChanged += OnFlagChanged;
+
+        ListComplete += GameManager.OnListComplete;
 
         
     }
@@ -207,6 +205,9 @@ public partial class ListUI : Control
         }
 
         GD.Print("GAME COMPLETE?" + complete);
-        EmitSignal(SignalName.ListComplete);
+        if (complete)
+        {
+            EmitSignal(SignalName.ListComplete);
+        }
     }
 }

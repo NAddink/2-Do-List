@@ -9,7 +9,14 @@ public partial class DebugKey : Node
     public override void _Ready()
     {
         GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
+        GameManager.LevelComplete += LevelComplete;
     }
+
+    private void LevelComplete()
+    {
+        LabelPopup("LEVEL COMPLETE");
+    }
+
 
     public override void _Input(InputEvent @event)
     {

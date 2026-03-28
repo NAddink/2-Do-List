@@ -13,6 +13,7 @@ public partial class GameManager : Node2D
         // Get SaveManager
         SaveManager = GetTree().Root.GetNode<SaveManager>("SaveManager");;
 
+
         LoadChoices();
         EnsureDefaultFlags();
         SaveChoices();
@@ -30,6 +31,9 @@ public partial class GameManager : Node2D
 
     [Signal]
     public delegate void FlagChangedEventHandler(string flagName, bool value);
+
+    [Signal]
+    public delegate void LevelCompleteEventHandler();
 
     public bool IsInDialog { get; private set; }
 
@@ -203,5 +207,9 @@ public partial class GameManager : Node2D
         return FlagsData;
     }
 
-   
+    internal void OnListComplete()
+    {
+        EmitSignal(SignalName.LevelComplete);
+    }
+
 }
