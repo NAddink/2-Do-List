@@ -878,7 +878,7 @@ Update client records $$$ day0_office_UpdatedRecords
 Call potential Clients $$$ day0_office_CalledClients
 Give boss his coffee $$$ day0_office_GaveBossCoffee
 Talk to Sam $$$ day0_office_TalkedToSam
-Help Janice with her claims $$$ day0_office_HelpedJanice"
+Help Janice with her claims $$$ day0_office_TalkedToSam $$$ day0_office_HelpedJanice"
 
 [node name="GameManager" type="Node2D" parent="." unique_id=251574153]
 script = ExtResource("21_vjv0x")
