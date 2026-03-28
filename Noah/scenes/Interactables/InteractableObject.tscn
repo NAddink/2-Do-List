@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://75s6u7fw0ik3"]
 
 [ext_resource type="Script" uid="uid://bvx80msroncle" path="res://Noah/scripts/Interactables/InteractableObject.cs" id="1_3gams"]
-[ext_resource type="Texture2D" uid="uid://c6pdvqvrb72or" path="res://Noah/assets/sprites/Icons/Sprite-0003.png" id="1_aq1v0"]
 [ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="2_04p7b"]
 
 [node name="InteractableObject" type="Node2D" unique_id=1007780207]
@@ -23,8 +22,3 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="InteractIcon" type="Sprite2D" parent="." unique_id=822641860]
-visible = false
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_aq1v0")
