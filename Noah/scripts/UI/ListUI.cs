@@ -14,6 +14,9 @@ public partial class ListUI : Control
 
     private GameManager GameManager;
 
+    [Signal]
+    public delegate void ListCompleteEventHandler();
+
 
     public override void _Ready()
     {
@@ -28,9 +31,16 @@ public partial class ListUI : Control
         }
         Theme = SelectedTheme;
         DisplayLabels();
+        GameManager.FlagChanged += OnFlagChanged;
 
         
     }
+
+    private void OnFlagChanged(string flagName, bool value)
+    {
+        CheckListCompleted();
+    }
+
 
     public override void _Input(InputEvent @event)
     {
@@ -168,5 +178,35 @@ public partial class ListUI : Control
             wrapper.AddChild(label);
             list.AddChild(wrapper);
         }
+    }
+
+    public void CheckListCompleted()
+    {
+        Array<string> items = new Array<string>();
+        bool complete = true;
+
+        // Populate
+        if (DescriptionText.Length != 0)
+        {
+            foreach (string s in DescriptionText.Split("\n"))
+            {
+                if (!string.IsNullOrWhiteSpace(s))
+                    items.Add(s);
+            }
+        }
+
+        foreach(string item in items)
+        {
+            string[] parts = item.Split("$$$");
+            if (!GameManager.GetFlag(parts.Last().Trim()))
+            {
+                complete = false;
+                break;
+            }
+            
+        }
+
+        GD.Print("GAME COMPLETE?" + complete);
+        EmitSignal(SignalName.ListComplete);
     }
 }
