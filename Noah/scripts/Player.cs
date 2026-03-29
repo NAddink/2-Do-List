@@ -180,5 +180,13 @@ public partial class Player : CharacterBody2D
             { "PosY", Position.Y },
         };
     }
+
+    public override void _ExitTree()
+    {
+        if (GameManager != null)
+        {
+            GameManager.ToggleDialog -= OnDialogEnter;
+        }
+    }
     
 }

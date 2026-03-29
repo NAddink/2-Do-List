@@ -458,5 +458,13 @@ public partial class InteractableObject : ActivatableObject
         DrawCircle(Vector2.Zero, VisibleRange, new Color(0, 1, 0, 0.25f));
     }
 
+    public override void _ExitTree()
+    {
+        if (GameManager != null)
+        {
+            GameManager.DialogProceed -= DialogProceed;
+        }
+    }
+
 
 }
