@@ -36,6 +36,14 @@ public partial class CutsceneManager : Node
 
     private async void DemoCutscene()
     {
+
+         // Wait until dialog is finished
+        while (GameManager.IsInDialog)
+        {
+            await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+        }
+        
+
         CanvasLayer canvasLayer = (CanvasLayer)GetTree().Root.FindChild("UI", true, false);
 
         ColorRect blackPanel = new ColorRect();
@@ -43,7 +51,20 @@ public partial class CutsceneManager : Node
         blackPanel.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
         blackPanel.ZIndex = -1;
 
+        // Start fully transparent
+        blackPanel.Modulate = new Color(1, 1, 1, 0);
+
         canvasLayer.AddChild(blackPanel);
+
+        // Create tween
+        var tween = CreateTween();
+        tween.TweenProperty(blackPanel, "modulate:a", 1.0f, 1.5f); // fade to black over 1.5 sec
+
+        // Wait for fade to finish
+        await ToSignal(tween, Tween.SignalName.Finished);
+
+        // Optional extra delay after fade
+        await ToSignal(GetTree().CreateTimer(1.5f), SceneTreeTimer.SignalName.Timeout);
 
         DialogUI.Visible = true;
         GameManager.SetDialogState(true);
@@ -52,6 +73,10 @@ public partial class CutsceneManager : Node
         _story = (InkStory)inkData.Duplicate();
         await DisplayNextLine();
     }
+
+
+
+    // Below is dialog logic taken from interactableobject
 
     protected virtual async void DialogProceed()
     {
@@ -119,6 +144,7 @@ public partial class CutsceneManager : Node
         LoadMainMenu();
     }
 
+    // Loads main menu to restart demo
     private void LoadMainMenu()
     {
 

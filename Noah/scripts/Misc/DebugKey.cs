@@ -9,12 +9,6 @@ public partial class DebugKey : Node
     public override void _Ready()
     {
         GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
-        GameManager.LevelComplete += LevelComplete;
-    }
-
-    private void LevelComplete()
-    {
-        LabelPopup("LEVEL COMPLETE");
     }
 
 
@@ -22,19 +16,27 @@ public partial class DebugKey : Node
     {
         if (@event is InputEventKey inputEventKey)
         {
-            if (inputEventKey.PhysicalKeycode == Key.P && inputEventKey.Pressed && !inputEventKey.Echo)
+
+            if (!inputEventKey.Pressed || inputEventKey.Echo)
+            return;
+
+            // Require ALT to be held
+            if (!inputEventKey.AltPressed)
+                return;
+            
+            if (inputEventKey.PhysicalKeycode == Key.P)
             {
                 GameManager.ResetAllFlags();
                 LabelPopup("Debug: Reset all flags");
             }
 
-            if (inputEventKey.PhysicalKeycode == Key.L && inputEventKey.Pressed && !inputEventKey.Echo)
+            if (inputEventKey.PhysicalKeycode == Key.L)
             {
                 GameManager.LoadChoices();
                 LabelPopup("Debug: Force loaded current flags");
             }
 
-            if (inputEventKey.PhysicalKeycode == Key.N && inputEventKey.Pressed && !inputEventKey.Echo)
+            if (inputEventKey.PhysicalKeycode == Key.N)
             {
                 
                 GameManager.SaveManager.SaveNodeData();
@@ -42,7 +44,7 @@ public partial class DebugKey : Node
                 
             }
             
-            if (inputEventKey.PhysicalKeycode == Key.M && inputEventKey.Pressed && !inputEventKey.Echo)
+            if (inputEventKey.PhysicalKeycode == Key.M)
             {
                 
                 GameManager.OnListComplete();
