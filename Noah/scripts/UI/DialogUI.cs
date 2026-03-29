@@ -30,7 +30,6 @@ public partial class DialogUI : Control
     public override void _Ready()
     {
         GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
-        GameManager.DialogButtonPressed += DialogProceed;
 
         PortraitSprite = GetNode<AnimatedSprite2D>("PortraitBox/Portrait");
         DialogLine = GetNode<RichTextLabel>("DialogBox/DialogLine");
@@ -123,11 +122,7 @@ public partial class DialogUI : Control
         }
     }
 
-    private void DialogProceed()
-    {
-        if (Visible)
-        {
-            GameManager.SignalDialogProceed();
-        }
-    }
+   
+
+   
 }

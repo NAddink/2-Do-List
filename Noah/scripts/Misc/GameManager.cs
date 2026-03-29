@@ -48,11 +48,6 @@ public partial class GameManager : Node2D
         EmitSignal(SignalName.ToggleDialog, IsInDialog);
     }
 
-    public void SignalDialogProceed()
-    {
-        EmitSignal(SignalName.DialogProceed);
-    }
-
     public override void _Input(InputEvent @event)
     {
         if (@event is InputEventKey inputKey)
@@ -61,7 +56,7 @@ public partial class GameManager : Node2D
             {
                 if(inputKey.Keycode == Key.Space || inputKey.Keycode == Key.E)
                 {
-                    EmitSignal(SignalName.DialogButtonPressed);
+                    EmitSignal(SignalName.DialogProceed);
                 }
             }
         }
