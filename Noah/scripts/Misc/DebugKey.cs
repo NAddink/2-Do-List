@@ -5,10 +5,12 @@ public partial class DebugKey : Node
 {
 
     private GameManager GameManager;
+    private CutsceneManager CutsceneManager;
 
     public override void _Ready()
     {
         GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
+        CutsceneManager = GetTree().Root.GetNode<CutsceneManager>("CutsceneManager");
         GameManager.LevelComplete += LevelComplete;
     }
 
@@ -39,6 +41,15 @@ public partial class DebugKey : Node
                 
                 GameManager.SaveManager.SaveNodeData();
                 LabelPopup("Debug: Added player pos to savegame");
+                
+            }
+            
+            if (inputEventKey.PhysicalKeycode == Key.M && inputEventKey.Pressed && !inputEventKey.Echo)
+            {
+                
+                GameManager.OnListComplete();
+                LabelPopup("Debug: Forced List Complete state");
+
                 
             }
 

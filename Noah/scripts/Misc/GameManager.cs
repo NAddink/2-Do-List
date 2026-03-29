@@ -207,7 +207,7 @@ public partial class GameManager : Node2D
         return FlagsData;
     }
 
-    internal void OnListComplete()
+    public void OnListComplete()
     {
         EmitSignal(SignalName.LevelComplete);
     }
