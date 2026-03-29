@@ -26,8 +26,6 @@ public partial class GameManager : Node2D
     [Signal]
     public delegate void DialogProceedEventHandler();
 
-    [Signal]
-    public delegate void DialogButtonPressedEventHandler();
 
     [Signal]
     public delegate void FlagChangedEventHandler(string flagName, bool value);
