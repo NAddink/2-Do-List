@@ -8,6 +8,7 @@ public partial class CutsceneManager : Node
 
     private GameManager GameManager;
     protected DialogUI DialogUI;
+    protected ChoiceUI ChoiceUI;
 
     [Export] private InkStory inkData;
 
@@ -23,6 +24,7 @@ public partial class CutsceneManager : Node
         Activated = false;
         GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
         DialogUI = GetNode<DialogUI>("../DialogUI");
+        ChoiceUI = GetNode<ChoiceUI>("../ChoiceUI");
         GameManager.LevelComplete += LevelComplete;
         GameManager.DialogProceed += DialogProceed;
 
@@ -37,7 +39,7 @@ public partial class CutsceneManager : Node
     private async void DemoCutscene()
     {
 
-         // Wait until dialog is finished
+        // Wait until dialog is finished
         while (GameManager.IsInDialog)
         {
             await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
@@ -50,6 +52,7 @@ public partial class CutsceneManager : Node
         blackPanel.Color = Colors.Black; 
         blackPanel.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
         blackPanel.ZIndex = -1;
+        blackPanel.MouseFilter = Control.MouseFilterEnum.Ignore;
 
         // Start fully transparent
         blackPanel.Modulate = new Color(1, 1, 1, 0);
@@ -71,6 +74,19 @@ public partial class CutsceneManager : Node
 
         Activated = true;
         _story = (InkStory)inkData.Duplicate();
+        try
+        {
+            foreach (var kv in GameManager.GetFlags())
+            {
+                _story.StoreVariable(kv.Key, kv.Value);
+                _story.ObserveVariable(kv.Key, new Callable(this, nameof(OnInkVariableChanged)));
+            }
+        }
+        catch (Exception e)
+        {
+            GD.PrintErr("=====\n=====\nIssue with flags, some flags are missing or misformed." + e.Message);
+            GD.PrintErr("Make sure the flags are the same in globals.ink AND gamemanager.cs\n=====\n=====");
+        }
         await DisplayNextLine();
     }
 
@@ -117,6 +133,49 @@ public partial class CutsceneManager : Node
                 return;
             }
         }
+
+
+        if (_story.CurrentChoices.Count > 0)
+        {
+            // ChoiceUI is already open, return
+            if(ChoiceUI.Visible) return;
+
+            // Choice
+            GD.Print("Choice!");
+
+            DialogUI.Visible = false; // hide dialog UI
+
+            // get array of each choice
+            string[] choices = new string[_story.CurrentChoices.Count];
+            for(int i = 0; i < _story.CurrentChoices.Count; i++)
+            {
+                GD.Print(_story.CurrentChoices[i].Text);
+                choices[i] = _story.CurrentChoices[i].Text;
+            }
+            
+            ChoiceUI.SetChoices(choices);
+            ChoiceUI.Visible = true;
+
+
+
+            var result = await ToSignal(ChoiceUI, ChoiceUI.SignalName.SelectionMade);
+            int choiceIdx = (int)result[0];
+
+            GD.Print("Button " + choiceIdx + " selected.");
+
+            ChoiceUI.Visible = false; // hide choiceUI
+            ChoiceUI.ClearChoices(); // remove all choice buttons
+
+            // select choice via ink and proceed
+            _story.ChooseChoiceIndex(choiceIdx); 
+
+            DialogUI.Visible = true; // display dialogUI again
+            await DisplayNextLine();
+            return;
+
+            
+            
+        }
     
 
         
@@ -142,6 +201,11 @@ public partial class CutsceneManager : Node
         GameManager.SetDialogState(false); // set dialog state to false - frees movement
 
         LoadMainMenu();
+    }
+
+    public void OnInkVariableChanged(string name, bool value)
+    {
+        GameManager.AddFlag(name, value);
     }
 
     // Loads main menu to restart demo

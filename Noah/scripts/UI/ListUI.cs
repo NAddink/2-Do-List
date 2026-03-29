@@ -210,4 +210,14 @@ public partial class ListUI : Control
             EmitSignal(SignalName.ListComplete);
         }
     }
+
+    public override void _ExitTree()
+    {
+        if (GameManager != null)
+        {
+            ListComplete -= GameManager.OnListComplete;
+            GameManager.FlagChanged -= OnFlagChanged;
+        }
+    }
+
 }
