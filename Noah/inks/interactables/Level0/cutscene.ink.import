@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://bjkbo1a6stplj"
+path="res://.godot/imported/cutscene.ink-dae0642d5004af548def315f20b5d62a.res"
+
+[deps]
+
+source_file="res://Noah/inks/interactables/Level0/cutscene.ink"
+dest_files=["res://.godot/imported/cutscene.ink-dae0642d5004af548def315f20b5d62a.res"]
+
+[params]
+
+is_main_file=true
+compress=true

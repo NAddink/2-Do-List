@@ -25,7 +25,6 @@ GameManager="*res://Noah/scripts/Misc/GameManager.cs"
 FullScreenToggle="*res://Noah/scripts/Misc/FullScreenToggle.cs"
 DebugKey="*res://Noah/scripts/Misc/DebugKey.cs"
 SaveManager="*uid://bw1va18gxqwm"
-CutsceneManager="*uid://d3t21geava640"
 
 [display]
 
