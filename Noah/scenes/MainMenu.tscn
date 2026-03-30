@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cwe63btlu4rsb" path="res://Noah/assets/sprites/UI/MainMenu/MainMenu.png" id="2_bow6u"]
 [ext_resource type="Texture2D" uid="uid://bm8d2e1m5n88f" path="res://Noah/assets/sprites/UI/MainMenu/mainmenu-bg.png" id="2_hvt40"]
 [ext_resource type="Texture2D" uid="uid://c6cko3u2mwk3u" path="res://Noah/assets/sprites/UI/MainMenu/MainMenuPressed.png" id="3_hvt40"]
+[ext_resource type="Texture2D" uid="uid://dkl8qqqe2fsgk" path="res://Noah/assets/sprites/UI/MainMenu/Handwritten/Start.png" id="3_kafr6"]
+[ext_resource type="Texture2D" uid="uid://vwj21y0hir2y" path="res://Noah/assets/sprites/UI/MainMenu/Handwritten/Start-Pressed.png" id="4_qhvvt"]
+[ext_resource type="Texture2D" uid="uid://cm36ykcup8qst" path="res://Noah/assets/sprites/UI/MainMenu/Handwritten/Load.png" id="6_uwsk0"]
+[ext_resource type="Texture2D" uid="uid://crly5teoq1y4n" path="res://Noah/assets/sprites/UI/MainMenu/Handwritten/Load-Pressed.png" id="7_ca72i"]
+[ext_resource type="Texture2D" uid="uid://co64ypxhyiuwf" path="res://Noah/assets/sprites/UI/MainMenu/Handwritten/Exit.png" id="10_wuwqm"]
+[ext_resource type="Texture2D" uid="uid://cxpkr38hh42ed" path="res://Noah/assets/sprites/UI/MainMenu/Handwritten/Exit-Pressed.png" id="11_sicb0"]
 
 [node name="MainMenu" type="Control" unique_id=136352209 node_paths=PackedStringArray("NewGame", "LoadAutoSave", "Options", "Exit")]
 layout_mode = 3
@@ -32,23 +38,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -342.0
-offset_top = -114.0
-offset_right = 458.0
-offset_bottom = 322.00006
+offset_left = -361.0
+offset_top = -92.0
+offset_right = 439.0
+offset_bottom = 344.00006
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.955, 0.955)
-theme_override_constants/separation = 26
+theme_override_constants/separation = 53
 
 [node name="Button" type="TextureButton" parent="VBoxContainer" unique_id=1239037630]
 custom_minimum_size = Vector2(0, 88.125)
 layout_mode = 2
-texture_normal = ExtResource("2_bow6u")
-texture_pressed = ExtResource("3_hvt40")
+texture_normal = ExtResource("3_kafr6")
+texture_hover = ExtResource("4_qhvvt")
 ignore_texture_size = true
 
 [node name="Label" type="Label" parent="VBoxContainer/Button" unique_id=1306314860]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,10 +71,11 @@ vertical_alignment = 1
 [node name="Button2" type="TextureButton" parent="VBoxContainer" unique_id=366588481]
 custom_minimum_size = Vector2(0, 88.125)
 layout_mode = 2
-texture_normal = ExtResource("2_bow6u")
-texture_pressed = ExtResource("3_hvt40")
+texture_normal = ExtResource("6_uwsk0")
+texture_hover = ExtResource("7_ca72i")
 
 [node name="Label" type="Label" parent="VBoxContainer/Button2" unique_id=94810125]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,6 +89,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button3" type="TextureButton" parent="VBoxContainer" unique_id=606049924]
+visible = false
 custom_minimum_size = Vector2(0, 88.125)
 layout_mode = 2
 texture_normal = ExtResource("2_bow6u")
@@ -102,10 +111,11 @@ vertical_alignment = 1
 [node name="Button4" type="TextureButton" parent="VBoxContainer" unique_id=76641356]
 custom_minimum_size = Vector2(0, 88.125)
 layout_mode = 2
-texture_normal = ExtResource("2_bow6u")
-texture_pressed = ExtResource("3_hvt40")
+texture_normal = ExtResource("10_wuwqm")
+texture_hover = ExtResource("11_sicb0")
 
 [node name="Label" type="Label" parent="VBoxContainer/Button4" unique_id=726038343]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
