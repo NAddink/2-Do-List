@@ -44,14 +44,14 @@ public partial class TutorialTooltipUI : Control
         };
 
         GameManager = GetTree().Root.GetNode<GameManager>("GameManager");
-        GameManager.ToggleDialog += OnDialogEnter;
+        GameManager.DialogProceed += OnDialogEnter;
         
     }
 
-    private void OnDialogEnter(bool isPaused)
+    private void OnDialogEnter()
     {
         if(interactedWithObject) return; // Skip if already interacted with object
-        
+
         // This updates the interact button, separate from other input buttons
         Sprite2D sprite = Interact;
         AtlasTexture atlas = sprite.Texture as AtlasTexture;
