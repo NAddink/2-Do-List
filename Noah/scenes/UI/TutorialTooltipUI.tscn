@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://bo5vri4ej3btk"]
+
+[ext_resource type="Texture2D" uid="uid://mvfs5p7tfkxv" path="res://Noah/assets/sprites/UI/TutoritalTooltipUI/TutorialTooltipUI.png" id="1_soyt3"]
+[ext_resource type="Script" uid="uid://ljie18k2cmsj" path="res://Noah/scripts/UI/TutorialTooltipUI.cs" id="1_xfswe"]
+[ext_resource type="Texture2D" uid="uid://cmon6cj7u8g3f" path="res://Noah/assets/sprites/UI/TutoritalTooltipUI/Panel.png" id="2_j6gao"]
+[ext_resource type="FontFile" uid="uid://dt0h4qub43ggn" path="res://Noah/assets/fonts/Pixellari.ttf" id="4_ynd0n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfswe"]
+atlas = ExtResource("1_soyt3")
+region = Rect2(0, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja84c"]
+atlas = ExtResource("1_soyt3")
+region = Rect2(96, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soyt3"]
+atlas = ExtResource("1_soyt3")
+region = Rect2(288, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6gao"]
+atlas = ExtResource("1_soyt3")
+region = Rect2(192, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v55s8"]
+atlas = ExtResource("1_soyt3")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynd0n"]
+atlas = ExtResource("1_soyt3")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haa4q"]
+atlas = ExtResource("1_soyt3")
+region = Rect2(192, 32, 32, 32)
+
+[node name="TutorialTooltipUi" type="Control" unique_id=405227199 node_paths=PackedStringArray("RightArrow", "LeftArrow", "UpArrow", "DownArrow", "Interact", "TodoList")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xfswe")
+RightArrow = NodePath("Movement/RightArrow")
+LeftArrow = NodePath("Movement/LeftArrow")
+UpArrow = NodePath("Movement/UpArrow")
+DownArrow = NodePath("Movement/DownArrow")
+Interact = NodePath("Interact/Interact")
+TodoList = NodePath("List/TodoList")
+
+[node name="Panel" type="Sprite2D" parent="." unique_id=134167013]
+scale = Vector2(1.4375001, 1.4375001)
+texture = ExtResource("2_j6gao")
+centered = false
+
+[node name="Movement" type="Control" parent="." unique_id=1421305853]
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 94.0
+offset_right = 115.0
+offset_bottom = 164.0
+
+[node name="RightArrow" type="Sprite2D" parent="Movement" unique_id=960884797]
+position = Vector2(84, 38)
+texture = SubResource("AtlasTexture_xfswe")
+
+[node name="LeftArrow" type="Sprite2D" parent="Movement" unique_id=39715888]
+position = Vector2(16, 38)
+texture = SubResource("AtlasTexture_ja84c")
+
+[node name="UpArrow" type="Sprite2D" parent="Movement" unique_id=1196209048]
+position = Vector2(50, 2)
+texture = SubResource("AtlasTexture_soyt3")
+
+[node name="DownArrow" type="Sprite2D" parent="Movement" unique_id=155780358]
+position = Vector2(50, 38)
+texture = SubResource("AtlasTexture_j6gao")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 64)
+
+[node name="Label" type="Label" parent="Movement" unique_id=1445402792]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 22.0
+offset_right = 164.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ynd0n")
+theme_override_font_sizes/font_size = 16
+text = "WASD
+🠝🠜🠟🠞"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interact" type="Control" parent="." unique_id=2087768823]
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 33.0
+offset_right = 78.0
+offset_bottom = 71.0
+
+[node name="Interact" type="Sprite2D" parent="Interact" unique_id=1010589149]
+position = Vector2(16, 2)
+texture = SubResource("AtlasTexture_v55s8")
+
+[node name="Label" type="Label" parent="Interact" unique_id=1259741771]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 1.0
+offset_right = 48.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ynd0n")
+theme_override_font_sizes/font_size = 16
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="List" type="Control" parent="." unique_id=516963098]
+anchors_preset = 0
+offset_left = 108.0
+offset_top = 31.0
+offset_right = 164.0
+offset_bottom = 76.0
+
+[node name="Label" type="Label" parent="List" unique_id=1478205645]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ynd0n")
+theme_override_font_sizes/font_size = 16
+text = "T"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TodoList" type="Sprite2D" parent="List" unique_id=1087064569]
+position = Vector2(18, 5)
+texture = SubResource("AtlasTexture_ynd0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1559840997]
+position = Vector2(93, 9)
+scale = Vector2(1.2499999, 1.2499999)
+texture = SubResource("AtlasTexture_haa4q")

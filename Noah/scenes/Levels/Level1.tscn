@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://db001pbwccy8p" path="res://Noah/inks/interactables/Level0/Characters/Boss.ink" id="15_txpyo"]
 [ext_resource type="Script" uid="uid://d3t21geava640" path="res://Noah/scripts/Misc/CutsceneManager.cs" id="22_vjv0x"]
 [ext_resource type="Resource" uid="uid://bjkbo1a6stplj" path="res://Noah/inks/interactables/Level0/cutscene.ink" id="23_sleol"]
+[ext_resource type="PackedScene" uid="uid://bo5vri4ej3btk" path="res://Noah/scenes/UI/TutorialTooltipUI.tscn" id="24_7s6j2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_534j1"]
 atlas = ExtResource("13_rokw5")
@@ -869,6 +870,8 @@ visible = false
 
 [node name="ChoiceUI" parent="UI" unique_id=333104384 instance=ExtResource("6_5plg3")]
 visible = false
+
+[node name="TutorialTooltipUi" parent="UI" unique_id=405227199 instance=ExtResource("24_7s6j2")]
 
 [node name="ListUI" parent="UI" unique_id=764078147 instance=ExtResource("11_ola80")]
 visible = false
