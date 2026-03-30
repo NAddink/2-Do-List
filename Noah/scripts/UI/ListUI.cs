@@ -42,26 +42,18 @@ public partial class ListUI : Control
 
     public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventKey inputKey)
+        if (@event.IsActionPressed("toggle_list"))
         {
-            if(inputKey.Pressed)
+
+            Visible = !Visible;
+            GameManager.SetDialogState(Visible);
+
+            if (Visible)
             {
-                if(inputKey.Keycode == Key.T)
-                {
-                    if (Visible)
-                    {
-                        Visible = false;
-                        GameManager.SetDialogState(false);
-                    }
-                    else if (!Visible)
-                    {
-                        Visible = true;
-                        GameManager.SetDialogState(true);
-                        DisplayLabels();
-                    }
-                    
-                }
-            }
+                DisplayLabels();
+            }       
+                
+            
         }
     }
 
