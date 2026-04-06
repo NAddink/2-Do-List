@@ -61,7 +61,7 @@ Boss $$$ So do you have my coffee or are you just trying to waste my time?
 
 === CoffeeGood ===
 Boss $$$ Wow this is surprisingly good. You were a barista in your past life huh?
-A bonus is coming your way next pay cycle.
+Boss $$$ A bonus is coming your way next pay cycle.
 
 ~ day0_office_GaveBossCoffee = true
 -> END
