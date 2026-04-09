@@ -28,6 +28,7 @@ SaveManager="*uid://bw1va18gxqwm"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [dotnet]

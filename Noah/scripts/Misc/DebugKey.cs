@@ -53,6 +53,14 @@ public partial class DebugKey : Node
                 
             }
 
+            if (inputEventKey.PhysicalKeycode == Key.N)
+            {
+                // Fully restart godot app
+                string executablePath = OS.GetExecutablePath();
+                OS.ExecuteWithPipe(executablePath, new string[] { }, false);
+                GetTree().Quit();
+            }
+
         }
     }
 
@@ -72,6 +80,14 @@ public partial class DebugKey : Node
         await ToSignal(GetTree().CreateTimer(1.0), "timeout");
 
         label.QueueFree();
+    }
+
+    public override void _Notification(int what)
+    {
+        if (what == NotificationWMCloseRequest)
+        {
+            GetTree().Quit();
+        }
     }
 
 }
